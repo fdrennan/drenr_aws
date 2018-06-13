@@ -112,9 +112,6 @@ paste("Last Push: ", as.character(Sys.Date()))
 <a href="https://youtu.be/hglgkFfRqyQ" class="btn btn-primary btn-block bg5" role="button">Installing Shiny Server and RStudio Server on AWS</a>
 
 
-
-
-
 <!-- <center> -->
 <!-- <h1>Shiny Apps</h1> -->
 <!-- </center> -->
