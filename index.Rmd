@@ -102,15 +102,6 @@ paste("Last Push: ", as.character(Sys.Date()))
 <a href="https://drenr.com:8888" class="btn btn-primary btn-block bg5" role="button">Jupyter</a>
 <a href="http://drenr.com:8787" class="btn btn-primary btn-block bg5" role="button">RStudio Server</a>
 
-<center>
-<h1>Videos</h1>
-</center>
-
-<a href="https://www.youtube.com/watch?v=61Kwaab8CoU" class="btn btn-primary btn-block bg5" role="button">Introduction to Linear/Integer Programming</a>
-<a href="https://www.youtube.com/watch?v=WM2hctrlMts&t=373s" class="btn btn-primary btn-block bg5" role="button">Tidyverse and Tidyquant</a>
-<a href="https://youtu.be/hglgkFfRqyQ" class="btn btn-primary btn-block bg5" role="button">Installing Shiny Server and RStudio Server on AWS</a>
-
-
 
 <center>
 <h1>Videos</h1>
