@@ -1,0 +1,241 @@
+---
+title: Advertising Optimization
+author: Freddy Drennan
+date: '2018-02-09'
+slug: advertising-optimization
+categories:
+  - Linear Programming
+  - Adwords
+  - Google
+tags:
+  - Linear Programming
+---
+
+## Motivation:
+You can't escape online advertising. I have developed a general thought process using LP's for online advertising campaigns. While this is not the LP I use in practice (my little secret), there are general frameworks for solving LP's all over the internet when it comes to online advertising. This one is no exception. 
+
+Here, we'll make some dummy data and load the packages. 
+
+Loading the necessary packages
+```{r, warning = FALSE, message = FALSE}
+library(tidyverse)
+library(lpSolve)
+library(formattable)
+```
+
+## Starting Data:
+
+```{r}
+# Revenue variables
+
+initial_data <-
+  tibble(
+    origin  = c(
+      'search',
+      'display',
+      'youtube',
+      'gmail'
+    ),
+    revenue = c(
+      225776,
+      99292,
+      4120,
+      2472
+    ) %>%  currency(),
+    cost    = c(
+      8827,
+      5172,
+      833,
+      423
+    ) %>% currency()
+  ) %>%
+    mutate(
+      roi = (revenue - cost) / cost %>% currency()
+    )
+
+
+initial_data
+```
+
+## Variables and the Objective Function
+
+Declaration of variables:
+
++ $x_1$ = Search Ads Budget
++ $x_2$ = Display Ads Budget
++ $x_3$ = YouTube Ads Budget
++ $x_4$ = Gmail Ads Budget
+
+Objective Function (What we want to maximize):
+
+The coefficients for the objective function are the ROI weights. So, for our case here, the objective function is:
+
+$$
+\text{max}\;(24.57\;x_1 \;+18.20\;x_2\;+3.95\;x_1\;+4.85\;x_1)
+$$
+
+Because the coefficients are in terms of $\frac{\text{revenue}}{\text{cost}}$, when we multiply each coefficient by $x_1...x_n$, we are creating an expected revenue.
+
+So for example, historically we got about 25 dollars in revenue for search for each dollar spent in advertisements. We might assume that a budget of 100 dollars ($x_1$) would theoretically get the advertiser approximately $\$2457$ in revenue. With this in mind, if the approach was to simply maximize advertiser revenue we would stop here and put all money into search. The real world is not so forgiving.
+
+If we wanted the maximum return from the stock market, we would put all our money into one penny stock and pray it blows up. So, in the case of stocks, maximum return isn't the only factor. We have to consider the risk involved, the benefits of diversification, etc. Basically, there are constraints involved which make an algorithm useful based on human input.
+
+This human input may look like the following:
+
+* Total budget for all digital ads will not exceed 15000
+* Minimum: 3000 should be spent on Display ads
+* Minimum: 400  should be spent on Social YouTube
+* Display Ads and YouTube ads must exceed 60% of total budget
+* YouTube Ads should not cost more than Gmail Ads.
+* Minimum 1500 fee, where margin in each channel may be considered a factor.
+
+There are four different inputs required for this optimization.
+
++ A matrix of coefficients which determine a relationship for all the variables for each constraint. This is the matrix `A`.
++ A vector indicating the right hand side of the equations. A vector of outcomes for the different variables. This is `b`.
++ A direction vector indicating an inequality direction, `dir`.
++ A vector indicating the equation we wish to maximize, `obj`.
+
+
+
+```{r}
+A <-
+  matrix(
+    c(
+     1,    1,    1,    1,
+     0,    1,    0,    0,
+     0,    0,    1,    0,
+  -0.6,  0.4,  0.4, -0.6,
+     0,    0,   -1,    1,
+   .13,  .09,  .02,  .03
+    ),
+  ncol = 4,
+  byrow = TRUE
+  )
+
+b <-
+  c(
+    15000,
+    3000,
+    400,
+    0,
+    0,
+    1500
+  )
+
+dir <-
+c(
+  "<=",
+  ">=",
+  ">=",
+  ">=",
+  ">=",
+  ">="
+)
+
+# $24.58*x_1 + $18.20*x_2 + $3.95*x_3 + $4.84*x_4
+obj <-
+  c(
+    initial_data$roi
+  )
+```
+
+
+```{r, echo = FALSE}
+cbind(c("constraint one: ", "constraint two:", "constraint three:", "constraint four:", "constraint five:", "constraint six: "),A, dir, b) %>%
+  noquote()
+```
+
+So let's talk about this now!
+
+### Constraint One:
+The first constraint is that the maximum budget allocated to these four channels is at least $15,000 dollars. So,the first row can be written as follows:
+
+$$
+x_1 + x_2 + x_3 + x_4 \leq 15000
+$$
+
+Where $x_1...x_n$ are the budgets allocated to each channel. We don't have any numbers other than 1 in the row because the weight of each dollar is not important. A dollar equals a dollar.
+
+### Constraint Two:
+
+When we add zeroes for $x_1, x_3,$ and $x_4$ we are removing them from that part of the optimization. In the casefor constraint two, the equation is written:
+
+$$
+x_2 \geq 3000
+$$
+
+Here we specify that at least $\$3000$ dollars are to be spent on Display ads. This is the first example where wecan see how the objective function's maximum potential will decrease. This is because the overall best channel isSearch, but we've decided that it makes sense to allocate a little bit of money to Display ads.
+
+### Constraint Three:
+
+When we add zeroes for $x_1, x_2,$ and $x_4$ we are removing them from that part of the optimization. In the casefor constraint two, the equation is written:
+
+$$
+x_3 \geq 400
+$$
+
+This means that $x_3$, or YouTube ads must be allocated at least $400$ dollars to spend.
+
+
+```{r}
+s = lp(
+  "max", # Maximize or minimize function
+  obj,   # Objective function to maximize
+  A,     # constraint matrix
+  dir,   # direction of equalities
+  b      # b vector of constraint coeffs
+)
+
+solution <-
+  s$solution
+
+names(solution) <-
+  initial_data %>%
+  pull(origin) %>%
+  paste0("Budget-", .)
+```
+
+
+```{r}
+A %*% solution %>%
+  round(2)
+```
+
+
+Cleaning up data to display
+```{r}
+
+sol_tib <-
+  tibble(
+  x_1 = rep(NA, 6),
+  x_2 = rep(NA, 6),
+  x_3 = rep(NA, 6),
+  x_4 = rep(NA, 6)
+)
+
+for(i in 1:nrow(A)) {
+  solz <-
+    paste0(A[i,], " * ", solution, " + ") %>%
+    noquote
+
+  sol_tib[i, 1:4] <-
+    solz
+}
+
+sol_tib <-
+  sol_tib %>%
+  mutate(
+    equals            = rep("=", 6),
+    sol               = A%*%solution %>% round(2),
+    x_4               = sub("\\+", "", x_4) %>% str_trim,
+    'constraints==>'  = rep("...", 6),
+    dir               = dir,
+    b                 = b
+  ) %>%
+  as.data.frame
+
+A%*%s$solution
+
+sol_tib
+```

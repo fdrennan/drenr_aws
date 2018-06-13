@@ -1,0 +1,42 @@
+---
+title: Test Answer Solution for Reddit User
+author: Freddy Drennan
+date: '2018-02-23'
+slug: test-answer-solution-for-reddit-user
+categories: []
+tags: []
+---
+
+Solution for post [here](https://www.reddit.com/r/rprogramming/comments/7zn2eo/if_someone_could_help_me_with_this_r_problem_i/)
+
+
+
+```{r, warning = FALSE, message = FALSE}
+library(tidyverse)
+
+
+actual_answers <-
+  sample(c('a', 'b', 'c', 'd'), size = 10, replace = TRUE)
+
+
+student_answers <-
+  sample(c('a', 'b', 'c', 'd'), size = 100, replace = TRUE) 
+
+solutions_matrix <-
+  matrix(student_answers, ncol = 10)
+
+
+solutions_matrix <-
+  solutions_matrix %>% 
+  as_tibble
+
+tf_df = solutions_matrix
+
+n_students = 10
+for(i in 1:n_students) {
+  tf_df[,i] =  solutions_matrix[,i] == actual_answers
+}
+
+colSums(tf_df)
+
+```

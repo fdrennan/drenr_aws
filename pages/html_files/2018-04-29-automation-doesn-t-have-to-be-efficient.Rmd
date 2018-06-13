@@ -1,0 +1,59 @@
+---
+title: Automation Doesn’t Have to be Efficient
+author: Freddy Drennan
+date: '2018-04-29'
+slug: automation-doesn-t-have-to-be-efficient
+categories: []
+tags: []
+---
+
+## It just has to be efficient enough.
+
+When I think of a human being replaced by a machine, I typically think of the machine as doing the exact same job more efficiently with the same amount of quality. I don't think this has to be the case. 
+
+One of the greatest costs to a company is human capital. It's intuitive to think about a space between profit for the company and value to the customer, that wages put pressure on.
+
+The specific case that I am considering is where an employee takes cash from a customer uses that cash on behalf of the customer. 
+
+Case 1:
+
++ Customer gives company 100 dollars.
++ Cash flow
+    + Profit: $30
+    + Cash spent on behaf of customer: $30
+    + Cash spent on employees: $40
++ Efficiency of employee with cash: 4
+    + Benefit to customer: 30*4 = 120
+
+Now consider the other example were a less efficient machine uses more cash but derives benefits to both the company and the customer.
+
+Case: 2
+
++ Customer gives company 100 dollars.
++ Cash flow
+    + Profit: $40
+    + Cash spent on behaf of customer: $50
+    + Overhead on model: $10
++ Efficiency of machine with cash: 2.5
+    + Benefit to customer: 50*2.5 = 125
+    
+While this is more of a philosophical exercise - it seems plausible that there are cases where models which use customer cash less efficiently can still derive more value to the company and the customer.
+
+This is because the model frees up more cash by removing the employee. This increased amount of cash overcompensates for the lack of efficiency. Suppose the employee initially cost 200 dollars a day. If the model can perform as well as the employee using an additional 180 dollars, then this entails profit of 10 dollars for the company and a cost reduction of 10 dollars for the customer. 
+
+Consider index funds vs active managers. 
+
+Index funds get you 95% of the way there for investing. Active managers fill the remaining 5% but are much more costly. Remove the active manager, which costs as much as the first 95%, and invest the cost of the manager back into your portfolio. 
+
+
+The model doesn't have to be as efficient as the employee, all else equal. The model just has to do a good enough job with the additional cash saved by replacing the human. 
+
+To be fair, I find this a bit disturbing. 
+
+
+
+
+
+
+
+

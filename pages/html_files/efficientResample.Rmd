@@ -1,0 +1,353 @@
+---
+title: 'Naive Resampled Efficient Frontier'
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message=FALSE, warning=FALSE}
+# Type in vector of tickers to search, this should be the ONLY thing you need to adjust
+# tickers = c("SPY", "VEA", "BND", "TIP", "SHV", "GLD", "SCHE", "USCI", "FYT")
+tickers = c("SPY", "VEA", "BND", "TIP", "SHV")
+# Select date in the past data should begin from 
+min_date = "2010-01-01"
+```
+
+```{r, message = FALSE, warning = FALSE}
+library(TTR)
+library(quantmod)
+library(quadprog)
+library(ggplot2)
+library(Quandl)
+```
+
+# Functions created/used
+```{r}
+# Create function to extract the last day of the month in a vector of dates.
+last_day_month = function (x, min = FALSE)  {
+    x = as.Date(as.character(x))
+    day = format(x, format = "%d")
+    monthYr = format(x, format = "%Y-%m")
+    if(min) {
+      y = tapply(day, monthYr, min)
+    } else {
+      y = tapply(day, monthYr, max)  
+    }
+    first = as.Date(paste(row.names(y), y, sep = "-"))
+    as.Date(as.character(first), format = "%Y-%m-%d")
+}
+
+# Create functi3on to get create log returns: verified
+# accuracy by testing with known solution.
+get_stock_data = function(tickers) {
+  to=Sys.Date()
+  options("getSymbols.warning4.0"=FALSE)
+  ticker = getSymbols(tickers, src="google")
+  ticker = get(ticker)
+  ticker = as.data.frame(ticker)
+  ticker$Date = as.Date(rownames(ticker), format = "%Y-%m-%d")
+  rownames(ticker) = NULL
+  from = min(ticker$Date)
+  ticker = ticker[,c(6,4)]
+  div=getDividends(tickers)
+  div = as.data.frame(div)
+  div$Date = as.Date(rownames(div), format = "%Y-%m-%d")
+  colnames(div) = c("Dividend", "Date")
+  equity = merge(div, ticker, all = TRUE)
+  equity = subset(equity, equity$Date >= as.Date(from,format = "%Y-%m-%d"))
+  equity = subset(equity, equity$Date <= as.Date(to,format = "%Y-%m-%d"))
+  equity$Dividend = ifelse(is.na(equity$Dividend), 0, equity$Dividend)
+  equity = equity[complete.cases(equity),]
+  equity$logRet = log((equity[,3]+equity[,2])/Lag(equity[,3]))
+  equity[1, c(4)]=0 
+  return(equity)
+}
+```
+
+```{r}
+# ticker = "AKRX"
+# getSymbols(ticker)
+# plot(AKRX)
+# getFinancials("AKRX")
+# viewFinancials(AKRX.f)
+
+```
+
+```{r}
+# get the 1 year risk free rate
+risk_free = Quandl("USTREASURY/YIELD")[1,5]/100
+```
+
+```{r}
+# Create length variable 
+n = length(tickers)
+
+# Initialize list to contain all stock information
+stock_data = list()
+
+# Input individual stock information from internet into the list
+for(i in seq_along(tickers)) {
+  stock_data[[as.character(tickers[i])]] = get_stock_data(tickers[i])[,c(1,4)]
+  
+}
+```
+
+# Plots of the tickers you chose
+```{r}
+# Get a sense for the data and plot it
+for(i in seq_along(tickers)) {
+     plt_df = subset(stock_data[[i]], stock_data[[i]]$Date >= as.Date(min_date, "%Y-%m-%d"))
+     plot(plt_df$Date, 
+          cumsum(plt_df$logRet), 
+          type = "l", 
+          xlab = "Date", 
+          ylab = "Return",
+          main = paste(as.character(tickers[i])))
+}
+```
+
+Now, we have our tickers in a list. 
+
+
+```{r, message=FALSE, warning=FALSE}
+# Get the data out of the list into a single data frame
+stock_df = merge(x = stock_data[[1]], 
+                 y = stock_data[[2]], 
+                 by = "Date", 
+                 all = TRUE)
+
+# colnames(stock_df) = c("Date", tickers[1:2])
+for(i in 3:length(tickers)) {
+     stock_df = merge(x = stock_df, y = stock_data[[i]], by = "Date", all = TRUE)     
+}
+
+# All the data is in the dataframe, now lets get remove any rows 
+# that have NA in them. We want to use complete cases for this. 
+cc = stock_df[complete.cases(stock_df), ]
+
+# Select a minimum date to start from
+cc = subset(cc, cc$Date >= as.Date(min_date, "%Y-%m-%d"))
+ccnodate = as.matrix(cc[,-1])
+
+colnames(ccnodate) = tickers
+```
+
+```{r, message=FALSE, warning=FALSE}
+# Create annualized statistics
+#-------------------------------------------------------------------------------------------
+alpha = colMeans(ccnodate)*365
+mu = alpha + apply(ccnodate, 2, var)/2*365
+#------------------------------------------------------------------------------------------
+     
+# Create forward looking correlation matrix
+# First: Create a correlation matrix
+C_mat = cor(ccnodate)
+
+# Second: Average correlation formula
+mu_cor = (sum(C_mat)-n)/(n*(n-1))
+
+# Third: Create forward looking correlation matrix using the average correlation
+cov_mat = matrix(0, nrow = n, ncol = n)
+for(i in 1:n) {
+  for(j in 1:n) {
+    if(i == j) {
+      cov_mat[i,j] = var(ccnodate[,i])*365
+    } else {
+      cov_mat[i,j] = sd(ccnodate[,i])*mu_cor*sd(ccnodate[,j])*365
+    } 
+  }
+}
+#-------------------------------------------------------------------------------------------
+#####
+# Stuff for plot maybe
+Chosen_Return <- vector()
+Percentage <- vector()
+####
+
+# Solve the formulation:
+# Create D Matrix, the formula requires the C_mat be multiplied by 2 
+# (for no reason other than the code needs us to)
+D_Mat <- 2*C_mat
+
+# Create A Matrix
+Proportion_Vector <- rep(1, n)
+Diag_Matrix <- diag(1, n)
+A_Mat <- rbind(mu, 
+               -mu, 
+               Proportion_Vector, 
+               -Proportion_Vector, 
+               Diag_Matrix)
+
+# Create D_Vector
+D_Vector <- rep(0, n)
+
+# Create B_Vector
+eff_front <- data.frame()
+ret_seq = round(seq(.01, max(mu), .0001), 9)
+
+for(i in seq_along(ret_seq)) {
+     B_Vec <- c(ret_seq[i], -ret_seq[i], 1, -1, rep(0, n))
+     
+     # Run QP (where the money is made)
+     sol <- solve.QP(D_Mat, D_Vector, t(A_Mat), B_Vec)
+     
+     # Put Standard Deviation and Expected 
+     # Return for each individual solution 
+     # into a data frame for plotting
+     sd_sol <- sqrt(sol$solution%*%cov_mat%*%sol$solution)
+     er_sol <- mu%*%sol$solution
+     eff_front <- rbind(c(er_sol, sd_sol), eff_front)
+     
+###############
+     # Creating Stacked Area Chart data
+  Chosen_Return <- append(rep(ret_seq[i], length(sol$solution)), Chosen_Return)
+  Percentage <- append(sol$solution, Percentage)
+##############
+}
+colnames(eff_front) = c("exp_ret", "sd")
+eff_front$sharpe = (eff_front[,1]-risk_free)/eff_front[,2]
+
+plot(eff_front[,2], 
+     eff_front[,1], 
+     type ="l", 
+     xlab = "SD", 
+     ylab = "Estimated Return", 
+     xlim = c(0, sd_sol), 
+     ylim = c(0, er_sol),
+     main = "Efficient Frontier... Baby!")
+
+sharpe = max(eff_front[,3])
+best_port = subset(eff_front, eff_front$sharpe == max(eff_front[,3]))
+curve(risk_free + sharpe*x, add = TRUE)
+
+# Sector variable for stacked area chart
+Sector <- rep(tickers, length(ret_seq))
+
+# Dataframe for stacked area chart
+df <- data.frame(Sector,Chosen_Return,Percentage)
+
+# Plot stacked area chart
+gg <- ggplot(df, aes(x=Chosen_Return, y=Percentage))
+gg <- gg + geom_area(aes(colour=Sector, fill=Sector)) + 
+  ylab("Percentage") +
+  xlab("Chosen Return") + 
+  scale_fill_brewer(palette = "Set2") + 
+  scale_color_brewer(palette = "Set2") + 
+  ggtitle("Percentage Invested by Chosen Return for Initial Portfolio")
+gg
+```
+
+Solve for best portfolio
+```{r}
+B_Vec <- c(best_port$exp_ret, -best_port$exp_ret, 1, -1, rep(0, n))
+
+# Run QP (where the money is made)
+sol <- solve.QP(D_Mat, D_Vector, t(A_Mat), B_Vec)
+
+solution = round(sol$solution, 4)
+names(solution) = tickers
+
+# Best port stats
+best_port
+# Proportions to invest in for max sharpe ratio portfolio
+solution
+```
+
+
+# Resampled efficient frontier
+
+
+```{r, message=FALSE, warning=FALSE}
+nreturns = dim(ccnodate)[1]
+solution_matrix = matrix(0, ncol = length(tickers))
+total_matrix = matrix(0, ncol = length(tickers))
+n_iterations = 10
+return_sequence = seq(0.01, .20, .001)
+for(given_return in return_sequence) {
+     
+for(iteration in 1:n_iterations) {
+     
+ccnodate_rand = matrix(NA, nrow = nrow(ccnodate), ncol = ncol(ccnodate))
+for(i in 1:ncol(ccnodate)){
+     ccnodate_rand[,i] = rnorm(nreturns, mean = mean(ccnodate[,i]), sd = sd(ccnodate[,i]))
+}
+
+
+mus = colMeans(ccnodate_rand)*250
+
+
+C_mat = cor(ccnodate_rand)
+
+
+
+# Solve the formulation:
+# Create D Matrix, the formula requires the C_mat be multiplied by 2 
+# (for no reason other than the code needs us to)
+D_Mat <- 2*C_mat
+
+# Create A Matrix
+Proportion_Vector <- rep(1, n)
+Diag_Matrix <- diag(1, n)
+mu = min(max(mus)-.01, given_return)
+A_Mat <- rbind(mus, 
+               -mus,
+               Proportion_Vector, 
+               -Proportion_Vector, 
+               Diag_Matrix)
+
+# Create D_Vector
+D_Vector <- rep(0, n)
+
+# Create B_Vector
+B_Vec <- c(mu, 
+           -mu, 
+           1, -1, rep(0, n))
+
+# Run QP (where the money is made)
+sol <- solve.QP(D_Mat, D_Vector, t(A_Mat), B_Vec)
+
+solution_matrix = rbind(solution_matrix, sol$solution)
+
+if(iteration == n_iterations) {
+     total_matrix = rbind(total_matrix, apply(solution_matrix, 2, mean))
+}
+}
+}
+
+
+# ```{r}
+# total_matrix = readRDS("total_matrix.Rds")
+
+total_matrix = total_matrix[-1,]
+
+
+for(i in 1:nrow(total_matrix)) {
+     total_matrix[i,] = total_matrix[i,]/sum(total_matrix[i,])
+}
+
+chosen_return = sort(rep(return_sequence, ncol(total_matrix)))
+percentage = as.vector(t(total_matrix))
+sector = rep(tickers, nrow(total_matrix))
+df = data.frame(sector, chosen_return, percentage)
+
+gg <- ggplot(df, aes(x=chosen_return, y=percentage))
+gg <- gg + geom_area(aes(colour=sector, fill=sector)) + 
+  ylab("Percentage") +
+  xlab("Chosen Return") + 
+  scale_fill_brewer(palette = "Set2") + 
+  scale_color_brewer(palette = "Set2") + 
+  ggtitle("Resampled Efficient Frontier")
+gg
+
+
+
+```
+
+
+```{r}
+
+```

@@ -1,0 +1,30 @@
+---
+title: Playing with ggplot2
+author: Freddy Drennan
+date: '2018-05-27'
+slug: playing-with-ggplot2
+categories: []
+tags: []
+---
+
+
+```{r}
+probability_success <- .5
+population_size = 100
+population <- c(
+  rep(1, population_size*probability_success),
+  rep(0, population_size*(1-probability_success))
+)
+```
+
+
+```{r}
+samples = vector(length = 10) 
+for(i in 1:length(samples)) {
+  samples[[i]] = mean(sample(population, 10, replace = FALSE))
+}
+```
+
+```{r}
+hist(samples)
+```

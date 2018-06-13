@@ -1,0 +1,2531 @@
+---
+title: "The Stats Function"
+author: "Freddy Drennan"
+date: "January 31, 2016"
+output: html_document
+---
+
+```{r}
+mystats <- function() 
+  
+{
+  
+  
+  # Starting Out
+  
+  
+  statistics.startingout <- function() 
+{
+  
+  exit <- "noexit"
+  while (exit != "exit")
+  {
+    cat("Open up R again. You can have two instances open at once. You will need another console to do work:\n\n")
+    menu <- data.frame(c("Get Data", "Get Book:", "Type Some Math", "Use scan() to Make Numerical Data", "Save and Read a Binary Data File to and from Disk:", "What you learned", "Name", "Name", "TYPE 99 TO QUIT"))
+      
+    cat("Pick an option by number")
+    names(menu) <- "Main Menu"
+    print(format(menu,justify = "left", trim=TRUE))
+    ANSWER <- readline("")
+    
+    
+    # Get Data
+    if (substr(ANSWER, 1, 2) == 1) 
+    {
+      cat("Download Beginning R Data from this site and open once downloaded:") 
+      url <- paste("http://www.wrox.com/WileyCDA/WroxTitle/Beginning-R-The-Statistical-Programming-Language.productCd-111816430X,descCd-DOWNLOAD.html")
+      shell.exec(url)
+    }
+    
+    # Book
+    else if (substr(ANSWER, 1, 2) == 2) 
+    {
+      url <- paste("http://fdrennan.net/pages/Personal/R/Beginning%20R.pdf")
+      shell.exec(url)
+    }
+    
+    # Type Some Math 
+    else if (substr(ANSWER, 1, 2) == 3) 
+    {
+      cat("You have selected: Type Some Math\n\n")
+      
+      # pi * 2^3 - sqrt(4)
+      readline("Type in the following math command using the value of pi: \n\npi * 2^3 - sqrt(4)\n\n")
+      
+      # abs(12-17*2/3-9)
+      readline("Now try using the abs() command with some math: \n\nabs(12-17*2/3-9)\n\n")
+      
+      # factorial(4)
+      readline("Now type a simple factorial: \n\nfactorial(4)\n\n")
+      
+      # log(2, 10)\n\nlog(2, base = 10)\n\nlog10(2)
+      readline("Next, try typing in the following logarithms (all gie the same answer because they are different forms of the same thing): \n\nlog(2, 10)\n\nlog(2, base = 10)\n\nlog10(2)\n\n")
+      
+      # log(2)
+      readline("Now type in a natural log: \n\nlog(2)\n\n")
+      
+      # exp(0.6931472)
+      readline("Follow up by typing the exponent: \n\nexp(0.6931472)\n\n")
+      
+      # log10(2)
+      readline("Type in a loarithm again: \n\nlog10(2)\n\n")
+      
+      # 10^0.30103
+      readline("Reverse the logarithm like so: \n\n10^0.30103\n\n")
+      
+      # sin( 45 * pi / 180)
+      readline("Now try some trigonometry: \n\nsin( 45 * pi / 180)\n\n")
+      
+      # asin(0.7071068) * 180 /pi
+      readline("Finally, try reversing the trigonometry from step 9: \n\nasin(0.7071068) * 180 /pi\n\n")
+
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Use scan() to Make Numerical Data
+    else if (substr(ANSWER, 1, 2) == 4) 
+    {
+      cat("You have selected: Use scan() to Make Numerical Data\n\n")
+      
+      # data3 <- scan()
+      readline("Begin the data entry process with the scan() command: \n\ndata3 <- scan()\n\n")
+      
+      # 1: 6 7 8 7 6 3 8 9 10 7
+      readline("Now type some numerical values, separated by spaces, as follows: \n\n1: 6 7 8 7 6 3 8 9 10 7\n\n")
+      
+      # 11: 6 9
+      readline("Now press the Enter key and type some more numbers on the fresh line: \n\n11: 6 9\n\n")
+      
+      # 13:
+      readline("Press the Enter key once again to create a new line: \n\n13:\n\n")
+      
+      # 13:\nRead 12 items
+      readline("Press the Enter key once more to finish the data entry: \n\n13:\nRead 12 items\n\n")
+      
+      # data3
+      readline("Type the name of the object: \n\ndata3\n\n")
+  
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Save and Read a Binary Data File to and from Disk
+    else if (substr(ANSWER, 1, 2) == 5) 
+    {
+     cat("You have selected: Save and Read a Binary Data File to and from Disk\n\n")
+      
+     # ls()
+     readline("To start with you should look to see what ata object you already have: \n\nls()\n\n")
+     
+     # savedata <- c(9, 2, 4, 6, 5, 7, 9, 2, 1, 1, 7)
+     readline("Now you can create a simple data object; anthing will do, but follow the example to create a simple numerical vector: \n\nsavedata <- c(9, 2, 4, 6, 5, 7, 9, 2, 1, 1, 7)\n\n")
+     
+     # savedata
+     readline("You can see that your new data object exists by typing its name or by using the ls() command: \n\nsavedata\n\n")
+     
+     # save(savedata, file = 'savedata test.Rdata')
+     readline("Now save your new data object to a file: \n\nsave(savedata, file = 'savedata test.Rdata')\n\n")
+     
+     # rm(savedata)
+     readline("Next, remove it from R using the rm() command: \n\nrm(savedata)\n\n")
+     
+     # load(file = 'savedata test.Rdata')
+     readline("You can check that the object is gone by typing its name or using the ls() command.\nOnce ou are convinced that the data is really gone you can use the load() command to read the file from disk: \n\nload(file = 'savedata test.Rdata')\n\n")
+     
+     # load(file = file.choose())
+     readline("Alternatively you can use file.choose() as the filename and select the file from the browser (this does not work in Linux): \n\nload(file = file.choose())\n\n")
+     
+     # savedata
+     readline("Check that the data has been loaded by typing its name or using the ls() command once again: \n\nsavedata\n\n")
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # What you learned
+    else if (substr(ANSWER, 1, 2) == 6) 
+    {
+     cat("You have selected: What you learned\n\n")
+     
+      # Simle math :
+      cat("Simle math :")
+      readline("\n\n+ - / * ^ log() cos() acos() abs() sqrt() pi() factorial()\n\n")
+      
+      # Assigning object names:
+      cat("Assigning object names:")
+      readline("\n\nobject.name = calculation\n\nobject.name <- calculation\n\ncalculation -> Object.name \n\n")
+      
+      # Object names for example:
+      cat("Object names for example:")
+      readline("\n\ndata1\n\nData1\n\ndata.1\n\n")
+      
+      # Making data:
+      cat("Making data:")
+      readline("\n\nobject.name = c(x, y, z)\n\n")
+      
+      # Making data:
+      cat("Making data:")
+      readline("\n\nobject.name <- scan()\n\n")
+      
+      # Making data:
+      cat("Making data:")
+      readline("\n\nobject.name <- read.table(file = )\n\n")
+      
+      # Listing objects:
+      cat("Listing objects:")
+      readline("\n\nls(pattern = regex)\n\nrm(item1, item2, ...)\n\n")
+      
+      # Data type:
+      cat("Data type:")
+      readline("\n\nnumerical(numeric, integer)\n\ncharacter(factor, character)\n\n")
+      
+      # Data form:
+      cat("Data form:")
+      readline("\n\nvecter\n\ndata frame\n\nmatrixlist\n\n")
+      
+      # History commands:
+      cat("History commands:")
+      readline("\n\nhistory()\n\nloadhistory()\n\nsavehistory()\n\n")
+      
+      # Saving and loading data:
+      cat("Saving and loading data:")
+      readline("\n\nsave(, y, z, ..., file = )\n\nsave.image(file = )\n\nwrite(x, file = )\n\n")
+      
+      # Saving and loading data cont:
+      cat("Saving and loading data cont:")
+      readline("\n\nwrite.csv(data, file = )\n\nload(file = )\n\n")
+      
+      # Finding data on disk:
+      cat("Finding data on disk:")
+      readline("\n\ndir()\n\ngetwb()\n\nsetwd()\n\nfile.choose\n\n")
+      
+      
+
+      
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    
+    # Name
+    else if (substr(ANSWER, 1, 2) == 7) 
+    {
+     cat("You have selected: Name\n\n")
+     
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Name
+    else if (substr(ANSWER, 1, 2) == 8) 
+    {
+     cat("You have selected: Name\n\n")
+     
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Exit
+    else if (substr(ANSWER, 1, 2) == 99) 
+    {
+      cat("Goodbye")
+      exit <- "exit"
+    }
+  
+  }
+}    
+  
+  
+  
+  
+  # Object Manipulation
+  
+  statistics.objectmanipulation <- function() 
+  
+{
+  
+  exit <- "noexit"
+  while (exit != "exit")
+  {
+    cat("Open up R again. You can have two instances open at once. You will need another console to do work:\n\n")
+    menu <- data.frame(c("Get Data", "Get Book:", "Select Parts of a Data Frame Object", "Select Parts of a Matrix Object", "Re-order a data frame and add additional Columns:", "What you learned", "Name", "Name", "TYPE 99 TO QUIT"))
+      
+    cat("Pick an option by number")
+    names(menu) <- "Main Menu"
+    print(format(menu,justify = "left", trim=TRUE))
+    ANSWER <- readline("")
+    
+    
+    # Get Data
+    if (substr(ANSWER, 1, 2) == 1) 
+    {
+      cat("Download Beginning R Data from this site and open once downloaded:") 
+      url <- paste("http://www.wrox.com/WileyCDA/WroxTitle/Beginning-R-The-Statistical-Programming-Language.productCd-111816430X,descCd-DOWNLOAD.html")
+      shell.exec(url)
+    }
+    
+    # Book
+    else if (substr(ANSWER, 1, 2) == 2) 
+    {
+      url <- paste("http://fdrennan.net/pages/Personal/R/Beginning%20R.pdf")
+      shell.exec(url)
+    }
+    
+    # Select Parts of a Data Frame Object 
+    else if (substr(ANSWER, 1, 2) == 3) 
+    {
+      cat("You have selected: Select Parts of a Data Frame Object\n\n")
+      
+      # mf
+      readline("Look at the data frame called mf that contains five columns of data.\nTo view it simpy type its name: \n\nmf\n\n")
+      
+      # mf[3,3]
+      readline("Pick out the item from the third row and the third columns: \n\nmf[3,3]\n\n")
+      
+      # mf[3,1:4]
+      readline("Now select the third for and display columns one to four: \n\nmf[3,1:4]\n\n")
+      
+      # mf[,1]
+      readline("Display all the rows by leaving out the first value; select the first column alone: \n\nmf[,1]\n\n")
+      
+      # mf[c(1, 3, 5, 7),]
+      readline("Specify several rows but leave out a value at the end to display all columns: \n\nmf[c(1, 3, 5, 7),]\n\n")
+      
+      # mf[c(1, 3, 5, 7), -4]
+      readline("Now specify several rows but use a -4 to indicate that you want to display all columns except the fourth: \n\nmf[c(1, 3, 5, 7), -4]\n\n")
+      
+      # mf[c(1, 3, 5, 7), 'Algae']
+      readline("Because the columns are named you can select one by using its name rather than a simple value: \n\nmf[c(1, 3, 5, 7), 'Algae']\n\n")
+      
+      # mf[3]
+      readline("Try giving a single value in the square brackets: \n\nmf[3]\n\n")
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Select Parts of a Matrix Object
+    else if (substr(ANSWER, 1, 2) == 4) 
+    {
+      cat("You have selected: Select Parts of a Matrix Object\n\n")
+      
+      # bird
+      readline("Look at the matrix object bird; simply type its name: \n\nbird\n\n")
+      
+      # str(bird)
+      readline("You can see that there are five columns and six rows; the rows are labeled rather than having a numeric index.\nAt first glance this appears like a data frame, so use the str() command to look more closely: \n\nstr(bird)\n\n")
+      
+      # class(bird)
+      readline("Use the class() command to see that this is a matrix: \n\nclass(bird)\n\n")
+      
+      # bird[2, ]
+      readline("Select the second row and all the columns: \n\nbird[2, ]\n\n")
+      
+      # bird[, 4]
+      readline("Now select all rows but only the fourth column: \n\nbird[, 4]\n\n")
+      
+      # bird[c('Robin', 'Blackbird'),]
+      readline("Use named rows rather than a simple number and choose all columns: \n\nbird[c('Robin', 'Blackbird'),]\n\n")
+      
+      # bird[3, 1]
+      readline("Now select a single row and column: \n\nbird[3, 1]\n\n")
+      
+      # bird[4]
+      readline("Now specify a single value: \n\nbird[4]\n\n")
+      
+     
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Re-order a data frame and add additional Columns
+    else if (substr(ANSWER, 1, 2) == 5) 
+    {
+     cat("You have selected: Re-order a data frame and add additional Columns\n\n")
+     
+     # grass2
+     readline("Look at the data frame called grass2 simply by typing its name: \n\ngrass2\n\n")
+     
+     # ii <- with(grass2, order(mow,unmow))
+     readline("Create an index using the values in the mow column, with ties resolved by the unmow column: \n\nii <- with(grass2, order(mow,unmow))\n\n")
+      
+     # ii
+     readline("Look at the index you just created: \n\nii\n\n")
+     
+     # grass2.resort <- grass2[ii, ]\ngrass2.resort
+     readline("Now create a new data frame using the sort index you just made: \n\ngrass2.resort <- grass2[ii, ]\ngrass2.resort\n\n")
+     
+     # grass2.resort <- grass2[ii, c(2, 1)]\ngrass2.resort
+     readline("Select a different order for the columns by specifying them in the square brackets in a new order: \n\ngrass2.resort <- grass2[ii, c(2, 1)]\ngrass2.resort\n\n")
+      
+     # sheep <- c(12, 14, 17, 21, 17)
+     readline("Now create a new vector of values: \n\nsheep <- c(12, 14, 17, 21, 17)\n\n")
+     
+     # grass2.resort <- with(grass2, data.frame(mow, unmow, sheep)[ii,])
+     readline("Finally, create a data frame the includes the original data plus the new vector you just created.\nUse the sort index from before: \n\ngrass2.resort <- with(grass2, data.frame(mow, unmow, sheep)[ii,]\n\n")
+     
+
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # What you learned
+    else if (substr(ANSWER, 1, 2) == 6) 
+    {
+     cat("You have selected: What you learned\n\n")
+     
+     # Constructing data objects:
+     cat("Constructing data objects:")
+     readline("data.frame()\nmatrix()\ncbind()\nrbind()\nlist()\n")
+     
+     # Summarizing data objects:
+     cat("Summarizing data objects:")
+     readline("\n\nsummary() | str() | class() | length() | max() | min()| head() | tail() \n\n")
+     
+     # Extracting parts and manipulating objects:
+     cat("Extracting parts and manipulating objects:")
+     readline("\n\nattach() | detach() | with() | $ [row, col] | names() | ronames() | sort() | order() | rank() | stack() \n\n")
+     
+     # Converting objects between forms:
+     cat("Converting objects between forms:")
+     readline("\n\nas.data.frame()\n\nas.matrix()\n\nas.list()\n\n")
+     
+      
+     
+     
+     
+     
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    
+    # Name
+    else if (substr(ANSWER, 1, 2) == 7) 
+    {
+     cat("You have selected: Name\n\n")
+     
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Name
+    else if (substr(ANSWER, 1, 2) == 8) 
+    {
+     cat("You have selected: Name\n\n")
+     
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Exit
+    else if (substr(ANSWER, 1, 2) == 99) 
+    {
+      cat("Goodbye")
+      exit <- "exit"
+    }
+  
+  }
+}    
+
+  
+  # Descriptive Stats Tabulation
+  
+  
+  statistics.descriptivestats <- function() 
+  
+{
+  
+  exit <- "noexit"
+  while (exit != "exit")
+  {
+    cat("Open up R again. You can have two instances open at once. You will need another console to do work:\n\n")
+    menu <- data.frame(c("Get Data", "Get Book:", "Use Summarizing Commands on a Sample", "Using the quantile() command", "Cumulative Statistics", "Selecting and Displaying Parts of a Contingency Table","Create Flat Contingency Tables from Complex Data:", "Creating Selective Flat Contingency Tables", "Carrying Out Summary Commands on a Contingency Table", "What you learned", "TYPE 99 TO QUIT"))
+      
+    cat("Pick an option by number")
+    names(menu) <- "Main Menu"
+    print(format(menu,justify = "left", trim=TRUE))
+    ANSWER <- readline("")
+    
+    
+    # Get Data
+    if (substr(ANSWER, 1, 2) == 1) 
+    {
+      cat("Download Beginning R Data from this site and open once downloaded:") 
+      url <- paste("http://www.wrox.com/WileyCDA/WroxTitle/Beginning-R-The-Statistical-Programming-Language.productCd-111816430X,descCd-DOWNLOAD.html")
+      shell.exec(url)
+    }
+    
+    # Book
+    else if (substr(ANSWER, 1, 2) == 2) 
+    {
+      url <- paste("http://fdrennan.net/pages/Personal/R/Beginning%20R.pdf")
+      shell.exec(url)
+    }
+    
+    # Use Summarizing Commands on a Sample 
+    else if (substr(ANSWER, 1, 2) == 3) 
+    {
+      cat("You have selected: Use Summarizing Commands on a Sample\n\n")
+      
+      # data2
+      readline("Type the name of the object you will be examining, in this case data2: \n\ndata2\n\n")
+      
+      # mean(data2)
+      readline("Display the average of the sample as a mean value: \n\nmean(data2)\n\n")
+      
+      # max(data2)
+      readline("Now determine the largest value in the sample: \n\nmax(data2)\n\n")
+      
+      # min(data2)
+      readline("Next determine the smallest value in the sample: \n\nmin(data2)\n\n")
+      
+      # length(data2)
+      readline("Look now at how many items are in the sample: \n\nlength(data2)\n\n")
+      
+      # unmow
+      readline("Now look at a different data sample, the unmow object: \n\nunmow\n\n")
+      
+      # sd(unmow)
+      readline("Work out the standard deviation of the complete unmow sample: \n\nsd(unmow)\n\n")
+      
+      # sd(unmow, na.rm = TRUE)
+      readline("Calculate the standard deviation but remove NA items with an additional instruction: \n\nsd(unmow, na.rm = TRUE)\n\n")
+      
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Using the quantile command
+    else if (substr(ANSWER, 1, 2) == 4) 
+    {
+      cat("You have selected: Using the Quantile Command\n\n")
+      
+      # data2
+      readline("Start by looking at the sample vector, data2: \n\ndata2\n\n")
+      
+      # quantile(data2, .2)
+      readline("Now look at the 20% quantile: \n\nquantile(data2, .2)\n\n")
+      
+      # quantile(data2, c(0.2, 0.5, 0.8))
+      readline("Next pick out three quantiles, 20%, 50%, and 80%: \n\nquantile(data2, c(0.2, 0.5, 0.8))\n\n")
+      
+      # quantile(data2, c(0.5, 0.75, 0.25))
+      readline("Nw try some quantiles in non-numeric order: \n\nquantile(data2, c(0.5, 0.75, 0.25))\n\n")
+      
+      # quantile(data2, c(0.2, 0.5, 0.8), names = F)
+      readline("Select some quantiles but supress the headings: \n\nquantile(data2, c(0.2, 0.5, 0.8), names = F)\n\n")
+      
+      # unmow
+      readline("Look at the new data object that contains NA items.: \n\nunmow\n\n")
+      
+      # quantile(unmow)
+      readline("Display the basic quantiles for the new sample: \n\nquantile(unmow)\n\n")
+      
+      # quantile(unmow, na.rm = T)
+      readline("Remove the effect of the NA items using the na.rm instruction: \n\nquantile(unmow, na.rm = T)\n\n")
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Cumulative Statistics
+    else if (substr(ANSWER, 1, 2) == 5) 
+    {
+      cat("You have selected: Cumulative Statistics\n\n")
+      
+      # data2
+      readline("Start by looking at a simple numerical vector, data2: \n\ndata2\n\n")
+      
+      # cumsum(data2)
+      readline("Determine the cumulative sum of these data: \n\ncumsum(data2)\n\n")
+      
+      # cummax(data2)
+      readline("Now look at the cumulative maximum value of the sample: \n\ncummax(data2)\n\n")
+      
+      # cummin(data2)
+      readline("Try looking at the cumulative minimum: \n\ncummin(data2)\n\n")
+      
+      # cumprod(data2)
+      readline("Now look at the cumulative product of the sample: \n\ncumprod(data2)\n\n")
+      
+      # data5\ncummax(data5)
+      readline("Try a cumulative command on a vector of character data (for example, data5): \n\ndata5\ncummax(data5)\n\n")
+      
+      # dat.na
+      readline("Now look at a data sample that includes NA items: \n\ndat.na\n\n")
+      
+      # cumprod(dat.na)
+      readline("Try a cumulative command on these data: \n\ncumprod(dat.na)\n\n")
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Selecting and Displaying Parts of a Contingency Table
+    else if (substr(ANSWER, 1, 2) == 6) 
+    {
+      cat("You have selected: Selecting Parts of a Contingency Table\n\n")
+      
+      # pw.tab <- with(pw, table(height, water))
+      readline("Use the pw data frame as the starting point for a custom contingency table: \n\npw.tab <- with(pw, table(height, water))\n\n")
+      
+      # pw.tab
+      readline("View the resulting contingeny table: \n\npw.tab\n\n")
+      
+      # str(pw.tab)
+      readline("Examine the table object structure using the str() command: \n\nstr(pw.tab)\n\n")
+      
+      # pw.tab[1:3,]
+      readline("Now display only the first three rows of the contingency table: \n\npw.tab[1:3,]\n\n")
+      
+      # pw.tab[1:3,1]
+      readline("Next display the first three rows of the first column: \n\npw.tab[1:3,1]\n\n")
+      
+      # pw.tab[1:3,1:2]
+      readline("Now display the first three rows of the first and second columns: \n\npw.tab[1:3,1:2]\n\n")
+      
+      # pw.tab[,'hi']
+      readline("Display the column labeled hi: \n\npw.tab[,'hi']\n\n")
+      
+      # pw.tab[1:3, c('hi', 'mid')]
+      readline("Now display the first three rows of two of the columns: \n\npw.tab[1:3, c('hi', 'mid')]\n\n")
+      
+      # pw.tab[1:3, c('mid', 'hi')]
+      readline("Display some of the columns in a new order: \n\npw.tab[1:3, c('mid', 'hi')]\n\n")
+      
+      # pw.tab[,c('hi',3)]
+      readline("Try displaying two columns using a mix of name and number: \n\npw.tab[,c('hi',3)]\n\n")
+      
+      # length(pw.tab)
+      readline("Look at the length of the table object: \n\nlength(pw.tab)\n\n")
+      
+      # pw.tab[16:30]
+      readline("Finally, display some consecutive items: \n\npw.tab[16:30]\n\n")
+ 
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Create Flat Contingency Tables from Complex Data
+    else if (substr(ANSWER, 1, 2) == 7) 
+    {
+     cat("You have selected: Create Flat Contingency Tables from Complex Data\n\n")
+     
+      # with(pw, ftable(height, plant, water))
+      readline("Start by creating a contingency table from the the pw data object.\nUse the columns in the order in which they appear in the original data: \n\nwith(pw, ftable(height, plant, water))\n\n")
+      
+      # with(pw, ftable(height, water, plant))
+      readline("Now create another contingency table but specify the columns in a new order: \n\nwith(pw, ftable(height, water, plant))\n\n")
+      
+      # ftable(plant ~ height + water, data = pw)
+      readline("Next try creating a flat table using the ~ syntax.\nKeep the same column order as the first table you created: \n\nftable(plant ~ height + water, data = pw)\n\n")
+      
+      # ftable(water ~ height + plant, data = pw)
+      readline("Now try to create the same table as the first but using the new ~ syntax: \n\nftable(water ~ height + plant, data = pw)\n\n")
+      
+      # ftable(height ~ water + plant, data = pw)
+      readline("Now specify the main response variable as the main grouping variable in your flat table: \n\nftable(height ~ water + plant, data = pw)\n\n")
+      
+      # with(pw, ftable(water, plant, height))
+      readline("Finally, re-create the last table without the ~ syntax: \n\nwith(pw, ftable(water, plant, height))\n\n")
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Creating Selective Flat Contingency Tables
+    else if (substr(ANSWER, 1, 2) == 8) 
+    {
+     cat("You have selected: Creating Selective Flat Contingency Tables\n\n")
+     
+     # with(pw, ftable(height == 14, water, plant))
+     readline("Start by creating a flat cntingency table with a conditional column: \n\nwith(pw, ftable(height == 14, water, plant))\n\n")
+     
+     # with(pw, ftable(height == 14, water == 'hi', plant))
+     readline("Now add an additional condition to another column: \n\nwith(pw, ftable(height == 14, water == 'hi', plant))\n\n")
+     
+     # pw.t <- pw[which(pw$height==14),]
+     readline("Make a new data object as a subset of the original data: \n\npw.t <- pw[which(pw$height==14),]\npw.t\n\n")
+
+     # with(pw.t, ftable(height, plant, water))
+     readline("Finally, create a flat table from the new (subsetted) data: \n\nwith(pw.t, ftable(height, plant, water))\n\n")
+     
+     
+        
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    
+    # Carrying Out Summary Commands on a Contingency Table
+    else if (substr(ANSWER, 1, 2) == 9) 
+    {
+     cat("You have selected: Carrying Out Summary Command on a Contingency Table\n\n")
+     
+      # bird
+      readline("Start by looking at the bird data object: \n\nbird\n\n")
+      
+      # rowSums(bird)
+      readline("Use the rowSums() command to look at sums of rows: \n\nrowSums(bird)\n\n")
+      
+      # apply(bird, MARGN = 2, FUN = sum)
+      readline("Now try the apply() command to look at column sums: \n\napply(bird, MARGN = 2, FUN = sum)\n\n")
+      
+      # margin.table(bird)
+      readline("Use the margin.table() command to get an overall total: \n\nmargin.table(bird)\n\n")
+      
+      # margin.table(bird, margin = 2)
+      readline("Use the margin.table() command to determine row sums: \n\nmargin.table(bird, margin = 2)\n\n")
+      
+      # prop.table(bird)
+      readline("Use the prop.table() command to display the table data as proportions of the total sum: \n\nprop.table(bird)\n\n")
+      
+      # prop.table(bird, margin = 1)
+      readline("Add a margin instruction to the prop.table() command to display the table as proportions of the row totals: \n\nprop.table(bird, margin = 1)\n\n")
+      
+      # addmargins(bird, 1, mean)
+      readline("Now use the addmargins() command to determine a row of mean values for the table: \n\naddmargins(bird, 1, mean)\n\n")
+      
+      # addmargins(bird, 2, median)
+      readline("Use the addmargins() command to work out a column median for the table: \n\naddmargins(bird, 2, median)\n\n")
+      
+
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # What you Learned
+    else if (substr(ANSWER, 1, 2) == 10) 
+    {
+     cat("You have selected: What you Learned\n\n")
+     
+     # Summarizing Objects:
+     cat("Summarizing Objects:")
+     readline("\n\nsummary()\n\n")
+     
+     # Summarizing samples:
+     cat("Summarizing samples:")
+     readline("\n\nmean() | median() | max() | min() |sd()\n\nvar() | length() | sum() | quantile() | fivenum()\n\n")
+     
+     # Cumulative Statistics:
+     cat("Cumulative Statistics:")
+     readline("\n\ncumsum() | mummax() | cummin()\n\ncumproduct() | seq_along()\n\n")
+     
+      # Summarizing rows and columns:
+      cat("Summarizing rows and columns:")
+      readline("\n\ncolSums() | colMeans() | rowSums() | rowMeans()\n\napply() | lapply() | sapply()\n\n")
+      
+      # Contingency Tables and cross tabulation:
+      cat("Contingency Tables and cross tabulation:")
+      readline("\n\ntable() | ftable() \n\nxtabs()\n\n")
+      
+      # Table summaries:
+      cat("Table summaries:")
+      readline("\n\nmargin.table | prop.table()\n\naddmargins()\n\n")
+      
+      # Testing table objects:
+      cat("Testing table objects:")
+      readline("\n\nis.table() | is.matrix() | class()\n\nany() | is(object, 'type') | inherits(object, 'type')\n\n")
+      
+      # Logic and Testing:
+      cat("Logic and Testing:")
+      readline("\n\nfor() | if() | else() | any()\n\n")
+      
+      # Programming/custom functions:
+      cat("Programming/custom functions:")
+      readline("\n\nany() | for() | if() | else() | function()\n\n")
+      
+      # Creating sequences:
+      cat("Creating sequences:")
+      readline("\n\nseq()\n\n")
+      
+      # Reading data objects:
+      cat("Reading data objects:")
+      readline("\n\nattach() | detach()\n\nwith()\n\n")
+    
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Exit
+    else if (substr(ANSWER, 1, 2) == 99) 
+    {
+      cat("Goodbye")
+      exit <- "exit"
+    }
+  
+  }
+}    
+
+  
+  
+  # Distributions
+  
+  
+statistics.distribution <- function() 
+  
+{
+  
+  exit <- "noexit"
+  while (exit != "exit")
+  {
+    cat("Open up R again. You can have two instances open at once. You will need another console to do work:\n\n")
+    menu <- data.frame(c("Get Data", "Get Book:", "Make a Stem and Leaf Plot", "Histograms", "Density Function:", "Shapiro-Wilk Test for Normality", "Kolmogorov-Smirnov Test", "Q-Q Plots", "What you learned", "Anderson-Darling", "TYPE 99 TO QUIT"))
+      
+    cat("Pick an option by number")
+    names(menu) <- "Main Menu"
+    print(format(menu,justify = "left", trim=TRUE))
+    ANSWER <- readline("")
+    
+    
+    # Get Data
+    if (substr(ANSWER, 1, 2) == 1) 
+    {
+      cat("Download Beginning R Data from this site and open once downloaded:") 
+      url <- paste("http://www.wrox.com/WileyCDA/WroxTitle/Beginning-R-The-Statistical-Programming-Language.productCd-111816430X,descCd-DOWNLOAD.html")
+      shell.exec(url)
+    }
+    
+    # Book
+    else if (substr(ANSWER, 1, 2) == 2) 
+    {
+      url <- paste("http://fdrennan.net/pages/Personal/R/Beginning%20R.pdf")
+      shell.exec(url)
+    }
+    
+    # Make a Stem and Leaf Plot 
+    else if (substr(ANSWER, 1, 2) == 3) 
+    {
+      cat("You have selected: Make a Stem and Leaf Plot\n\n")
+      
+      # data2
+      readline("Start by looking at a simple vector of numerical values: \n\ndata2\n\n")
+      
+      # table(data2)
+      readline("Now create a contingency table using the table() command: \n\ntable(data2)\n\n")
+      
+      # stem(data2)
+      readline("Create a basic stem and leaf plot using the stem() command: \n\nstem(data2)\n\n")
+      
+      # stem(data2, scale = 2)
+      readline("Now increase the number of bins used by adding a scale = 2 instruction: \n\nstem(data2, scale = 2)\n\n")
+      
+      # data4
+      readline("Look at a sample vector with decimal values (that is, not integers): \n\ndata4\nstem(data4)\n\n")
+      
+      # stem(data4, scale = 2)
+      readline("Make the scale wider to show the data differently: \n\nstem(data4, scale = 2)\n\n")
+      
+      # grass
+      readline("Look at a more complicated data object, a data frame: \n\ngrass\n\n")
+      
+      # stem(grass$rich)
+      readline("Create a stem and leaf plot from the numerical vector in the data frame using the $ syntax: \n\nstem(grass$rich)\n\n")
+      
+      # with(grass, stem(rich(graze == 'mow')))
+      readline("Now select a signel treatment from the data with a conditional statement: \n\nwith(grass, stem(rich(graze == 'mow')))\n\n")
+      
+
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Histograms
+    else if (substr(ANSWER, 1, 2) == 4) 
+    {
+      cat("You have selected: Histograms\n\n")
+      
+      # hist(data2)
+      readline("Look at data2 and make a histogram using the hist() function: \n\nhist(data2)\n\n")
+      
+      # table(data2)
+      readline("You can use the table() command to see how the histogram is constructed: \n\ntable(data2)\n\n")
+      
+      # hist(data2, breaks = 'Sturges') (default)\ndist(data2, breaks = 'Scott')\n hist(data2, breaks = 'FD')
+      readline("You can select different algorithms to determine the breaks: \n\nhist(data2, breaks = 'Sturges') (default)\ndist(data2, breaks = 'Scott')\n hist(data2, breaks = 'FD')\n\n")
+      
+      # hist(data2, breaks = 7)\nhist(data2, breaks = 2:9)\nhist(data2, breaks = c(2,3,4,5,6,7,8,9))
+      readline("You can specify the number of breaks as a sumple number or a range of numbers: \n\nhist(data2, breaks = 7)\nhist(data2, breaks = 2:9)\nhist(data2, breaks = c(2,3,4,5,6,7,8,9)\n\n")
+      
+      # hist(data2, breaks = c(2, 4, 5, 6, 9))
+      readline("Being ale to specify the breaks exactly means you can product a histogram with unequal bin ranges: \n\nhist(data2, breaks = c(2, 4, 5, 6, 9))\n\n")
+      
+      # hist(data2, col = 'gray75', main = NULL, xlab =' 'Size class for data 2', ylim=c(0, 0.3), freq = FALSE)
+      readline("As an example, here is a histogram created with a few additional instructions: \n\nhist(data2, col = 'gray75', main = NULL, xlab =' 'Size class for data 2', ylim=c(0, 0.3), freq = FALSE)\n\n")
+      
+      
+      
+      
+      
+      
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Density Function
+    else if (substr(ANSWER, 1, 2) == 5) 
+    {
+     cat("You have selected: Density Function | Page 158: \n\n")
+     
+    # density(x, bw = 'nrd0', kernel = 'gaussian', na.rm = FALSE)
+    readline("YOu use the density() command on a vector of numbers to obtain the kernel density estimate for the vector in question.\nThe result is a series of xx and y coordinates that you can use to plot a graph: \n\n")
+    
+    readline("density(x, bw = 'nrd0', kernel = 'gaussian', na.rm = FALSE)\n\n")
+    
+    # dens <- density(data2)
+    readline("If you use the command on a vector of numeric data, you get a summary as a result like so: \n\ndens <- density(data2)\n\ndens\n\n")
+    
+    # names(dens)
+    readline("The result actually comprises several items that are bundled together in a list object.\nYou can see these items using the names() or str() commands: \n\nnames(dens)\n\n")
+    
+    # plot(density(data2))
+    readline("You can extract the parts you want using $ as you have seen with other lists. Try $x and $y: \n\nplot(density(data2))\n\n")
+    
+    cat("**Using the Density Function to Draw a Graph**")
+      
+    # plot(density(data2))
+    readline("For all practical purposes, you can just use the density() command directly as part of a graphing command: \n\nplot(density(data2))\n\nplot(density(data2), main = '', xlab = 'Size bin classes')\n\n")
+    
+    readline("**Adding Density Lines to Existing Graphs**")
+    
+    # hist(data2, freq = F, col = 'gray85')
+    # lines(density(data2), lty = 2)
+    # lines(density(data2, k = 'rectangular'))
+    readline("You can produce a simple histogram and then draw two density lines over the top: \n\nhist(data2, freq = F, col = 'gray85')\nlines(density(data2), lty = 2)\nlines(density(data2, k = 'rectangular'))\n\n")
+    
+    
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Shapiro-Wilk Test for Normality
+    else if (substr(ANSWER, 1, 2) == 6) 
+    {
+     cat("You have selected: Shapiro-Wilk Test for Normality | Page 171\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("First, an example where the data is clearly normal but gives you an innacurate answer\nAlways use a graphical test Q-Q or histigram along side:")
+     readline("x <- rlnorm(20, 0, .4)\nshapiro.test(x)")
+     
+     
+     # shapiro.test(data2)
+     readline("You commonly need to compare a sample with the normal distribution.: \n\nshapiro.test(data2)\n\n")
+     
+     # shapiro.test(rpois(100, lambda = 5))
+     readline("The result shows that the sample you have is not significantly different from a normal distribution\n\nIn the following example you use the rpois() command to create 100 random values from a Poisson distribution with lambda set to 5: \n\nshapiro.test(rpois(100, lambda = 5)\n\n")
+     
+     # grass3
+     readline("You do not get a significant departure from normality.\nNext, we'll use grass3: \n\nshapiro.test(grass3$rich)\n\n")
+   
+     # with(grass3, shapiro.test(rich[graze == 'mow']))
+     readline("You should test each grazing treatment separately, so you have to subset a little further like so: \n\nwith(grass3, shapiro.test(rich[graze == 'mow']))\n\n")
+   
+     # tapply(grass3$rich, grass3$graze, shapiro.test)
+     readline("To do all at once, easily: \n\ntapply(grass3$rich, grass3$graze, shapiro.test)\n\n")
+     
+     
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    
+    # Kolmogorov-Smirnov Test
+    else if (substr(ANSWER, 1, 2) == 7) 
+    {
+     cat("You have selected: Kolmogorov-Smirnov Test\n\n")
+     
+     # ks.test(data2, 'pnorm', mean = 5, sd = 2)
+     readline("You can compare a sample to a given distribution: \n\nks.test(data2, 'pnorm', mean = 5, sd = 2)\n\n")
+     
+     # ks.test(data2, pnorm(20, 5, 2))
+     readline("You could create a normal distributed sample on the fly and compare this to your sample: \n\nks.test(data2, pnorm(20, 5, 2))\n\n")
+     
+     # ks.test(data2, 'ppois', 5)
+     readline("Using poisson: \n\nks.test(data2, 'ppois', 5)\n\n")
+     
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Q-Q Plots
+    else if (substr(ANSWER, 1, 2) == 8) 
+    {
+     cat("You have selected: Q-Q Plots\n\n")
+     
+     # qqnorm(data2)
+     readline("Run the following command to create a simple QQ plot: \n\nqqnorm(data2)\n\n")
+     
+     # qqnorm(data2, main = 'QQ plot of eaxmple data', xlab = 'Theoretical', ylab = 'Quantiles for data2')
+     # qqline(data2, lwd = 2, lty = 2)
+     readline("If you combine the qqnorm() and qqlines() commands you can make a customized plot; the following example produces a plot: \n\nqqnorm(data2, main = 'QQ plot of eaxmple data', xlab = 'Theoretical', ylab = 'Quantiles for data2')\nqqline(data2, lwd = 2, lty = 2)\n\n")
+     
+     # qqplot(rpois(50,5), rnorm(50,5,1))\nqqplot(data2, data1)
+     readline("You can also plot one distribution against another as a quantile-quantile plot: \n\nqqplot(rpois(50,5), rnorm(50,5,1))\nqqplot(data2, data1)\n\n")
+     
+     # abline(a = intercept, b = slope)
+     readline("It would be useful to draw a straight line on your qqplot() and you can do that using the abline() command: \n\nabline(a = intercept, b = slope)\n\n")
+     
+     # qqp <- qqplot(data2, rnorm(50, 5, 2))
+     readline("Take data2 and compare this to a randomly-generated normal distribution with 50 values.\nSet the mean to 5 and sd to 2: \n\nqqp <- qqplot(data2, rnorm(50, 5, 2))\n\n")
+     
+     # abline(lm(qqp$y ~ qqp$x))
+     readline("YOu can use these values to determine the intercept and slope and draw your line: \n\nabline(lm(qqp$y ~ qqp$x))\n\n")
+     
+     
+     
+     
+     
+     
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # What you learned
+    else if (substr(ANSWER, 1, 2) == 9) 
+    {
+     cat("You have selected: What you learned")
+     
+     # rfoo() | pfoo() | qfoo() | dfoo |
+     readline("Numerical distribution (for example, norm, pois, binom, chisq): \n\nrfoo() | pfoo() | qfoo() | dfoo |\n\n")
+     
+     # RNGkind() | set.seed() | sample()
+     readline("Random Numbers: \n\nRNGkind() | set.seed() | sample()\n\n")
+     
+     # stem() | hist() | density() | lines()\nqqnorm() | qqline() | qqplot()
+     readline("Drawing distribution: \n\nstem() | hist() | density() | lines()\nqqnorm() | qqline() | qqplot()\n\n")
+     
+     # shapiro.test() | ks.test()
+     readline("Testing distribution: \n\nshapiro.test() | ks.test()\n\n")
+     
+     # plot() | abine() | lines() 
+     readline("Graphics: \n\nplot() | abine() | lines()\nlty | lwd | col | xlim | ylim | ylab | main\n colors() | lm() \n\n")
+     
+     
+     
+     
+       
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Exit
+    else if (substr(ANSWER, 1, 2) == 99) 
+    {
+      cat("Goodbye")
+      exit <- "exit"
+    }
+  
+  }
+}    
+
+  
+  
+  # Hypothesis Test
+  
+  statistics.hypothesis <- function() 
+{
+  
+  exit <- "noexit"
+  while (exit != "exit")
+  {
+    cat("Open up R again. You can have two instances open at once. You will need another console to do work:\n\n")
+    menu <- data.frame(c("Get Data", "Get Book:", "Student's t-Test", "U-Tests", "Paired t and U Tests:", "Correlation and Covariance", "Chi-Squared", "What you learned", "TYPE 99 TO QUIT"))
+      
+    cat("Pick an option by number")
+    names(menu) <- "Main Menu"
+    print(format(menu,justify = "left", trim=TRUE))
+    ANSWER <- readline("")
+    
+    
+    # Get Data
+    if (substr(ANSWER, 1, 2) == 1) 
+    {
+      cat("Download Beginning R Data from this site and open once downloaded:") 
+      url <- paste("http://www.wrox.com/WileyCDA/WroxTitle/Beginning-R-The-Statistical-Programming-Language.productCd-111816430X,descCd-DOWNLOAD.html")
+      shell.exec(url)
+    }
+    
+    # Book
+    else if (substr(ANSWER, 1, 2) == 2) 
+    {
+      url <- paste("http://fdrennan.net/pages/Personal/R/Beginning%20R.pdf")
+      shell.exec(url)
+    }
+    
+    # Student's t-Test 
+    else if (substr(ANSWER, 1, 2) == 3) 
+    {
+      cat("You have selected: Student's t-Test\n\n")
+      
+      # ls(pattern='^orc')
+      readline("Use the ls() command to see the data you require; they all begin with orchi: \n\nls(pattern='^orc')\n\n")
+       
+      # orchid
+      readline("Look first at the orchid data. This comprises two columns relating to two samples: \n\norchid\n")
+      
+      # attach(orchid)
+      # t.test(open,closed)
+      # detach(orchid)
+      readline("Carry out a t-test on these data without making any assumptions about the variance, like so: \n\nattach(orchid)\nt.test(open,closed)\ndetach(orchid)\n\n")
+      
+      # with(orchid, t.test(open, closed, var.equal = TRUE))
+      readline("Now carry out another tw-sample t-test but use the 'classic' version.\n\nAssume the variance of the two samples is equal: \nwith(orchid, t.test(open, closed, var.equal = TRUE))\n\n")
+      
+      # t.test(orchid$open, mu = 5)
+      readline("This time look at the open sample only and carry out a one-sample test to compare the data to a mean of 5: \n\nt.test(orchid$open, mu = 5)\n\n")
+      
+      # str(orchis)
+      # summary(orchis)  
+      readline("Now look at the orchis data object. t has two columns, flower and site. \nUse the str() or summary() command to confirm that there are two samples in the site column: \n\nstr(orchis)\nsummary(orchis)\n\n")  
+      
+      # t.test(flower ~ site, data = orchis)
+      readline("Carry out a t-test using the formula syntax; you do not need to make assumptions about the variance: \n\nt.test(flower ~ site, data = orchis)\n\n")
+      
+      # str(orchis)
+      readline("Now look at the orchis2 data object. \nIt has two columns, flower and site. \nUse the str() or summary() command to confirm that there are three samples in the site column: \n\nstr(orchis)\n\n")
+      
+      # t.test(flower ~site, data = orchis2, subset = site %in% c('open', 'closed'))
+      readline("Use a subset instruction to carry out a t-test on the open and closed sites: \n\nt.test(flower ~site, data = orchis2, subset = site %in% c('open', 'closed'))\n\n")
+      
+      # t.test(orchid$open, alternative = 'less', mu = 7)
+      readline("Now return to the orchid data. Carry out a one-sample test on the open sample to see if it has a mean of less that 7: \n\nt.test(orchid$open, alternative = 'less', mu = 7)\n\n")
+      
+      # t.test(orchis2$flower[orchis2$site == 'sprayed'], mu = 3, alt = 'greater')
+      # with(orchis2, t.test(flower[site == 'sprayed'], mu = 3, alt = 'g'))
+      readline("Look again at the orchis2 data, which has three samples in the site column. \nCarry out a t-test on the sprayed sample to see if its mean is greater than 3. \nYou can use either of the following commands. Hit [ENTER] to continue: \n\n")
+      readline("t.test(orchis2$flower[orchis2$site == 'sprayed'], mu = 3, alt = 'greater')\n\nwith(orchis2, t.test(flower[site == 'sprayed'], mu = 3, alt = 'g'))\n\n")
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # U-Tests
+    else if (substr(ANSWER, 1, 2) == 4) 
+    {
+      cat("You have selected: U-Tests\n\n")
+      
+      # bfc
+      readline("Look at the bfc data object; there are two columns in this data frame, one for each sample: \n\nbfc\n\n")
+      
+      # wilcox.test(bfc$grass, bfc$health)
+      readline("Carry out a two-sample U-test on the two samples in the bfc data object. \nThere is no need to use any additional instructions: \n\nwilcox.test(bfc$grass, bfc$health)\n\n")
+      
+      # summary(bfc$grass)
+      readline("Now look at the grass sample of the bfc data using the summary() command: \n\nsummary(bfc$grass)\n\n")
+      
+      # with(bfc, wilcox.test(grass, mu = 7.5, exact = F, alt = 'less'))
+      readline("Carry out a one-sample test on the grass sample of the bfc data. \nSet a hypothesis that the location shift is less than 7.5: \n\nwith(bfc, wilcox.test(grass, mu = 7.5, exact = F, alt = 'less'))\n\n")
+      
+      # str(bf2)
+      readline("Look at the bf2 data object. t comprises two columns, with a response variable count and a predictor variable site: \n\nstr(bf2)\n\n")
+      
+      # wilcox.test(count ~ site, data = bf2, exact = FALSE)
+      readline("Conduct a two-sample U-test on the bf2 data. This time you will need to use the formula syntax: \n\nwilcox.test(count ~ site, data = bf2, exact = FALSE)\n\n")
+      
+      # with(bf2, summary(count[which(site=='Heath')]))
+      readline("Look at the bf2 data object again. \nThis time look at the Halth sample and carry out a one-sided U-test. \n\nwith(bf2, summary(count[which(site == 'Heath')]))\n\n")
+      
+      # with(bf2, wilcox.test(count[which(site=='Heath')], exact = F, alt = 'greater', mu = 7.75))
+      readline("Set an alternative hypothesis that the location shift is greater than the first quartile: \n\nwith(bf2, wilcox.test(count[which(site=='Heath')], exact = F, alt = 'greater', mu = 7.75))\n\n")
+      
+      # wilcox.test(count ~ site, data = bfs, subset = site %in% c('Grass', 'Arable'), exact = F)
+      readline("Now look at the bfs data object. \nThis time you have a predictor variable with three samples. \nCarry out a two-sample U-test between the Grass and Arable samples: \n\nwilcox.test(count ~ site, data = bfs, subset = site %in% c('Grass', 'Arable'), exact = F)\n\n")
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Paired t and U Tests
+    else if (substr(ANSWER, 1, 2) == 5) 
+    {
+       cat("You have selected: Paired t and U Tests\n\n")
+        
+       # mpd
+       readline("Look at the mpd data; you can see two samples, white and yellow. \nThese data are matched pair data and each row represents a bi-colored target. \nThe values are for numbers of whitefly attracted to each half of the target: \n\nmdp\n\n")
+       
+       # wilcox.test(mpd$white, mpd$yellow, exact = FALSE, paired = TRUE)
+       readline("Use a paired U-test (Wilcoxon matched pair test) on these data like so: \n\nwilcox.test(mpd$white, mpd$yellow, exact = FALSE, paired = TRUE)\n\n")
+       
+       # Hit [ENTER]
+       readline("Look at the means for the two samples in the mpd data.\n Round the difference up and then carry out a paired t-test. \nThis time, set an alternative hypothesis that the difference in these means is less than this difference: \n\nHit [ENTER]\n\n")
+       
+      # lapply(mpd, mean)
+      # with(mpd, t.test(white, yellow, paired = TRUE, mu = 2, alt = 'less'))
+      readline("Enter: \n\nmean(mpd)\n\nwith(mpd, t.test(white, yellow, paired = TRUE, mu = 2, alt = 'less'))\n\n")
+      
+      # Hit [Enter] to continue
+      readline("Look at the mpd.s data object. This comprises two columns.\n One is the response variable count and the other is the predictor variable trap.\n\nHit [Enter] to continue\n\n")
+      
+      # Hit [ENTER] to continue:
+      readline("These are the same data as the mpd and are paired (the only difference is the form of the data object): \n\nHit [ENTER] to continue:\n\n")
+      
+      
+      
+      
+      # wilcox.test(count ~ trap, data = mpd.s, paired = TRUE, exact = F)
+      readline("Carry out a paired t-test on these data: \n\nwilcox.test(count ~ trap, data = mpd.s, paired = TRUE, exact = F)\n\n")
+      
+      # t.test(count ~ trap, data = mpd.s, paired = TRUE, mu = 1, conf.level = 0.99)
+      readline("Carry out a two-sided and paired t-test on the mpd.s data. \nSet the alternative hypothesis that the difference in means is 1.\nShow the 99 percent confidence intervals: \n\nt.test(count ~ trap, data = mpd.s, paired = TRUE, mu = 1, conf.level = 0.99)\n\n")
+      
+      # Hit [ENTER] to continue
+      readline("Look at the orchis2 data. \nHere you have a response variable flower and a perdictor variable site. \nThe predictor variable has three samples (open, closed, and sprayed): \n\nHit [ENTER] to continue\n\n")
+      
+      # t.test(flower ~ site, data = orchis2, subset = site %in% c('open', 'sprayed'), paired = TRUE)
+      readline("Carry out a paired t-test on the open and sprayed samples: \n\nt.test(flower ~ site, data = orchis2, subset = site %in% c('open', 'sprayed'), paired = TRUE)\n\n")
+
+     readline("Hit [Enter] to return to Main Menu")
+     
+    }
+    
+    # Correlation and Covariance
+    else if (substr(ANSWER, 1, 2) == 6) 
+    {
+     cat("You have selected: Correlation and Covariance\n\n")
+      
+     # cor(fw$count, fw$speed)
+     readline("Look at the fw data object; this contains two columns, count and speed.\nConduct a Pearson correlation on these two variables: \n\ncor(fw$count, fw$speed)\n\n")
+     
+     # cor(swiss, method = 'kendall')
+     readline("Now look at the swiss data object; this is built into R.\nUse Kendall's tau correlation to create a matrix of correlations: \n\ncor(swiss, method = 'kendall')\n\n")
+     
+     # cor(swiss$Fertility, swiss, method = 'spearman')
+     readline("The swiss data produced a sizeable matrix.\n Simplify this by looking at the Fertility variable and correlating that to the others in the dataset.\nThis time use the Spearman rho correlation: \n\ncor(swiss$Fertility, swiss, method = 'spearman')\n\n")
+     
+     # (fw.cov = cov(fw))
+     readline("Now look at the fw data object. It has two variables, count and speed.\nCreate a covariance matrix: \n\n(fw.cov = cov(fw))\n\n")
+     
+     # cov2cor(fw.cov)
+     readline("Conver the covariance matrix into a correlation: \n\ncov2cor(fw.cov)\n\n")
+     
+     # cor(fw, fw2)
+     readline("Look at the fw2 object. This has the same number of rows as the fw object.\nt also has two columns, abund and flow.\nCarry out a correlation between the columns of one data frame and the other: \n\ncor(fw, fw2)\n\n")
+     
+     # with(fw, cor.test(count, speed, method = 'spearman'))
+     readline("Carry out a Spearman rho test of significance on the count and speed variables from the fw data: \n\nwith(fw, cor.test(count, speed, method = 'spearman'))\n\n")
+     
+     # cor.test(fw2$abund, fw2$flow, conf = 0.99, alt = 'greater')
+     readline("Now look at the fw2 data again. \nConduct a Pearson correlation between the abund and flow variables.\nSet the confidence intervals to the 99 percent level,\nHit [ENTER] to continue:\n\n")
+     
+     # cor.test(fw2$abund, fw2$flow, conf = 0.99, alt = 'greater')
+     readline("\nSet the confidence intervals to the 99 percent level.\nUse an alternative hypothesis that the correlation is greater than 0:\n\ncor.test(fw2$abund, fw2$flow, conf = 0.99, alt = 'greater')\n\n")
+     
+     # cor.test(~ Length + NO3, data = mf, method = 'k', exact = F)
+     readline("Use the formula syntax to carry out a Kendall tau correlation significance test.\nConduct the test between the Length and NO3 variables from the mf data object: \n\ncor.test(~ Length + NO3, data = mf, method = 'k', exact = F)\n\n")
+     
+     # cor.test(~ count + speed, data = fw3, subset = cover %in% 'open')
+     readline("Look at the fw3 data object.\nThis is the same as fw, except that there is an additional grouping variable called cover.\n\nHit [ENTER] to continue\n\n")
+     
+     readline("Use a subset of the data that corresponds to the open group and carry out a Pearson correlation significance test: \n\nHit [ENTER] to continue:\n\n")
+     
+    # cor.test(~ count + speed, data = fw3, subset = cover %in% 'open')
+    readline("cor.test(~ count + speed, data = fw3, subset = cover %in% 'open')\n\n")
+    
+
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    
+    # Chi-Squared
+    else if (substr(ANSWER, 1, 2) == 7) 
+    {
+     cat("You have selected: Chi-Squared\n\n")
+      
+     # bees
+     readline("Explore bees: \n\nbees\n\n")
+     
+     # (bees.cs = chisq.test(bees))
+     readline("Carry out a basic chi-squared test on these data and save the result as a named object: \n\n(bees.cs = chisq.test(bees))\n\n")
+    
+     # names(bees.cs)
+     readline("Look at the result you just obtained - it contains several parts.: \n\nnames(bees.cs)\n\n")
+     
+     # bees.cs$resid
+     readline("Display the Pearson residuals for the result: \n\nbees.cs$resid\n\n")
+     
+     # (bees.cs = chisq.test(bees, simulate.p.value = TRUE, B = 3000))
+     readline("Now run the chi-squared test again but this time use a Monte Carlo simulation with 3000 replicates to determine the p-value: \n\nbees.cs = chisq.test(bees, simulate.p.value = TRUE, B = 3000))\n\n")
+     
+     # bees[1:2, 4:5]
+     # chisq.test(bees[1:2, 4:5], correct = FALSE)
+     # chisq.test(bees[1:2, 4:5], correct = TRUE)
+     readline("Look at a portion of the data as a 2 x 2 contingency table.\nExamine the effect of Yates' correction on this subset: \n\nbees[1:2, 4:5]\n\nchisq.test(bees[1:2, 4:5], correct = FALSE)\n\nchisq.test(bees[1:2, 4:5], correct = TRUE)\n\n")
+     
+     # with(bees, chisq.test(Honey.bee, p = Carder.bee, rescale = T))
+     readline("Look at the last two columns, representing two bee species.\nCarry out a goodness of fit test to determine if the proportions of visits are the same: \n\nwith(bees, chisq.test(Honey.bee, p = Carder.bee, rescale = T))\n\n")
+     
+     # with(bees, chisq.test(Honey.bee, p = Carder.bee, rescale = T, sim = T))
+     readline("Carry out the same goodness of fit test but use a simulation to determine the p-value\nYou can abbreviate the command: \n\nwith(bees, chisq.test(Honey.bee, p = Carder.bee, rescale = T, sim = T))\n\n")
+     
+     # chisq.test(bees$Honey.bee)
+     readline("Now look at a single column and carry out a goodness of fit test.\nThis time omit the p = instruction to test the fit to equal probabilities: \n\nchisq.test(bees$Honey.bee)\n\n")
+     
+     
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # What you learned
+    else if (substr(ANSWER, 1, 2) == 8) 
+    {
+     cat("You have selected: What you learned\n\nExtra functions\n\n")
+     
+     # T-test:
+     cat("T-test:")
+     readline("\n\nt.test(data1, data2 = NULL)\n\nt.test(y ~ x, data)\n\n")
+     
+     # U-test:
+     cat("U-test:")
+     readline("\n\nwilcox.test(data1, data2 = NULL)\n\nwilcox.test(y ~ X, data)\n\n")
+     
+     # Paired tests:
+     cat("Paired tests:")
+     readline("\n\nt.test(x, y, paired = TRUE)\n\nwilcox.test(x, y, paired = TRUE)\n\n")
+     
+     # Subsetting:
+     cat("Subsetting:")
+     readline("\n\nsubset = group %in% c('grp1', 'grp2')\n\n")
+     
+     # Covariance:
+     cat("Covariance:")
+     readline("\n\ncov(x, y)\nPearson, Spearman, Kendall\n\ncov2cor(matrix)\n\n")
+     
+     # Correlation:
+     cat("Correlation:")
+     readline("\n\ncor(x, y)\nPearson, Spearman, Kendall\n\n")
+     
+     # Correlation hypothesis tests:
+     cat("Correlation hypothesis tests:")
+     readline("\n\ncor.test(x, y)\n\ncor.test(~ y + x, data)\n\n")
+     
+     # Association tests:
+     cat("Association tests::")
+     readline("\n\nchisq.test(x, y = NULL)\n\n")
+     
+     # Goodness of fit tests::
+     cat("Goodness of fit tests::")
+     readline("\n\nchisq.test(x, p = , rescale.p = FALSE)\n\n")
+     
+     # Monte Carlo simulation:
+     cat("Monte Carlo simulation:")
+     readline("\n\nsimulate.p.value = FALSE\n\nB = 2000\n\n")
+     
+     # Rounding values:
+     cat("Rounding values:")
+     readline("\n\nround(object, digits = 6)\n\n")
+  
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Exit
+    else if (substr(ANSWER, 1, 2) == 99) 
+    {
+      cat("Goodbye")
+      exit <- "exit"
+    }
+  
+  }
+}    
+  
+  # Intro Graph analysis
+  
+  statistics.graph <- function() 
+
+{
+  
+  exit <- "noexit"
+  while (exit != "exit")
+  {
+    cat("Open up R again. You can have two instances open at once. You will need another console to do work:\n\n")
+    menu <- data.frame(c("Get Data", "Get Book:", "Box-Whisker", "Scatter Plots", "Line Charts", "Dot Charts", "Bar Charts", "What you learned", "TYPE 99 TO QUIT"))
+      
+    cat("Pick an option by number")
+    names(menu) <- "Main Menu"
+    print(format(menu,justify = "left", trim=TRUE))
+    ANSWER <- readline("")
+    
+    
+    # Get Data
+    if (substr(ANSWER, 1, 2) == 1) 
+    {
+      cat("Download Beginning R Data from this site and open once downloaded:") 
+      url <- paste("http://www.wrox.com/WileyCDA/WroxTitle/Beginning-R-The-Statistical-Programming-Language.productCd-111816430X,descCd-DOWNLOAD.html")
+      shell.exec(url)
+    }
+    
+    # Book
+    else if (substr(ANSWER, 1, 2) == 2) 
+    {
+      url <- paste("http://fdrennan.net/pages/Personal/R/Beginning%20R.pdf")
+      shell.exec(url)
+    }
+    
+    # Box-Whisker 
+    else if (substr(ANSWER, 1, 2) == 3) 
+    {
+      cat("You have selected: Box-Whisker\n\n")
+      
+      # boxplot(bf$grass)
+      readline("Look at the bf data. The data contain three samples: Grass, Health, and Arable.\nDraw a box-whisker pot of the Grass sample using the boxplot() command: \n\nboxplot(bf$grass)\n\n")
+      
+      # with(bf, boxplot(Grass, Health, Arable))
+      readline("Now create a basic box-whisker plot comparing all three samples in the bf data object: \n\nwith(bf, boxplot(Grass, Health, Arable))\n\n")
+      
+      # boxplot(bf$Grass, bf$Health, bf$Arable, names = c('Grass', 'Health', 'Arable'))
+      readline("Add the names of the samples to the plot by specifying them explicitly: \n\nboxplot(bf$Grass, bf$Health, bf$Arable, names = c('Grass', 'Health', 'Arable'))\n\n")
+      
+      # title(xlab = 'Habitat', ylab = 'Butterfly Count')
+      readline("Complete the plot by adding titles to the x and y axes: \n\ntitle(xlab = 'Habitat', ylab = 'Butterfly Count')\n\n")
+      
+      # boxplot(bf$Grass, bf$Health, bf$Arable, names = c('Grass', 'Health', 'Arable'), range = 0, xlab = 'Habitat', ylab = 'Butterfly Count', col = 'lightblue')
+      readline("Now redraw the graph, but make the whiskers extend over the full range of the data.\nMake the bars a light blue color and add axis titles: \n\nboxplot(bf$Grass, bf$Health, bf$Arable, names = c('Grass', 'Health', 'Arable'), range = 0, xlab = 'Habitat', ylab = 'Butterfly Count', col = 'lightblue')\n\n")
+      
+      # boxplot(bf, range = 0, col = 'lightblue')
+      # title(xlab = 'Habitat', ylab = 'Butterfly Count')
+      readline("Becuase the data contain separate samples, you can save some typing.\nRedraw the graph but specify the data simply as the data frame: \n\nboxplot(bf, range = 0, col = 'lightblue')\ntitle(xlab = 'Habitat', ylab = 'Butterfly Count')\n\n")
+      
+      # boxplot(count ~ site, data = bfs, range = 0, col = 'lightblue')
+      # title(xlab = 'Habitat', ylab = 'Butterfly Count')
+      readline("Look at the bfs data.\nNow you have a response variable, count, and a predictor variable, site.: \n\nboxplot(count ~ site, data = bfs, range = 0, col = 'lightblue')\ntitle(xlab = 'Habitat', ylab = 'Butterfly Count')\n\n")
+      
+      # boxplot(count ~ site, data = bfs, range = 0, col = 'lightblue', horizontal = TRUE)\ntitle(ylab = 'Habitat', xlab = 'Butterfly Count')
+      readline("Redraw the plot using horizontal bars.\nAdd axis titles (your final graph should look like Figure 7-8): \n\nboxplot(count ~ site, data = bfs, range = 0, col = 'lightblue', horizontal = TRUE)\ntitle(ylab = 'Habitat', xlab = 'Butterfly Count')\n\n")
+      
+
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Scatter Plots
+    else if (substr(ANSWER, 1, 2) == 4) 
+    {
+      cat("You have selected: Scatter Plots\n\n")
+      
+      
+      # plot(women, pch = 19, cex = 1.5)
+      readline("Look at the women data.\nDraw a scatter plot: \n\nplot(women, pch = 19, cex = 1.5)\n\n")
+      
+      # abline(lm(weight ~ height, data = women), lty = 2)
+      readline("Add a line of best fit and make it dashed: \n\nabline(lm(weight ~ height, data = women), lty = 2)\n\n")
+      
+      # names(cars)\nplot(cars$speed, cars$dist, xlab = 'Car speed (mph)', ylab = 'Stopping distance (ft)')
+      readline("Look at the cars data that come with R. Create a scatter plot of stopping distance v. Speed: \n\nnames(cars)\nplot(cars$speed, cars$dist, xlab = 'Car speed (mph)', ylab = 'Stopping distance (ft)')\n\n")
+      
+      # abline(lm(dist ~ speed, data = cars), lwd = 2)
+      readline("Add a line of best fit to the speed-dist plot and make the line bolder: \n\nabline(lm(dist ~ speed, data = cars), lwd = 2)\n\n")
+      
+      # plot(Length ~ BOD, data = mf, col = 'blue', pch = 18)
+      readline("Look at the mf data.\nCreate a scatter plot of Length against BOD. Use colored plotting characters: \n\nplot(Length ~ BOD, data = mf, col = 'blue', pch = 18)\n\n")
+      
+      # abline(lm(Length ~ BOD, data = mf), lty = 'dotdash')
+      readline("Add a line of best-fit to the Length-BOOD plot.: \n\nabline(lm(Length ~ BOD, data = mf), lty = 'dotdash')\n\n")
+      
+      # plot(Length ~ Algae, data = mf)
+      # abline(lm(Length ~ Algae, data = mf), lty = 2)
+      readline("Draw a scatter plot of Length against Algae: \n\nplot(Length ~ Algae, data = mf)\nabline(lm(Length ~ Algae, data = mf), lty = 2)\n\n")
+      
+      
+      readline("PAIRS PLOTS (MULTPLE CORRELATON PLOTS)")
+      
+      # fw
+      readline("Look at fw data: \n\nfw\n\n")
+      
+      # plot(fw)
+      readline("Plot it: \n\nplot(fw)\n\n")
+      
+      # head(fw)
+      readline("Look at the head of the data: \n\nhead(fw)\n\n")
+      
+      # pairs(~ x + y + z, data = our.data)
+      # pairs(~ Length + Speed + NO3, data = mf)
+      readline("By default, the pairs() command takes all the columns in a data frame and creates a matrix of scatter plots: \n\npairs(~ x + y + z, data = our.data)\npairs(~ Length + Speed + NO3, data = mf)\n\n")
+      
+      # pairs(~ Length + Speed + NO3, data = mf, col = 'red', cex = 2, pch = 'X')
+      readline("Alter the plot: \n\npairs(~ Length + Speed + NO3, data = mf, col = 'red', cex = 2, pch = 'X')\n\n")
+      
+      # cex.labels = 2 | font.labels = 1
+      readline("Alter plotting characters using other commands: \n\ncex.labels = 2 | font.labels = 1\n\n")
+      
+      # Hit [ENTER] to continue:
+      readline("Enter: \n\nHit [ENTER] to continue:\n\n")
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Line Charts
+    else if (substr(ANSWER, 1, 2) == 5) 
+    {
+     cat("You have selected: Line Charts\n\n")
+     
+     # plot(rain, type = 'b', axes = FALSE, xlab = 'Month', ylab = 'Rainfall cm')
+     readline("plot(rain, type = 'b', axes = FALSE, xlab = 'Month', ylab = 'Rainfall cm')\n\n")
+     
+     
+     # axis(side, at = NULL, labels = TRUE)
+     readline("Enter: \n\naxis(side, at = NULL, labels = TRUE)\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("month = c('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug',
+'Sep', 'Oct', 'Nov', 'Dec'): \n\nHit [ENTER] to continue:\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("axis(side = 1, at = 1: length(rain), labels = month): \n\nHit [ENTER] to continue:\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("axis(side = 2): \n\nHit [ENTER] to continue:\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("plot(rain, type = 'b', axes = FALSE, xlab = 'Month', ylab = 'Rainfall cm'): \n\nHit [ENTER] to continue:\n\n")
+     
+    # Hit [ENTER] to continue:
+    readline("month = c('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct', 'Nov', 'Dec'): \n\nHit [ENTER] to continue:\n\n")
+    
+    # Hit [ENTER] to continue:
+    readline("axis(side = 1, at = 1: length(rain), labels = month): \n\nHit [ENTER] to continue:\n\n")
+    
+    # Hit [ENTER] to continue:
+    readline("axis(side = 2): \n\nHit [ENTER] to continue:\n\n")
+    
+    # Hit [ENTER] to continue:
+    readline("box(): \n\nHit [ENTER] to continue:\n\n")
+    
+
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Dot Charts
+    else if (substr(ANSWER, 1, 2) == 6) 
+    {
+     cat("You have selected: Dot Charts\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("data11; data8: \n\nHit [ENTER] to continue:\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("dotchart(data11, labels = data8): \n\nHit [ENTER] to continue:\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("bird: \n\nHit [ENTER] to continue:\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("dotchart(bird): \n\nHit [ENTER] to continue:\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("dotchart(t(bird)): \n\nHit [ENTER] to continue:\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("dotchart(bird, color = 'gray30', gcolor = 'black', lcolor = 'gray30', cex = 0.8, xlab = 'Bird Counts', bg = 'gray90', pch = 21): \n\nHit [ENTER] to continue:\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("dotchart(bird, gdata = colMeans(bird), gpch = 16, gcolor = 'blue'): \n\nHit [ENTER] to continue:\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("mtext('Grouping = mean', side =3, adj = 1): \n\nHit [ENTER] to continue:\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("title(main = 'Bird species and Habitat'): \n\nHit [ENTER] to continue:\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("title(xlab = 'Bird abundance'): \n\nHit [ENTER] to continue:\n\n")
+     
+
+     
+        
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    
+    # Bar Charts
+    else if (substr(ANSWER, 1, 2) == 7) 
+    {
+     cat("You have selected: Bar Charts\n\n")
+     
+       # barplot(hoglouse$fast, names = rownames(hoglouse), cex.names = 0.8,\nabline(h=0)\ntitle(ylab = 'Hoglouse count', xlab = 'Sampling site')
+       readline("Create a bar chart of the fast data as follows: \n\nbarplot(hoglouse$fast, names = rownames(hoglouse), cex.names = 0.8, col = 'slategray')\nabline(h=0)\ntitle(ylab = 'Hoglouse count', xlab = 'Sampling site')\n\n")
+       
+      # cols = c('brown', 'tan', 'sienna', 'thistle', 'yellowgreen')\nbarplot(VADeaths, legend = TRUE, col = cols)\ntitle(ylab = 'Death rates per 1000 per year')
+       readline("Create a bar chart of these data.: \n\nbarplot(VADeaths)\ncols = c('brown', 'tan', 'sienna', 'thistle', 'yellowgreen')\nbarplot(VADeaths, legend = TRUE, col = cols)\ntitle(ylab = 'Death rates per 1000 per year')\n\n")
+       
+       # barplot(VADeaths, legend = T, beside = TRUE, col = cols)\ntitle(ylab = 'Death rates per 1000 per year')
+       readline("Re-plot the VADeaths data, but this time use grouped bars:: \n\nbarplot(VADeaths, legend = T, beside = TRUE, col = cols)\ntitle(ylab = 'Death rates per 1000 per year')\n\n")
+       
+      # barplot(VADeaths, legend = T, beside = TRUE, col = cols, horiz = TRUE)\ntitle(xlab = 'Death rates per 1000 per year')
+      readline("Now plot the VADeaths data again, but this time make the bars horizontal:: \n\nbarplot(VADeaths, legend = T, beside = TRUE, col = cols, horiz = TRUE)\ntitle(xlab = 'Death rates per 1000 per year')\n\n")
+      
+     # barplot(apply(bf, 2, median, na.rm=T), col = 'lightblue')\nabline(h=0)\ntitle(ylab = 'Butterfly Count', xlab = 'Site')
+     readline("Draw a bar chart of the medians for the three samples: \n\nbarplot(apply(bf, 2, median, na.rm=T), col = 'lightblue')\nabline(h=0)\ntitle(ylab = 'Butterfly Count', xlab = 'Site')\n\n")
+     
+     
+     # barplot(tapply(bfs$count, bfs$site, FUN = median), col = 'lightblue', xlab = 'Site', ylab = 'Butterfly abundance')\nabline(h=0)
+     readline("Create a new bar chart using the median values:: \n\nbarplot(tapply(bfs$count, bfs$site, FUN = median), col = 'lightblue', xlab = 'Site', ylab = 'Butterfly abundance')\nabline(h=0)\n\n")
+     
+     
+     
+     
+     
+      
+       
+       
+       
+       
+       
+      
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # What you learned
+    else if (substr(ANSWER, 1, 2) == 8) 
+    {
+     cat("You have selected: What you learned\n\n")
+     
+     # Box-whisker plots:
+     cat("Box-whisker plots:")
+     readline("\n\nbokplot()\n\n")
+     
+     # Scatter plots:
+     cat("Scatter plots:")
+     readline("\n\nplot()\n\n")
+     
+     # Multiple correlation plots:
+     cat("Multiple correlation plots:")
+     readline("\n\npairs()\n\n")
+     
+     # Line plots and custome axes:
+     cat("Line plots and custome axes:")
+     readline("\n\naxis()\n\n")
+     
+     # pie()
+     readline("Pie Charts: \n\npie()\n\n")
+     
+     # Cleveland dot charts:
+     cat("Cleveland dot charts:")
+     readline("\n\ndotchart()\n\n")
+     
+     # barplot()
+     readline("Bar Charts: \n\nbarplot()\n\n")
+     
+     # Graphical Instructions:
+     cat("Graphical Instructions:")
+     readline("\n\nxlab | ylab |main |xlim | ylim \n\npch | cex | lty | lwd\n\n")
+     
+     # colors()
+     readline("Colors: \n\ncolors()\n\n")
+     
+     # title()
+     readline("Axis titles: \n\ntitle()\n\n")
+     
+     # abline()
+     readline("Lines on charts: \n\nabline()\n\n")
+     
+     # mtext()
+     readline("Marginal text: \n\nmtext()\n\n")
+     
+     # Moving and saving graphs:
+     cat("Moving and saving graphs:")
+     readline("\n\ndev.copy()\n\ndiv.off()\n\n")
+     
+     
+
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Exit
+    else if (substr(ANSWER, 1, 2) == 99) 
+    {
+      cat("Goodbye")
+      exit <- "exit"
+    }
+  
+  }
+}    
+  
+  # Formua Notation
+  statistics.anova <- function() 
+  
+{
+  
+  exit <- "noexit"
+  while (exit != "exit")
+  {
+    cat("Open up R again. You can have two instances open at once. You will need another console to do work:\n\n")
+    menu <- data.frame(c("Get Data", "Get Book:", "Use Formula Notation for Some Basic Stats Tests", "Use Formula Notation to Create Graphical Summaries of Stats Tests", "Carry Out a One-Way Analysis of Variance:", "Carry Out a Two-Way Analysis of Variance", "Make an Interaction Plot of a Two-Way ANOVA", "What you learned", "TYPE 99 TO QUIT"))
+      
+    cat("Pick an option by number")
+    names(menu) <- "Main Menu"
+    print(format(menu,justify = "left", trim=TRUE))
+    ANSWER <- readline("")
+    
+    
+    # Get Data
+    if (substr(ANSWER, 1, 2) == 1) 
+    {
+      cat("Download Beginning R Data from this site and open once downloaded:") 
+      url <- paste("http://www.wrox.com/WileyCDA/WroxTitle/Beginning-R-The-Statistical-Programming-Language.productCd-111816430X,descCd-DOWNLOAD.html")
+      shell.exec(url)
+    }
+    
+    # Book
+    else if (substr(ANSWER, 1, 2) == 2) 
+    {
+      url <- paste("http://fdrennan.net/pages/Personal/R/Beginning%20R.pdf")
+      shell.exec(url)
+    }
+    
+    # Use Formula Notation for Some Basic Stats Tests 
+    else if (substr(ANSWER, 1, 2) == 3) 
+    {
+      cat("You have selected: Use Formula Notation for Some Basic Stats Tests\n\n")
+      
+      # Hit [ENTER] to continue:
+      readline("Look at the grass data object. The grass data comprises two columns.\nThe first is called rick and is numeric.\n The second is called graze and is a factor comprised of two levels: \n\nHit [ENTER] to continue:\n\n")
+      
+      # str(grass)
+      # summary(grass)
+      readline("Use the str() and summary() commands to examine the data like so: \n\nstr(grass)\n\nsummary(grass)\n\n")
+      
+      # t.test(rich ~ graze, data = grass)
+      readline("Carry out a Student's t-test to see if there is a difference in species rickness between the two grazing treatments: \n\nt.test(rich ~ graze, data = grass)\n\n")
+      
+      # str(hog)
+      # summary(hog)
+      readline("Now look at the hog data.\nUse the str() and summary() commands to see that this data frame has two columns.\nOne is numeric and the other is a factor with two levels: \n\nstr(hog)\n\nsummary(hog)\n\n")
+      
+      # wilcox.test(count ~ site, data = hog, exact = FALSE)
+      readline("Use a U-test to see if there is a difference in the abundance of hoglouse between the fast and slow samples: \n\nwilcox.test(count ~ site, data = hog, exact = FALSE)\n\n")
+      
+      # names(trees)
+      # str(trees)
+      # summary(trees)
+      readline("Now look at the trees data.\nUse the names() command to see the column names as well as the summary() and str() commands to look at the data structure: \n\nnames(trees)\n\nstr(trees)\n\nsummary(trees)\n\n")
+      
+      # cor.test(~ Girth + Height, data = trees, method = 'pearson')
+      readline("Use the Pearson product moment method to see if there is a correlation between Girth and Height: \n\ncor.test(~ Girth + Height, data = trees, method = 'pearson')\n\n")
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Use Formula Notation to Create Graphical Summaries of Stats Tests
+    else if (substr(ANSWER, 1, 2) == 4) 
+    {
+      cat("You have selected: Use Formula Notation to Create Graphical Summaries of Stats Tests\n\n")
+      
+      # boxplot(rich ~ graze, data = grass, col = 'lightgreen')
+      readline("Earlier you looked at the grass data and carried out a t-test on these data.\nNow create a boxplot to illustrate the result: \n\nboxplot(rich ~ graze, data = grass, col = 'lightgreen')\n\n")
+      
+      # title(ylab = 'Species Richness', xlab = 'Grazing Treatment', main = 'Species richness and grazing')
+      readline("You graph needs some titles for the axes and perhaps a main title.\nWe use the title() command to add them: \n\ntitle(ylab = 'Species Richness', xlab = 'Grazing Treatment', main = 'Species richness and grazing')\n\n")
+      
+      # boxplot(count ~ site, data = hog, col = 'tan', horizontal = TRUE)
+      readline("Now look at the hog data.\nEarlier you conducted a U-test on these data.\nCreate a boxplot to illustrate the result, and make the bars run horizontally: \n\nboxplot(count ~ site, data = hog, col = 'tan', horizontal = TRUE)\n\n")
+      
+      # title(ylab = 'Water speed', xlab = 'Hoglouse abundance', main = 'Hoglouse and water speed')
+      readline("This graph needs labeling so use the title() command to add titles to the axes as well as a main title: \n\ntitle(ylab = 'Water speed', xlab = 'Hoglouse abundance', main = 'Hoglouse and water speed')\n\n")
+      
+      # pairs(~Girth + Height + Volume, data = trees)
+      readline("The trees data comprise three columns of numerical data.\nUse the formula notation to produce a pairs plot showing the relationship between all the variables: \n\npairs(~Girth + Height + Volume, data = trees)\n\n")
+      
+      # plot(Girth ~ Height, data = trees, col = 'blue', cex = 1.2, xlab = 'Height (ft.)', ylab = 'Girth(in.)')
+      readline("Now use a more conventional formula to create the scatter plot.\nThis time add custom titles to the axes and alter the plotting characters: \n\nplot(Girth ~ Height, data = trees, col = 'blue', cex = 1.2, xlab = 'Height (ft.)', ylab = 'Girth(in.)')\n\n")
+      
+      # title(main = 'Girth and Height in Black Cherry')
+      readline("Add a main title to the scatter plot using the title() command: \n\ntitle(main = 'Girth and Height in Black Cherry')\n\n")
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Carry Out a One-Way Analysis of Variance
+    else if (substr(ANSWER, 1, 2) == 5) 
+    {
+     cat("You have selected: Carry Out a One-Way Analysis of Variance\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("Look at the cw data; they are modified from an example that you can find in R.\nThese data are weights of chicks (in grams) that have been fed different diets.\nEach column shows a different diet with the wight of each chick at the end of the experiment: \n\nHit [ENTER] to continue:\n\n")
+     
+      # cws <- na.omit(stack(cw))
+      readline("To carry out analysis of variance you need to rearrange the data into a two-column format with a reponse column and predictor column.\nDo this using the stack() command, but because the data contain NA items, they will need to be removed first: \n\ncws <- na.omit(stack(cw))\n\n")
+      
+     # names(cws) <- c('weight', 'diet')
+     readline("The resulting data frame has plain headings, so use the names() command to rename them to something more descriptive: \n\nnames(cws) <- c('weight', 'diet')\n\n")
+     
+     # str(cws)
+     # summary(cws)
+     readline("Now use the str() and summary() commands to see what the data comprise: \n\nstr(cws)\n\nsummary(cws)\n\n")
+     
+     # boxplot(weight ~ diet, data = cws)
+     readline("Create a graphical summary of the data to help visualize the situation: \n\nboxplot(weight ~ diet, data = cws)\n\n")
+     
+     # cws.aov <- aov(weight ~ diet, data = cws)
+     # summary(cws.aov)
+     readline("Conduct a one-way ANOVA on the data: \n\ncws.aov <- aov(weight ~ diet, data = cws)\n\nsummary(cws.aov)\n\n")
+     
+     # TukeyHSD(cws.aov)
+     readline("There is a significant effect of diet on the weight, but not all diets are the same.\n A post-hoc analysis will reveal where the important differences lie: \n\nTukeyHSD(cws.aov)\n\n")
+
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Carry Out a Two-Way Analysis of Variance
+    else if (substr(ANSWER, 1, 2) == 6) 
+    {
+     cat("You have selected: Carry Out a Two-Way Analysis of Variance\n\n")
+     
+     # Hit [ENTER] to continue:
+     readline("Look at the warpbreaks data that come as part of R\nYou can use a variety of commands to explore the: \n\nHit [ENTER] to continue:\n\n")
+     # head(warpbreaks)
+     # names(warpbreaks)
+     # str(warbreaks)
+     # summary(warpbreaks)
+     cat("head(warpbreaks)\n\nnames(warpbreaks)\n\nstr(warbreaks)\n\nsummary(warpbreaks)\n\n")
+     
+     # boxplot(breaks ~ wool * tension, data = warpbreaks)
+     readline("The data contain a response variable, breaks, and two predictor variables, wool and tension.\nCreate a visual summary of these data using a boxplot: \n\nboxplot(breaks ~ wool * tension, data = warpbreaks)\n\n")
+     
+     # wb.aov <- aov(breaks ~ wool * tension, data = warpbreaks)
+     # summary(wb.aov)
+     readline("It looks as though some differences exist, so now carry out a two-way analysis of variance: \n\nwb.aov <- aov(breaks ~ wool * tension, data = warpbreaks)\n\nsummary(wb.aov)\n\n")
+     
+     # TukeyHSD(wb.aov)
+     readline("It appears that there is a significant interaction effect.\nTo explore the data further, carry out a Tukey post-hoc test: \n\nTukeyHSD(wb.aov)\n\n")
+     
+     # TukeyHSD(wb.aov, order = TRUE)
+     readline("It may be easier to see the signifcant differences by re-ordering the factors.\nUse the order = TRUE instruction as part of the post-hoc command: \n\nTukeyHSD(wb.aov, order = TRUE)\n\n")
+     
+     # plot(TukeyHSD(wb.aov, order = T), las = 1, cex.axis = 0.8)
+     # abline(v = 0, lty = 'dotted', col = 'gray60')
+     readline("Visualize the post-hoc test more clearly by creating a graphical summary of the Tukey test: \n\nplot(TukeyHSD(wb.aov, order = T), las = 1, cex.axis = 0.8)\n\nabline(v = 0, lty = 'dotted', col = 'gray60')\n\n")
+
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    
+    # Make an nteraction Plot of a Two-Way ANOVA
+    else if (substr(ANSWER, 1, 2) == 7) 
+    {
+     cat("You have selected: Make an Interaction Plot of a Two-Way ANOVA\n\n")
+     
+     # names(warpbreaks)
+     # boxplot(breaks ~ wool * tension, data = warpbreaks)
+     readline("earlier you carried out a two-way ANOVA on the warpbreaks data.\nLook again at the data to remind yourself of the situation: \n\nnames(warpbreaks)\n\nboxplot(breaks ~ wool * tension, data = warpbreaks)\n\n")
+     
+     # with(warpbreaks, interaction.plot(tension, wool, breaks))
+     readline("An interaction plot would be helpful to explore the relationship between tension and wool.\nCreate a basic plot: \n\nwith(warpbreaks, interaction.plot(tension, wool, breaks))\n\n")
+     
+     # with(warpbreaks, interaction.plot(tension, wool, breaks, type = 'b'))
+     readline("Make the plot clearer by adding data points in addition to the lines: \n\nwith(warpbreaks, interaction.plot(tension, wool, breaks, type = 'b'))\n\n")
+     
+     # with(warpbreaks, interaction.plot(tension, wool, breaks, type = 'b', pch = 1:2, col = 1:2, lty = 1:2, las = 1))
+     readline("Now modify the plot by altering the plotting characters, colors, and line styles: \n\nwith(warpbreaks, interaction.plot(tension, wool, breaks, type = 'b', pch = 1:2, col = 1:2, lty = 1:2, las = 1))\n\n")
+     
+     # with(warpbreaks, interaction.plot(wool, tension, breaks, fun = median, type = 'b', pch = 1:3, col = 1:3, lty = 1:3, las = 1))
+     readline("Now switch the data around to display the wool variable on the x-axis.\nUse the median as the value plotted on the y-axis: \n\nwith(warpbreaks, interaction.plot(wool, tension, breaks, fun = median, type = 'b', pch = 1:3, col = 1:3, lty = 1:3, las = 1))\n\n")
+    
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # What you learned
+    else if (substr(ANSWER, 1, 2) == 8) 
+    {
+     cat("You have selected: What you learned\n\n")
+     
+     # Formula syntax:
+     cat("Formula syntax:")
+     readline("\n\nresponse ~ predictor\n\n")
+     
+     # Stacking samples:
+     cat("Stacking samples:")
+     readline("\n\nstack()\n\n")
+     
+     # Analysis of variance (ANOVA):
+     cat("Analysis of variance (ANOVA):")
+     readline("\n\naov()\n\n")
+     
+     # Tukey:
+     cat("Tukey:")
+     readline("\n\nTukeyHSD()\n\n")
+     
+     # Interaction Plots:
+     cat("Interaction Plots:")
+     readline("\n\ninteraction.plot()\n\n")
+     
+     # Extracting elements of an ANOVA:
+     cat("Extracting elements of an ANOVA:")
+     readline("\n\nmodel.tables()\n\ntapply()\n\n")
+     
+     # Replications and balance:
+     cat("Replications and balance:")
+     readline("\n\nreplications()\n\n")
+     
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Exit
+    else if (substr(ANSWER, 1, 2) == 99) 
+    {
+      cat("Goodbye")
+      exit <- "exit"
+    }
+  
+  }
+}    
+
+
+  
+  
+  # Manipulating Data and Extracting Components
+  
+  statistics.manipulation <- function() 
+  
+{
+  
+  exit <- "noexit"
+  while (exit != "exit")
+  {
+    cat("Open up R again. You can have two instances open at once. You will need another console to do work:\n\n")
+    menu <- data.frame(c("Get Data", "Get Book:", "Make A Complex Data Frame", "Add Rows and Columns to Existing Data", "Using Grouping Variables to Summarize Complex Data:", "Use the aggregate() Command to Make Summary Results", "What you Learned", "Name", "TYPE 99 TO QUIT"))
+      
+    cat("Pick an option by number")
+    names(menu) <- "Main Menu"
+    print(format(menu,justify = "left", trim=TRUE))
+    ANSWER <- readline("")
+    
+    
+    # Get Data
+    if (substr(ANSWER, 1, 2) == 1) 
+    {
+      cat("Download Beginning R Data from this site and open once downloaded:") 
+      url <- paste("http://www.wrox.com/WileyCDA/WroxTitle/Beginning-R-The-Statistical-Programming-Language.productCd-111816430X,descCd-DOWNLOAD.html")
+      shell.exec(url)
+    }
+    
+    # Book
+    else if (substr(ANSWER, 1, 2) == 2) 
+    {
+      url <- paste("http://fdrennan.net/pages/Personal/R/Beginning%20R.pdf")
+      shell.exec(url)
+    }
+    
+    # Make A Complex Data Frame 
+    else if (substr(ANSWER, 1, 2) == 3) 
+    {
+      cat("You have selected: Make A Complex Data Frame\n\n")
+      
+      # higher <- c(12, 15, 17, 11, 15)\nlower <- c(8, 9, 7, 9)\nmiddle <- c(12, 14, 17, 21, 17)
+      readline("Start by creating some numerical response data.\nThese relate to the abundance of a plant at three sites: \n\nhigher <- c(12, 15, 17, 11, 15)\nlower <- c(8, 9, 7, 9)\nmiddle <- c(12, 14, 17, 21, 17)\n\n")
+      
+      # daisy <- c(higher, lower, middle)
+      readline("Now join the separate vectors to make one variables: \n\ndaisy <- c(higher, lower, middle)\n\n")
+      
+      # cutting <- c(rep('mow', 5), rep('unmow', 4), rep('sheep', 5))
+      readline("Make a predictor variable (the cutting regime) by creating a character vector: \n\ncutting <- c(rep('mow', 5), rep('unmow', 4), rep('sheep', 5))\n\n")
+      
+      # time <- rep(gl(2, 1, length = 5, labels = c('early', 'late')), 3)[-10]
+      readline("Create a second predictor variable (time of cutting): \n\ntime <- rep(gl(2, 1, length = 5, labels = c('early', 'late')), 3)[-10]\n\n")
+      
+      # flwr <- data.frame(daisy, cutting, time)
+      readline("Assemble the data frame: \n\nflwr <- data.frame(daisy, cutting, time)\n\n")
+      
+      # rm(higher, lower, middle, daisy, cutting, time)
+      readline("Tidy up: \n\nrm(higher, lower, middle, daisy, cutting, time)\n\n")
+      
+      # flwr
+      readline("View the final data: \n\nflwr\n\n")
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Add Rows and Columns to Existing Data
+    else if (substr(ANSWER, 1, 2) == 4) 
+    {
+      cat("You have selected: Add Rows and Columns to Existing Data\n\n")
+      
+      
+      # flwr
+      readline("Look at the flwr data frame that you created earlier: \n\nflwr\n\n")
+      
+      # poa <- c(8, 9, 1, 12, 10, 15, 17, 16, 16, 7, 8, 8, 5, 9)
+      readline("Now create a new numberical vector: \n\npoa <- c(8, 9, 1, 12, 10, 15, 17, 16, 16, 7, 8, 8, 5, 9)\n\n")
+      
+      # flwr$poa <- poa
+      readline("Add the new response variable to the previous data frame: \n\nflwr$poa <- poa\n\n")
+      
+      # flwr <- flwr[c(1,4,2,3])]
+      readline("Rearrange the columns so that the two response variables are on the left: \n\nflwr <- flwr[c(1,4,2,3]\n\n")
+      
+      # row15 <- data.frame(10, 18, 'mow', 'early')
+      readline("Create data that will form a new row (the missing replicate from the unmow cutting regime): \n\nrow15 <- data.frame(10, 18, 'mow', 'early')\n\n")
+      
+      # flwer[15, ] <- row15
+      readline("Add the extra row to the existing data: \n\nflwer[15, ] <- row15\n\n")
+      
+      # rm(poa, row15)
+      readline("Tidy up: \n\nrm(poa, row15)\n\n")
+      
+      # flwr
+      readline("View the final result: \n\nflwr\n\n")
+      
+      
+      
+      
+      
+      
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Using Grouping Variables to Summarize Complex Data
+    else if (substr(ANSWER, 1, 2) == 5) 
+    {
+     cat("You have selected: Using Grouping Variables to Summarize Complex Data\n\n")
+     
+      # flwr
+      readline("Look back at the flwer data object that you created earlier: \n\nflwr\n\n")
+      
+      # tapply(flwr$daisy, flwr$cutting, mean)
+      readline("You have two response variables (daisy and poa) and two predictor variables (cutting and time).\nSummarize the daisy variable by obtaining the mean for the grouping variable cutting.: \n\ntapply(flwr$daisy, flwr$cutting, mean)\n\n")
+      
+      # tapply(flwr$daisy, list(flwr$cutting, flwr$time), mean)
+      readline("Now add the second grouping variable: \n\ntapply(flwr$daisy, list(flwr$time, flwr$cutting), mean)\n\n")
+      
+      # tapply(flwr$daisy, list(flwr$time, flwr$cutting), mean)
+      readline("Alter the resut by changing the order of the grouping variables: \n\ntapply(flwr$daisy, list(flwr$time, flwr$cutting), mean)\n\n")
+      
+      # with(flwr, tapply(poa, list(time, cutting), mean))
+      readline("Alter the order of the result: \n\npoa <- c(8, 9, 1, 12, 10, 15, 17, 16, 16, 7, 8, 8, 5, 9)\nwith(flwr, tapply(poa, list(time, cutting), mean)\n\n")
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Use the aggregate() Command to Make Summary Results
+    else if (substr(ANSWER, 1, 2) == 6) 
+    {
+     cat("You have selected: Use the aggregate() Command to Make Summary Results\n\n")
+     
+      # flwr
+      readline("Look again at the flwr data object that you created earlier: \n\nflwr\n\n")
+      
+      # aggregate(flwr$daisy, by = list(flwr$cutting), FUN = mean)
+      readline("You have two response variables (daisy and poa) and two predictor variables (cutting and time).\nBegin by summarizing the mrean of the daisy variables grouped by cutting: \n\naggregate(flwr$daisy, by = list(flwr$cutting), FUN = mean)\n\n")
+      
+      # aggregate(flwr$daisy, by = list(flwr$cutting, flwr$time), FUN = mean)
+      readline("Now add the time variable and group using both predictors: \n\naggregate(flwr$daisy, by = list(flwr$cutting, flwr$time), FUN = mean)\n\n")
+      
+      
+      # aggregate(flwr[1:2], by = list(flwr$cutting, flwr$time), FUN = mean)
+      readline("Summarize both response variables using both the predictors as grouping variables: \n\naggregate(flwr[1:2], by = list(flwr$cutting, flwr$time), FUN = mean)\n\n")
+      
+      # aggregate(poa ~ cutting + time, data = flwr, FUN = mean)
+      readline("Now use the formula syntax to summarize the poa response variable by using both grouping variables: \n\naggregate(poa ~ cutting + time, data = flwr, FUN = mean)\n\n")
+      
+      # aggregate(cbind(poa, daisy) ~ cutting + time, data = flwr, FUN = mean)
+      readline("Summarize both response variables using both predictor variables: \n\naggregate(. ~ cutting + time, data = flwr, FUN = mean)\n\n")
+      
+      # aggregate(cbind(poa, daisy) ~ cutting + time, data = flwr, FUN = mean)
+      readline("Obtain the same result by specifying the response variables explicitly: \n\naggregate(cbind(poa, daisy) ~ cutting + time, data = flwr, FUN = mean)\n\n")
+      
+      # aggregate(cbind(poa, daisy) ~ ., data = flwr, FUN = mean)
+      readline("This time use all the variables, but save some typing and specify the grouping variables with a period: \n\naggregate(cbind(poa, daisy) ~ ., data = flwr, FUN = mean)\n\n")
+      
+      # aggregate(cbind(poa, daisy) ~ 1, data = flwr, FUN = mean)
+      readline("Ignore all the grouping variables and obtain an overall mean for the two response variables: \n\naggregate(cbind(poa, daisy) ~ 1, data = flwr, FUN = mean)\n\n")
+      
+ 
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    
+    # What you Learned
+    else if (substr(ANSWER, 1, 2) == 7) 
+    {
+     cat("You have selected: What you Learned\n\n")
+     
+     # Making data items:
+     cat("Making data items:")
+     readline("\n\nlength()\n\n")
+     
+     # Making data itmes:
+     cat("Making data itmes:")
+     readline("\n\nnames()\n\nrow.names()\n\nrownames()\n\ncolnames()\n\n")
+     
+     # Stacking separate vectors:
+     cat("Stacking separate vectors:")
+     readline("\n\nstack()\n\n")
+     
+     # Removing NA Items:
+     cat("Removing NA Items:")
+     readline("\n\nna.omit()\n\n")
+     
+     # Repreated Elements:
+     cat("Repreated Elements:")
+     readline("\n\nrep()\n\ngl()\n\n")
+     
+     # Factor elements:
+     cat("Factor elements:")
+     readline("\n\nfactor()\n\nas.factor()\n\nlevels()\n\nnlevels()\n\nas.numeric()\n\n")
+     
+     # Constructing a data frame:
+     cat("Constructing a data frame:")
+     readline("\n\ndata.frame()\n\n")
+     
+     # Constructing a matrix:
+     cat("Constructing a matrix:")
+     readline("\n\nmatrix()\n\ncbind()\n\nrbind()\n\n")
+     
+     # Simple row or column sums or means:
+     cat("Simple row or column sums or means:")
+     readline("\n\nrowSums()\n\ncolSums()\n\nrowMeans()\n\ncolMeans()\n\n")
+     
+     # Simple sum using a grouping variable:
+     cat("Simple sum using a grouping variable:")
+     readline("\n\nrowsum()\n\n")
+     
+     # Apply a command to rows or columns:
+     cat("Apply a command to rows or columns:")
+     readline("\n\napply()\n\n")
+     
+     # Use a grouping variable with any command:
+     cat("Use a grouping variable with any command:")
+     readline("\n\ntapply()\n\n")
+     
+     # Array objects:
+     cat("Array objects:")
+     readline("\n\nobject[x, y, z, ...]\n\n")
+     
+     # Summarize usingg a grouping variable:
+     cat("Summarize usingg a grouping variable:")
+     readline("\n\naggregate()\n\n")
+     
+  
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Name
+    else if (substr(ANSWER, 1, 2) == 8) 
+    {
+     cat("You have selected: Name\n\n")
+     
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Exit
+    else if (substr(ANSWER, 1, 2) == 99) 
+    {
+      cat("Goodbye")
+      exit <- "exit"
+    }
+  
+  }
+}    
+
+  
+  ### Regression
+  
+  statistics.regression <- function() 
+{
+  
+  exit <- "noexit"
+  while (exit != "exit")
+  {
+    cat("Open up R again. You can have two instances open at once. You will need another console to do work:\n\n")
+    menu <- data.frame(c("Get Data", "Get Book:", "Carry Out Linear Regression", "Build a Regression Model", "Logarithmic Regression and Add a Line of Best-Fit:", "Add Confidence Intervals to a Regression Plot", "Produce a Summary Plot of a Multiple Regression", "What you Learned", "TYPE 99 TO QUIT"))
+      
+    cat("Pick an option by number")
+    names(menu) <- "Main Menu"
+    print(format(menu,justify = "left", trim=TRUE))
+    ANSWER <- readline("")
+    
+    
+    # Get Data
+    if (substr(ANSWER, 1, 2) == 0) 
+    {
+      cat("Download Beginning R Data from this site and open once downloaded:") 
+      url <- paste("http://www.wrox.com/WileyCDA/WroxTitle/Beginning-R-The-Statistical-Programming-Language.productCd-111816430X,descCd-DOWNLOAD.html")
+      shell.exec(url)
+    }
+    
+    # Book
+    else if (substr(ANSWER, 1, 2) == 1) 
+    {
+      url <- paste("http://fdrennan.net/pages/Personal/R/Beginning%20R.pdf")
+      shell.exec(url)
+    }
+    
+    # Carry Out Linear Regression 
+    else if (substr(ANSWER, 1, 2) == 2) 
+    {
+      cat("You have selected: Carry Out Linear Regression\n\n")
+      
+      # str(cars)
+      readline("Look at the cars data; these come as part of R.\n You can access them simply by typing the name.\nYou have two variables, speed and sitance: \n\nstr(cars)\n\n")
+      
+      # cars.lm <- lm(dist ~ speed, data = cars)
+      readline("Create a simple regression of stopping distance and car speed: \n\ncars.lm <- lm(dist ~ speed, data = cars)\n\n")
+      
+      # names(cars.lm)
+      readline("Now look at the result object: \n\nnames(cars.lm)\n\n")
+      
+      # cars.lm$coeff
+      # coef(cars.lm)
+      readline("Get the coefficients; you can do this in two ways: \n\ncars.lm$coeff\n\ncoef(cars.lm)\n\n")
+      
+      # confint(cars.lm)
+      readline("Now obtain the confidence intervals of the coefficients: \n\nconfint(cars.lm)\n\n")
+      
+      # cars.lm$fitted
+      # fitted(cars.lm)
+      readline("Get the fitted values for the regression model; once again, you can use two methods: \n\ncars.lm$fitted\nfitted(cars.lm)\n\n")
+      
+      # cars.lm$resid
+      # resid(cars.lm)
+      readline("Look at the residuals from the regression model: \n\ncars.lm$resid\n\nresid(cars.lm)\n\n")
+      
+      # cars.lm$call
+      # formula(cars.lm)
+      readline("Remind yourself of the formula used in the analysis: \n\ncars.lm$call\n\nformula(cars.lm)\n\n")
+      
+      # plot(dist ~ speed, data = cars)
+      readline("Draw a scatter plot of the relationship: \n\nplot(dist ~ speed, data = cars)\n\n")
+      
+      # abline(cars.lm)
+      readline("Add a line of best-fit to the scatter plot: \n\nabline(cars.lm)\n\n")
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Build a Regression Model
+    else if (substr(ANSWER, 1, 2) == 3) 
+    {
+      cat("You have selected: Build a Regression Model\n\n")
+      
+      # str(mtcars)
+      readline("Look at the mtcars data item. This is built into R: \n\nstr(mtcars)\n\n")
+      
+      # mtcars.lm <- lm(mpg ~ 1, data = mtcars)
+      readline("Start by creating a blank model using mpg as the response variable: \n\nmtcars.lm <- lm(mpg ~ 1, data = mtcars)\n\n")
+      
+      # add1(mtcars.lm, mtcars, test = 'F')
+      readline("Determine which predictor variable is the best starting candidate: \n\nadd1(mtcars.lm, mtcars, test = 'F')\n\n")
+      
+      # mtcars.lm <- lm(mpg ~ wt, data = mtcars)
+      readline("Add the best predictor variable to the blank model: \n\nmtcars.lm <- lm(mpg ~ wt, data = mtcars)\n\n")
+      
+      # summary(mtcars.lm)
+      readline("Do a quick check of the model summary: \n\nsummary(mtcars.lm)\n\n")
+      
+      # add1(mtcars.lm, mtcars, test = 'F')
+      readline("Now look again at the remaining candidate predictor variables: \n\nadd1(mtcars.lm, mtcars, test = 'F')\n\n")
+      
+      # mtcars.lm <- lm(mpg ~ wt + cyl, data = mtcars)
+      readline("Add the next best predictor variable to your regression model: \n\nmtcars.lm <- lm(mpg ~ wt + cyl, data = mtcars)\n\n")
+      
+      # summary(mtcars.lm)
+      readline("Now check the model summary once more: \n\nsummary(mtcars.lm)\n\n")
+      
+      # add1(mtcars.lm, mtcars, test = 'F')
+      readline("Check the remaining variables to see if there are any other candidate predictors to add: \n\nadd1(mtcars.lm, mtcars, test = 'F')\n\n")
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Logarithmic Regression and Add a Line of Best-Fit
+    else if (substr(ANSWER, 1, 2) == 4) 
+    {
+     cat("You have selected: Logarithmic Regression and Add a Line of Best-Fit\n\n")
+     
+      # pg.lm <- lm(growth ~ log(nutrient), data = pg)
+      readline("Use the logarithmic example data pg that you saw earlier to create a logarithmic regression: \n\npg.lm <- lm(growth ~ log(nutrient), data = pg)\n\n")
+      
+      # summary(pg.lm)
+      readline("Look at the model summary: \n\nsummary(pg.lm)\n\n")
+      
+      # plot(growth ~ nutrient, data = pg, ylab = 'Plant growth', xlab = 'Nutrient concentration')
+      readline("Draw the basic graph to show the relationship: \n\nplot(growth ~ nutrient, data = pg, ylab = 'Plant growth', xlab = 'Nutrient concentration')\n\n")
+      
+      # lines(spline(pg$nutrient, fitted(pg.lm)), lwd = 1.5)
+      readline("Add the line of best-fit: \n\nlines(spline(pg$nutrient, fitted(pg.lm)), lwd = 1.5)\n\n")
+      
+      # plot(growth ~ log(nutrient), data = pg, ylab = 'Plant growth', xlab = 'log(nutrient)')
+      readline("Redraw the graph using logarithm of the predictor variable: \n\nplot(growth ~ log(nutrient), data = pg, ylab = 'Plant growth', xlab = 'log(nutrient)')\n\n")
+      
+      # abline(coef(pg.lm))
+      readline("Now add a line of best-fit: \n\nabline(coef(pg.lm))\n\n")
+      
+      readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Add Confidence Intervals to a Regression Plot
+    else if (substr(ANSWER, 1, 2) == 6) 
+    {
+     cat("You have selected: Add Confidence Intervals to a Regression Plot\n\n")
+     
+     # pg.lm <- lm(growth ~ log(nutrient), data = pg)
+     readline("Look again at the logarithmic regression you made earlier: \n\npg.lm <- lm(growth ~ log(nutrient), data = pg)\n\n")
+     
+     # plot(growth ~ nutrient, data = pg, ylab = 'Plant growth', xlab = 'Nutrient concentration')
+     readline("Redraw the plot: \n\nplot(growth ~ nutrient, data = pg, ylab = 'Plant growth', xlab = 'Nutrient concentration')\n\n")
+     
+     # prd <- predict(pg.lm, interval = 'confidence')
+     readline("Create an object that contains the fitted values and 95-percent confidence intervals: \n\nprd <- predict(pg.lm, interval = 'confidence')\n\n")
+     
+     # prd <- as.data.frame(prd)
+     readline("Convert these data from a matrix into a data frame: \n\nprd <- as.data.frame(prd)\n\n")
+     
+     # prd$nutrient <- pg$nutrient
+     readline("Now add the original predictor data to the predicted values and confidence intervals: \n\nprd$nutrient <- pg$nutrient\n\n")
+     
+     # prd <- prd[order(prd$nutrient),]
+     readline("Reprder the values in ascending order of the predictor variable: \n\nprd <- prd[order(prd$nutrient),]\n\n")
+    
+     # lines(spline(prd$nutrient, prd$fit))
+     readline("Add the line of best-fit: \n\nlines(spline(prd$nutrient, prd$fit))\n\n")
+     
+     # lines(spline(prd$nutrient, prd$upr), lty = 2)
+     readline("Add the upper confidence band: \n\nlines(spline(prd$nutrient, prd$upr), lty = 2)\n\n")
+     
+     # lines(spline(prd$nutrient, prd$lwr), lty = 2)
+     readline("Add the lower confidence band: \n\nlines(spline(prd$nutrient, prd$lwr), lty = 2)\n\n")
+      
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    
+    # Produce a Summary Plot of a Multiple Regression
+    else if (substr(ANSWER, 1, 2) == 7) 
+    {
+     cat("You have selected: Produce a Summary Plot of a Multiple Regression\n\n")
+     
+     # mf.lm <- lm(Length ~ BOD + Speed, data = mf)
+     readline("Start by making a regression model.\n Use the mf data that you used earlier.\nMake a two-factor model with BOD and Speed as the predictor variables: \n\nmf.lm <- lm(Length ~ BOD + Speed, data = mf)\n\n")
+     
+     # prd <- predict(mf.lm, interval = 'confidence')
+     readline("Now make a result object to hold the predicted values: \n\nprd <- predict(mf.lm, interval = 'confidence')\n\n")
+     
+     # prd <- as.data.frame(prd)
+     readline("Convert the predicted values result from a matrix to a data frame: \n\nprd <- as.data.frame(prd)\n\n")
+     
+     # prd$Length <- mf$Length
+     readline("Add the response variable to the predicted values data frame: \n\nprd$Length <- mf$Length\n\n")
+     
+     # prd <- prd[order(prd$Length),]
+     readline("Reorder the predicted values in ascending order of the response variable: \n\nprd <- prd[order(prd$Length),]\n\n")
+     
+     # plot(Length ~ fit, prd, xlab = 'Fitted Values')
+     readline("Make a scatter plot of the response variable againse the predicted/fitted values: \n\nplot(Length ~ fit, prd, xlab = 'Fitted Values')\n\n")
+     
+     # abline(lm(Length ~ fit, prd))
+     readline("Add a line of best-fit: \n\nabline(lm(Length ~ fit, prd))\n\n")
+
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # What you Learned
+    else if (substr(ANSWER, 1, 2) == 8) 
+    {
+     cat("You have selected: What you Learned\n\n")
+     
+     # Simple regression:
+     cat("Simple regression:")
+     readline("\n\ncor.test()\n\nlm()\n\n")
+     
+     # Regression results:
+     cat("Regression results:")
+     readline("\n\ncoef()\n\nfitted()\n\nresid\n\nconfint()\n\n")
+     
+     # Best-fit lines:
+     cat("Best-fit lines:")
+     readline("\n\nabline\n\n")
+     
+     # ANOVA and lm():
+     cat("ANOVA and lm():")
+     readline("\n\nanova()\n\n")
+     
+     # Linear Modeling:
+     cat("Linear Modeling:")
+     readline("\n\nformula syntax\n\n")
+     
+     # Model Building:
+     cat("Model Building:")
+     readline("\n\nadd1()\n\ndrop1()\n\n")
+     
+     # Comparing regression models:
+     cat("Comparing regression models:")
+     readline("\n\nanova()\n\n")
+     
+     # Adding best-fit lines:
+     cat("Adding best-fit lines:")
+     readline("\n\nabline()\n\nfitted()\n\nspline()\n\n")
+     
+     # Confidence intervals:
+     cat("Confidence intervals:")
+     readline("\n\npredict()\n\nlines()\n\nspline()\n\n")
+     
+     # Diagnostic plots:
+     cat("Diagnostic plots:")
+     readline("\n\nplot()\n\n")
+     
+     readline("Hit [Enter] to return to Main Menu")
+    }
+    
+    # Exit
+    else if (substr(ANSWER, 1, 2) == 99) 
+    {
+      cat("Goodbye")
+      exit <- "exit"
+    }
+  
+  }
+}    
+  
+  # Main Body
+  exit <- "noexit"
+  while (exit != "exit")
+  {
+    cat("Open up R again. You can have two instances open at once. You will need another console to do work:\n\n")
+    menu <- data.frame(c("Get Data", "Get Book:", "Starting OUt", "Working with Objects", "Descriptive Statistics and Tabulation:", "Distributions", "Simple Hypothesis Testing", "Graphical Analysis", "Formula Notation and Complex Statistics", "Manipulating Data and Extracting Components", "Linear Regression", "TYPE 99 TO QUIT"))
+      
+    cat("Pick an option by number")
+    names(menu) <- "Main Menu"
+    print(format(menu,justify = "left", trim=TRUE))
+    ANSWER <- readline("")
+    
+    
+    # Get Data
+    if (substr(ANSWER, 1, 2) == 1) 
+    {
+      cat("Download Beginning R Data from this site and open once downloaded:") 
+      url <- paste("http://www.wrox.com/WileyCDA/WroxTitle/Beginning-R-The-Statistical-Programming-Language.productCd-111816430X,descCd-DOWNLOAD.html")
+      shell.exec(url)
+    }
+    
+    # Book
+    else if (substr(ANSWER, 1, 2) == 2) 
+    {
+      url <- paste("http://fdrennan.net/pages/Personal/R/Beginning%20R.pdf")
+      shell.exec(url)
+    }
+    
+    # Starting OUt 
+    else if (substr(ANSWER, 1, 2) == 3) 
+    {
+      cat("You have selected: Starting OUt\n\n")
+      
+      statistics.startingout()
+    }
+    
+    # Working with Objects
+    else if (substr(ANSWER, 1, 2) == 4) 
+    {
+      cat("You have selected: Working with Objects\n\n")
+      
+     statistics.objectmanipulation()
+    }
+    
+    # Descriptive Statistics and Tabulation
+    else if (substr(ANSWER, 1, 2) == 5) 
+    {
+     cat("You have selected: Descriptive Statistics and Tabulation\n\n")
+     
+    statistics.descriptivestats()
+    }
+    
+    # Distributions
+    else if (substr(ANSWER, 1, 2) == 6) 
+    {
+     cat("You have selected: Distributions\n\n")
+     
+     statistics.distribution()
+    }
+    
+    
+    # Simple Hypothesis Testing
+    else if (substr(ANSWER, 1, 2) == 7) 
+    {
+     cat("You have selected: Simple Hypothesis Testing\n\n")
+     
+    statistics.hypothesis()
+    }
+    
+    # Graphical Analysis
+    else if (substr(ANSWER, 1, 2) == 8) 
+    {
+     cat("You have selected: Graphical Analysis\n\n")
+     
+    statistics.graph()
+    }
+    
+    # Formula Notation and Complex Statistics
+    else if (substr(ANSWER, 1, 2) == 9) 
+    {
+     cat("You have selected: Formula Notation and Complex Statistics\n\n")
+     
+     statistics.anova()
+    }
+    
+    # Manipulating Data and Extracting Components
+    else if (substr(ANSWER, 1, 2) == 10) 
+    {
+     cat("You have selected: Manipulating Data and Extracting Components\n\n")
+     
+     statistics.manipulation()
+    }
+    
+    # Linear Regression
+    else if (substr(ANSWER, 1, 2) == 11) 
+    {
+     cat("You have selected: Linear Regression\n\n")
+     
+     statistics.regression()
+    }
+    
+    # Exit
+    else if (substr(ANSWER, 1, 2) == 99) 
+    {
+      cat("Goodbye")
+      exit <- "exit"
+    }
+  
+  }
+}    
+
+
+```

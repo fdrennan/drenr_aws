@@ -1,0 +1,32 @@
+---
+name: "Freddy Drennan"
+title: "Weather API"
+date: "February 20, 2018"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+
+## Weather API built with plumbeR
+
+<img src="http://www.drenr.com:8000/weather?days=2">
+
+If everything is running correctly, each time you open this page, the image above will refresh with the lastest weather for the past two days in Ft. Collins. 
+
+I'll be writing up full details on how to create an API with the ```plumber``` package as well as using Docker to create containers to run the API in. 
+
+Check it out yourself by changing the ```days``` parameter 
+
+```
+http://www.drenr.com:8000/weather?days=2
+http://www.drenr.com:8000/weather?days=20
+http://www.drenr.com:8000/weather?days=.01
+```
+
+Until then, cheers!

@@ -1,0 +1,107 @@
+"Date","X1.6.BBL","X1.2.BBL","X750ml.Cases","X12oz.Cases","Total.Sales","Returns","Deposit","Refund","Style","Invoice","Paid","Tivoli."
+"1/5/2017",0,0,0,3,"$96.00","$0.00","$0.00","$0.00","Golden Mosaic","17600 - Atlas Valley Purveyors","Yes",FALSE
+"1/5/2017",0,0,0,1,"$32.00","$0.00","$0.00","$0.00","Golden Mosaic","17601 - South Boulder Road Liquors","Yes",FALSE
+"1/11/2017",0,0,0,2,"$68.00","$0.00","$0.00","$0.00","Golden Mosaic, old ale","17602 - Centennial Wine & Spirits","Yes",FALSE
+"1/13/2017",0,0,0,1,"$32.00","$0.00","$0.00","$0.00","Golden Mosaic","17603 - Village Square Wine & Spirits","Yes",FALSE
+"1/17/2017",0,0,0,3,"$104.00","$0.00","$0.00","$0.00","Old Ale, Golden Mosaic","17604 - Centennial Wine & Spirits","Yes",FALSE
+"1/19/2017",0,1,0,0,"$135.00","$0.00","$0.00","$0.00","Abbey: 112","17605 - Murpy's Taphouse","Yes",FALSE
+"1/19/2017",0,0,2,0,"$276.00","$0.00","$0.00","$0.00","Tsar, Desertas","17606 - Union Jack ","Yes",FALSE
+"1/19/2017",0,0,0,1,"$32.00","$0.00","$0.00","$0.00","Golden Mosaic","17607 - Lulu's BBQ","Yes",FALSE
+"1/19/2017",0,1,0,0,"$135.00","$0.00","$0.00","$0.00","Schwag: 247","17608 - Mudrocks Tap & Tavern","Yes",FALSE
+"1/27/2017",0,1,0,0,"$150.00","$0.00","$0.00","$0.00","Golden Mosaic: ","17609 - Pica's Taqueria","Yes",FALSE
+"1/27/2017",0,0,0,2,"$68.00","$0.00","$0.00","$0.00","Golden Mosaic, Old ale","17610 - Brass Monkey Wine & Spirits","Yes",FALSE
+"1/27/2017",0,0,0,1,"$32.00","$0.00","$0.00","$0.00","Golden Mosaic","17611 - Village Square Wine & Spirits","Yes",FALSE
+"2/3/2017",0,0,1,0,"$115.00","$0.00","$0.00","$0.00","Mendacious","17612 - Union Jack","Yes",FALSE
+"2/3/2017",0,0,0,1,"$32.00","$0.00","$0.00","$0.00"," Golden Mosaic","17613 - Centennial Wine & Spirits","Yes",FALSE
+"2/7/2017",0,1,0,0,"$165.00","$0.00","$15.00","$0.00","Black Array: 133, deposit for tap handle","17614 - Waterloo","Yes",FALSE
+"2/7/2017",0,0,0,2,"$64.00","$0.00","$0.00","$0.00","Golden Mosaic","17615 - Centennial Wine & Spirits","Yes",FALSE
+"2/10/2017",0,0,0,1,"$32.00","$0.00","$0.00","$0.00","Golden Mosaic","17616 - Brass Monkey Wine & Spirits","Yes",FALSE
+"2/10/2017",0,0,0,22,"$680.00","$0.00","$0.00","$0.00","Golden Mosaic, Old Ale","17617 - Superior Liquor","Yes",FALSE
+"2/10/2017",0,0,0,11,"$332.00","$0.00","$0.00","$0.00","Golden Mosaic, Old Ale","17618 - South Boulder Rd Liquor","Yes",FALSE
+"2/14/2017",0,0,0,1,"$36.00","$0.00","$0.00","$0.00","Old Ale","17619 - Brass Monkey Wine & Spirits","Yes",FALSE
+"2/17/2017",0,0,0.5,2,"$126.50","$0.00","$0.00","$0.00","Acceleration, Golden Mosaic","17620 - Centennial Wine & Spirits","Yes",FALSE
+"2/17/2017",0,0,0,2,"$64.00","$0.00","$0.00","$0.00","Golden Mosaic","17621 - Village Square Wine & Spirits","Yes",FALSE
+"2/17/2017",0,0,1,0,"$132.00","$0.00","$0.00","$0.00","Coal Kriek","17622 - Brass Monkey Wine & Spirits","Yes",FALSE
+"2/24/2017",0,1,0,0,"$150.00","$0.00","$0.00","$0.00","Golden Mosaic :","17623 - Picas Taqueria","Yes",FALSE
+"2/24/2017",0,0,0,1,"$32.00","$0.00","$0.00","$0.00","Golden Mosaic","17624 - Lulu's BBQ","Yes",FALSE
+"2/24/2017",0,0,0,6,"$195.00","$0.00","$0.00","$0.00","Golden Mosaic, Old Ale","17625 - Atlas Valley Purveyors","Yes",FALSE
+"2/28/2017",0,0,0,1,"$36.00","$0.00","$0.00","$0.00","Old Ale","17626 - Village Square Wine & Spirits","Yes",FALSE
+"3/3/2017",0,1,0,0,"$135.00","$0.00","$0.00","$0.00","Abbey: 259","17627 - Mudrocks Tap & Tavern","Yes",FALSE
+"3/3/2017",0,0,3,0,"$342.00","$0.00","$0.00","$0.00","Kriek, Mendacious, DIPA","17628 - Superior Liquor","Yes",FALSE
+"3/6/2017",0,0,0,2,"$37.00","$0.00","$0.00","$0.00","Golden Mosaic","17629 - Village Square Wine & Spirits","Yes",FALSE
+"3/10/2017",0,1,0,0,"$165.00","$0.00","$0.00","$0.00","Wicked Nebula: ","17630 - Murphy's Taphouse","Yes",FALSE
+"3/10/2017",0,0,0,2,"$68.00","$0.00","$0.00","$0.00","Golden Mosaic, Old Ale","17631 - Centennial Wine & Spirits","Yes",FALSE
+"3/10/2017",0,0,1,0,"$125.00","$0.00","$0.00","$0.00","Acceleration","17632 - Union Jack","Yes",FALSE
+"3/10/2017",0,0,0,2,"$68.00","$0.00","$0.00","$0.00","Golden Mosaic, Olde Ale","17633 - Brass Monkey Wine & Spirits","Yes",FALSE
+"3/14/2017",0,0,2,0,"$227.00","$0.00","$0.00","$0.00","Coal Kriek, Acceleration","17634 - Atlas Valley Purveyors","Yes",FALSE
+"3/14/2017",0,0,0,1,"$28.00","$0.00","$0.00","$0.00","Golden Mosaic","17635 - Centennial Wine & Spirits","Yes",FALSE
+"3/17/2017",0,0,0,6,"$184.00","$0.00","$0.00","$0.00","Golden Mosaic","17636 - Union Jack Liquor","Yes",FALSE
+"3/17/2017",0,0,0,6,"$192.00","$0.00","$0.00","$0.00","Golden Mosaic, Old Ale","17637 - South Boulder Rd Liquor","Yes",FALSE
+"3/17/2017",0,0,0,11,"$320.00","$0.00","$0.00","$0.00","Golden Mosaic","17638 - Superior LIquor ","Yes",FALSE
+"3/23/2017",0,0,0,2,"$64.00","$0.00","$0.00","$0.00","Golden Mosaic","17639 - Village Square Wine & Spirits","Yes",FALSE
+"3/28/2017",0,0,0,2,"$64.00","$0.00","$0.00","$0.00","Golden Mosaic","17640 - Centennial Wine & Spirits","Yes",FALSE
+"3/31/2017",0,0,0,15,"$468.00","$0.00","$0.00","$0.00","Old Ale","17641 - Superior Liquor","Yes",FALSE
+"3/31/2017",0,0,0,2,"$68.00","$0.00","$0.00","$0.00","Old Ale, Golden Mosaic","17642 - Brass Monkey Wine & Spirits","Yes",FALSE
+"4/5/2017",0,0,0,2,"$64.00","$0.00","$0.00","$0.00","Golden Mosaic","17643 - Centennial Wine & Spirits","Yes",FALSE
+"4/6/2017",0,1,0,0,"$135.00","$0.00","$0.00","$0.00","Flight to mars : 227","17644 - Lulu's BBQ","Yes",FALSE
+"4/6/2017",0,0,0,1,"$32.00","$0.00","$0.00","$0.00","Golden Mosaic","17645 - Village Square Wine & Spirits","Yes",FALSE
+"4/11/2017",1,1.5,0,0,"$290.00","$0.00","$30.00","$0.00","Golden Mosaic Half Keg, Acceleration, Abbey","17646 - Jimmy's Killer Cuisine & Cocktails","No",FALSE
+"4/14/2017",0,0,0,2,"$64.00","$0.00","$0.00","$0.00","Golden Mosaic","17647 - Centennial Wine & Spirits","Yes",FALSE
+"4/14/2017",0,0,0,2,"$64.00","$0.00","$0.00","$0.00","Golden Mosaic","17648 - Brass Monkey Wine & Spirits","Yes",FALSE
+"4/14/2017",0,0,0,1,"$32.00","$0.00","$0.00","$0.00","Golden Mosaic","17649 - Village Square Wine & Spirits","Yes",FALSE
+"4/25/2017",0,1,0,0,"$165.00","$0.00","$30.00","$0.00","Wicked Nebula : 150","17650 - Lucky Pie","Yes",FALSE
+"4/25/2017",0,1,0,0,"$180.00","$0.00","$30.00","$0.00","Acceleration : 229","17651 - Jimmy's Killer Cuisine","No",FALSE
+"4/25/2017",0,0,5,0,"$489.00","$0.00","$0.00","$0.00","Acceleration, BBL Acceleration, Mendacious","17652 - Superior Liquor","Yes",FALSE
+"4/27/2017",0,1,0,0,"$270.00","$0.00","$75.00","$0.00","Cerveza : 164 & 315","17653 - Waterloo","Yes",FALSE
+"4/27/2017",0,1,0,0,"$150.00","$0.00","$30.00","$0.00","Mendacious : 306","17654 - Mudrocks Tap & Tavern","Yes",FALSE
+"4/27/2017",0,1,0,0,"$135.00","$0.00","$30.00","$0.00","Newtonian : 114","17655 - William Olivers","Yes",FALSE
+"4/27/2017",0,0,0.5,0,"$78.00","$0.00","$0.00","$0.00","BBL Acceleration","17656 - Centennial Wine & Spirits","Yes",FALSE
+"5/2/2017",0,2,0,0,"$355.00","$0.00","$90.00","$0.00","Kriek : 145 Abbey : 103","17657 - Growler USA","Yes",FALSE
+"5/2/2017",0,0,0,5,"$156.00","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza","17658 - Atlas Valley Purveyors","Yes",FALSE
+"5/4/2017",0,0,0,4,"$124.00","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza","17659 - Centennial Wine & Spirits","Yes",FALSE
+"5/5/2017",0,0,0,11,"$312.00","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza","17660 - Union Jack","Yes",FALSE
+"5/5/2017",0,0,0,2,"$62.00","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza","17661 - Brass Monkey Wine & Spirits","Yes",FALSE
+"5/5/2017",0,0,0,1,"$64.00","$0.00","$0.00","$0.00","Golden Mosaic","17662 - Village Square Wine & Spirits","Yes",FALSE
+"5/5/2017",0,0,0,22,"$620.00","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza","17663 - Superior Liquor","Yes",FALSE
+"5/11/2017",0,1,0,0,"$135.00","$0.00","$0.00","$0.00","Cerveza : 189","17664 - Melting Pot","Yes",FALSE
+"5/17/2017",0,0,0.5,1,"$89.50","$0.00","$0.00","$0.00","Acceleration, Golden Mosaic","17665 - Centennial Wine & Spirits","Yes",FALSE
+"5/19/2017",0,0,0,11,"$310.00","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza","17666 - South Boulder Rd Liquor","Yes",FALSE
+"5/19/2017",0,0,0,1,"$32.00","$0.00","$0.00","$0.00","Golden Mosaic","17667 - Village Square Wine & Spirits","Yes",FALSE
+"5/19/2017",0,0,0,2,"$62.00","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza","17668 - Brass Monkey Wine & Spirits","Yes",FALSE
+"5/24/2017",0,0,0,6,"$178.50","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza","17669 - Centennial Wine & Spirits","yes",FALSE
+"5/26/2017",0,0,0,1,"$30.00","$0.00","$0.00","$0.00","Cerveza ","17670 - Brass Monkey Wine & Spirits","Yes",FALSE
+"5/31/2017",0,0,0,6,"$176.50","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza","17671 - Atlas Valley Purveyors","yes",FALSE
+"6/1/2017",0,1,0,0,"$135.00","$0.00","$0.00","$0.00","Cerveza - 289","17672 - The Melting Pot","Yes",FALSE
+"6/5/2017",0,1,0,0,"$120.00","$0.00","$0.00","$0.00","Cerveza - 110","17673 - Rock Barbers","Yes",FALSE
+"6/7/2017",0,0,2,11,"$570.00","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza, Kepler, Acceleration","17674 - Union Jack","No",FALSE
+"6/7/2017",0,0,0,11,"$304.00","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza, (Swapped Old Ale for Cerveza Case, $6 credit applied to invoice)","17675 - County Line Wine & Spirits","No",FALSE
+"6/7/2017",0,0,0,4,"$128.00","$0.00","$0.00","$0.00","Golden Mosaic","17676 - Indian Peaks Golf Course","yes",FALSE
+"6/7/2017",0,0,0,2,"$62.00","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza","17677 - Brass Monkey Wine & Spirits","No",FALSE
+"6/7/2017",0,1,0,0,"$160.00","$0.00","$45.00","$0.00","Rood Dwarf : 301","17678 - Por Wine House","No",FALSE
+"6/9/2017",0,0,1,0,"$147.50","$0.00","$0.00","$0.00","BBL DIPA, Kepler","17679 - Broadlands Liquors","No",FALSE
+"6/15/2017",0,1,0,0,"$220.00","$0.00","$45.00","$0.00","Coal Kriek : 221","17680 - Coal Creek Golf Course","No",FALSE
+"6/16/2017",1,1,0,0,"$215.00","$0.00","$30.00","$0.00","Corner Store : 653 Abbey : 219","17681 - Murphy's Taphouse","No",FALSE
+"6/16/2017",1,0,0,0,"$75.00","$30.00","$30.00","$0.00","Rood Dwarf : 526","17682 - William Olivers","yes",FALSE
+"6/16/2017",0,0,0,1,"$32.00","$0.00","$0.00","$0.00","Golden Mosaic","17683 - Village Square Wine & Spirits","No",FALSE
+"6/16/2017",0,0,5,11,"$931.00","$0.00","$0.00","$0.00","Acceleration, BA Acceleration, BA Old Ale, Golden Mosaic","17684 - Superior Liquor","No",FALSE
+"6/16/2017",0,0,0.5,2,"$138.00","$0.00","$0.00","$0.00","BA Acceleration, Cerveza","17685 - Centennial Wine & Spirits","No",FALSE
+"6/22/2017",0,0,0,2,"$64.00","$0.00","$0.00","$0.00","Golden Mosaic","17686 - Centennial Wine & Spirts","No",FALSE
+"6/22/2017",0,0,0,4,"$124.00","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza","17687 - Brass Monkey Wine & Spirits","yes",FALSE
+"6/22/2017",0,0,0,4,"$124.00","$0.00","$0.00","$0.00","Golden Mosaic, Cerveza","17688 - Summit Wine & Spirits","No",FALSE
+"6/22/2017",4,0,0,0,"$150.00","$0.00","$165.00","$0.00","Cerveza, Orange Blossom Saison, Wicked Nebula","17689 - Por Winehouse","No",FALSE
+"6/30/2017",0,0,0,6,"$176.50","$0.00","$0.00","$0.00","Cerveza, Golden Mosaic","17690 - Summit Wine & Spirits","No",FALSE
+"6/30/2017",0,0,0,3,"$90.00","$0.00","$0.00","$0.00","Cerveza","17691 - Centennial Wine & Spirits","No",FALSE
+"6/30/2017",0,0,0,2,"$64.00","$0.00","$0.00","$0.00","Golden Mosaic","17692 - Village Square Wine & Spirits","No",FALSE
+"6/30/2017",0,0,1,0,"$139.00","$0.00","$0.00","$0.00","Trappist-1b","17693 - Atlas Valley Purveyors","No",FALSE
+"6/30/2017",0,0,1,1,"$169.00","$0.00","$0.00","$0.00","Cerveza, Trappist-1b","17694 - Ridge Liquors","No",FALSE
+"6/30/2017",0,0,0,5,"$150.00","$0.00","$0.00","$0.00","Cerveza","17695 - Superior Liquor","No",FALSE
+"6/30/2017",0,1,0,0,"$150.00","$0.00","$0.00","$0.00","Mendacious:263","17696 - William Olivers","No",FALSE
+"6/30/2017",0,0,0,1,"$30.00","$0.00","$0.00","$0.00","Cerveza","17697 - Village Vista Liquor","yes",FALSE
+"6/30/2017",0,0,2,1,"$284.00","$0.00","$0.00","$0.00","Trappist-1b, Cerveza, Funky Gomo","17698 - Glacier Liquors","No",FALSE
+"7/7/2017",0,0,1,0,"$139.00","$0.00","$0.00","$0.00","Trappist, Funky ","17699 - Centennial Wine & Spirits","No",FALSE
+"7/7/2017",0,2,0,0,"$295.00","$0.00","$60.00","$0.00","PomWit:127 Cerveza:264","17700 - Growler USA","No",FALSE
+"7/7/2017",0,1,0,0,"$150.00","$0.00","$45.00","$0.00","Golden Mosaic: 149","17701 - Brunelleschi's Superior","No",FALSE
+"7/7/2017",0,0,0,6,"$184.00","$0.00","$0.00","$0.00","Golden Mosaic ","17702 - Indian Peaks Golf Course","No",FALSE
+"7/7/2017",2,0,0,2,"$217.00","$0.00","$60.00","$0.00","Saison: 608, Acceleration: 517 , Golden Mosaic, Cerveza","17703 - Jimmy's Killer Cuisine","No",FALSE
+"7/10/2017",0,2,0,0,"$320.00","$60.00","$60.00","$0.00","Pom Wit : 304, 166","17704 - Waterloo","No",FALSE
+"",NA,NA,NA,NA,"","","","","","","",NA

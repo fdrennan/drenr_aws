@@ -1,0 +1,167 @@
+---
+name: "Freddy Drennan"
+title: "Introduction to Keras"
+date: "February 2, 2018"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+
+# Introduction
+
+I am using an example from the book [Deep Learning with R](https://www.amazon.com/Deep-Learning-Python-Francois-Chollet/dp/1617294438/ref=sr_1_2_sspa?ie=UTF8&qid=1518203515&sr=8-2-spons&keywords=deep+learning+R&psc=1). The text is an excellent introduction to Deep Learning and uses the widely praised Keras platform. 
+
+The following example is available [here](https://github.com/jjallaire/deep-learning-with-r-notebooks). I am going to adapt it for myself. 
+
+We're going to be using the classical MNIST dataset which contains handwritten digits and their classifications. The point of the project is to be able to 
+```{r, warning = FALSE, message = FALSE}
+library(keras)
+library(tidyverse)
+library(imager)
+
+mnist <- dataset_mnist()
+train_images <- mnist$train$x
+train_labels <- mnist$train$y
+test_images <- mnist$test$x
+test_labels <- mnist$test$y
+```
+
+We see that we have an array of 60000, 28x28 matrices. Each matrix contains a handwritten digit. 
+```{r}
+str(train_images)
+str(train_labels)
+```
+
+
+```{r}
+par(mfrow = c(3, 3) )
+for(i in 1:9) {
+  train_images[i,,] %>% 
+  as.cimg %>% 
+  plot
+}
+par(mfrow = c(1, 1) )
+```
+
+# Building the Model 
+
+Before we use any of the inputs, we build the model out. These steps are done in place. Keras is built on top of python code and works a bit differently than R. 
+
+```{r}
+network <- keras_model_sequential() %>%
+  layer_dense(units = 512, activation = "relu", input_shape = c(28 * 28)) %>%
+  layer_dense(units = 10, activation = "softmax")
+
+network %>% compile(
+  optimizer = "rmsprop",
+  loss = "categorical_crossentropy",
+  metrics = c("accuracy")
+)
+```
+
+# Reshaping the Array
+
+Next, we reshape the 3D arrays into a 2D matrix and normalize the values to fall between 0 and 1. 
+
+```{r}
+train_images  <-
+  train_images %>% 
+   array_reshape(
+     c(
+       60000, 
+       28 * 28
+     )
+   )
+
+train_images <-
+   train_images / 255
+
+test_images  <-
+  test_images %>% 
+  array_reshape(
+    c(
+      10000, 
+      28 * 28
+    )
+  )
+
+test_images <-
+   test_images / 255
+```
+
+# Encoding the labels. 
+
+Next we turn the numeric labels into categorical/binary labels. 
+```{r}
+head(train_labels)
+
+train_labels <-
+  train_labels %>% 
+  to_categorical()
+
+test_labels <-
+  test_labels %>% 
+  to_categorical()
+```
+
+We can see how the first label is a six and the second is a one. I wrote the code so that the output looks a bit clearer. I'm a fan of ```noquote``` and use it pretty often when dealing with sparse matrices. It's especially useful when showing LP formulations. 
+```{r}
+train_labels %>% 
+  apply(2, FUN = function(x) ifelse(x == 1, 1, "")) %>% 
+  head %>% 
+  noquote()
+
+```
+
+
+We’re now ready to train the network, which in Keras is done via a call to the network’s fit method: we fit the model to its training data.
+
+# Training the Model. 
+
+```{r}
+network %>% 
+  fit(train_images, train_labels, epochs = 5, batch_size = 128)
+```
+
+
+# Getting the metrics. 
+```{r}
+metrics  <-
+  network %>% 
+  evaluate(test_images, test_labels)
+```
+
+
+# Generating Predictions
+```{r}
+predictions <-
+  network %>% 
+  predict_classes(test_images)
+```
+
+
+# Evaluating Model Accuracy
+```{r}
+actual_values <-
+  test_labels %>% 
+  apply(1, FUN = function(x) (1:10)[x==1])
+```
+
+
+## Checking it out
+
+We see here a very strong diagonal and accuracy of almost 98 percent!
+```{r}
+table_predictions <-
+  table(predictions, actual_values)
+
+table_predictions
+
+sum(diag(table_predictions))/sum(table_predictions)
+```

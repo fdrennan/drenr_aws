@@ -1,0 +1,41 @@
+---
+title: Rollbar
+author: Freddy Drennan
+date: '2018-02-11'
+slug: rollbar
+categories:
+  - errors
+  - rollbar
+tags: []
+---
+
+
+
+<p>I’ve been working on creating my own version of RSConnect by hand. I think it’s a bit awful that anyone would have to shell out 25K a year for software.</p>
+<p>With that said, part of the process was trying to figure out how to deal with errors that occur within my Docker images. The solution I found was <a href="http://rollbar.com">Rollbar</a>. It’s super easy to get started in R.</p>
+<p>Log in and create an account. The first image you’ll see is this:</p>
+<p><img src="/post/2018-02-11-rollbar_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Pick a new project and name it. <img src="/post/2018-02-11-rollbar_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Then, yea.. I’m sorry… select <strong>python</strong>. <img src="/post/2018-02-11-rollbar_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Then, copy the secure key. Mine is now deleted, so you can’t use mine. <img src="/post/2018-02-11-rollbar_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>I already have rollbar installed on my computer. You need to run <code>install.packages(&quot;rollbar&quot;)</code> first. Also, given that this is not a package that runs frequenly, I prefer to call functions explicity instead of loading the packge.</p>
+<pre class="r"><code>rollbar::rollbar.configure(access_token=&quot;d576994698c248faa7c990e16fee456a&quot;, env=&quot;production&quot;)
+rollbar::rollbar.error(&#39;Days &gt; 30 in weather_plot API&#39;)</code></pre>
+<pre><code>## Warning in normalizePath(paste0(dirname(path), &quot;/&quot;, path)): path[1]=&quot;/
+## Users/freddydrennan/Library/R/3.4/library/blogdown/scripts//Users/
+## freddydrennan/Library/R/3.4/library/blogdown/scripts/render_page.R&quot;: No
+## such file or directory</code></pre>
+<p>You’ll see that the code ran well. <img src="/post/2018-02-11-rollbar_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>You can go under settings and get notifications to Slack as well! <img src="/post/2018-02-11-rollbar_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Next try this!</p>
+<p>Create this file and name it rollbar.R</p>
+<pre><code>library(rollbar)
+rollbar.configure(access_token=&quot;d1ed4487e4d7403b82c992448f3c5602&quot;, 
+                           env=&quot;production&quot;,
+                           root=&quot;/Users/freddydrennan/Documents/programming/rProjects/fdrennan&quot;)
+
+rollbar.attach()
+print(a)
+</code></pre>
+<p>Then run <code>Rscript rollbar.R</code></p>
+<p>and you’ll get errors sent for general exceptions!</p>

@@ -1,0 +1,122 @@
+---
+name: "Freddy Drennan"
+title: "Beginning C++"
+date: "April 3, 2018"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+
+I've been spending a lot of time learning C++ in order to incorporate more interesting features into my R code. So here are some examples and their benchmarks. 
+
+
+## Summation in C++
+```{r engine='Rcpp'}
+#include <algorithm>
+#include <iostream>
+#include <numeric>
+#include <vector>
+#include <cmath>
+
+// [[Rcpp::export]]
+double dcpp_sum(const std::vector<double>& r_vector) {
+
+  int summation_vector = 0;
+
+  for(int i = 0; i < r_vector.size(); i = i + 1 ) {
+
+    summation_vector = summation_vector + r_vector[i];
+
+  }
+
+  return summation_vector;
+}
+```
+
+## Summation in R
+```{r}
+sumR <-
+  function(x) {
+    
+    # Create a variable to iterate through the sum of x
+    s_x = vector(mode = 'double', length = 1)
+    
+    # Take each x value and sum them all up
+    for(i in seq_along(x)) {
+      s_x = x[i] + s_x 
+    }
+    
+    s_x
+}
+```
+
+```{r}
+library(microbenchmark)
+
+x = 1:100
+y = 2*x - 3
+
+microbenchmark(
+  sum(x),     # base R function
+  sumR(x),    # sum function written in R
+  dcpp_sum(x) # sum function written in C++
+)
+```
+
+## Max value in C++
+```{r engine='Rcpp'}
+#include <numeric>
+#include <vector>
+using namespace std;
+
+// [[Rcpp::export]]
+double dcpp_max(const std::vector<double>& x) {
+
+  double result;
+
+  result = x[0];
+  for(int i = 1; i < x.size(); i++) {
+    if(result < x[i]) {
+      result = x[i];
+    }
+  }
+
+  return result;
+}
+
+```
+
+## Max in R
+```{r}
+maxR <-
+  function(vector) {
+    
+    result = vector(mode = "double", length = 1)
+    
+    for(i in seq_along(vector)) {
+      
+      if(result < vector[i]) {
+        result = vector[i]
+      }
+      
+    }
+    
+    result
+    
+}
+```
+
+```{r}
+x = 1:10000
+microbenchmark(
+  max(x),
+  maxR(x),
+  dcpp_max(x)
+)
+```

@@ -1,0 +1,24 @@
+---
+title: 'R Package: errorist'
+author: Freddy Drennan
+date: '2018-02-11'
+slug: r-package-errorist
+categories:
+  - Errors
+  - packages
+tags: []
+---
+
+Ok, pun intended?
+
+```errorist``` is a super easy to use package. The whole point is that we're copy/pasting everything into Chrome as it is, why not have the computer do it for you?
+
+
+```{r, eval = FALSE}
+library(errorist)
+enable_errorist()
+print(hello)
+```
+
+
+While useful, I can also see how this might start to get annoying.

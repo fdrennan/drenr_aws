@@ -1,0 +1,187 @@
+---
+name: "Freddy Drennan"
+title: "Stepwise Regression"
+date: "May 7, 2017"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+
+
+<style>
+body {
+    background-color: #BCE6FF
+}
+</style>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=1440881362667639";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div>
+
+<!-- Footer -->
+<header>
+<!-- <div class="container"> -->
+<div class="row">
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center">
+<li>
+<a href="http://fdrennan.net">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-arrow-left fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href="mailto:drennanfreddy@gmail.com?Subject=Hello">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/freddy-drennan-4a8b79aa">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href="http://facebook.com/freddy.drennan">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li> 
+<li>
+<a href="http://kaggle.com/fdrennan">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-area-chart fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li> 
+<li>
+<a href="https://github.com/fdrennan">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</header>
+
+################################################33
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##############################################
+<div>
+
+<!-- Footer -->
+<header>
+<!-- <div class="container"> -->
+<div class="row">
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center">
+<li>
+<a href="http://fdrennan.net">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-arrow-left fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href="mailto:drennanfreddy@gmail.com?Subject=Hello">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/freddy-drennan-4a8b79aa">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href="http://facebook.com/freddy.drennan">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li> 
+<li>
+<a href="http://kaggle.com/fdrennan">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-area-chart fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li> 
+<li>
+<a href="https://github.com/fdrennan">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</header>
+
+<div class="fb-comments" data-href="http://fdrennan.net/pages/pages2/stepwise.html" data-numposts="5"></div>
+
+

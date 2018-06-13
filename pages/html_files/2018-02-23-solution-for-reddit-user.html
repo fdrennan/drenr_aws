@@ -1,0 +1,40 @@
+---
+title: Test Answer Solution for Reddit User
+author: Freddy Drennan
+date: '2018-02-23'
+slug: test-answer-solution-for-reddit-user
+categories: []
+tags: []
+---
+
+
+
+<p>Solution for post <a href="https://www.reddit.com/r/rprogramming/comments/7zn2eo/if_someone_could_help_me_with_this_r_problem_i/">here</a></p>
+<pre class="r"><code>library(tidyverse)
+
+
+actual_answers &lt;-
+  sample(c(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;), size = 10, replace = TRUE)
+
+
+student_answers &lt;-
+  sample(c(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;), size = 100, replace = TRUE) 
+
+solutions_matrix &lt;-
+  matrix(student_answers, ncol = 10)
+
+
+solutions_matrix &lt;-
+  solutions_matrix %&gt;% 
+  as_tibble
+
+tf_df = solutions_matrix
+
+n_students = 10
+for(i in 1:n_students) {
+  tf_df[,i] =  solutions_matrix[,i] == actual_answers
+}
+
+colSums(tf_df)</code></pre>
+<pre><code>##  V1  V2  V3  V4  V5  V6  V7  V8  V9 V10 
+##   2   3   0   5   2   2   2   2   2   3</code></pre>

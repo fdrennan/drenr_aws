@@ -1,0 +1,82 @@
+---
+title: Rollbar
+author: Freddy Drennan
+date: '2018-02-11'
+slug: rollbar
+categories:
+  - errors
+  - rollbar
+tags: []
+---
+
+I've been working on creating my own version of RSConnect by hand. I think it's a bit awful that anyone would have to shell out 25K a year for software. 
+
+With that said, part of the process was trying to figure out how to deal with errors that occur within my Docker images. The solution I found was [Rollbar](http://rollbar.com). It's super easy to get started in R.
+
+Log in and create an account. The first image you'll see is this:
+
+
+```{r ,echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("images/rollbar1.png")
+ grid.raster(img)
+```
+
+
+Pick a new project and name it. 
+```{r ,echo=FALSE}
+img <- readPNG("images/rollbar2.png")
+ grid.raster(img)
+```
+
+Then, yea.. I'm sorry... select __python__.
+```{r ,echo=FALSE}
+img <- readPNG("images/rollbar3.png")
+ grid.raster(img)
+```
+
+Then, copy the secure key. Mine is now deleted, so you can't use mine. 
+```{r ,echo=FALSE}
+img <- readPNG("images/rollbar4.png")
+ grid.raster(img)
+```
+
+
+I already have rollbar installed on my computer. You need to run ```install.packages("rollbar")``` first. Also, given that this is not a package that runs frequenly, I prefer to call functions explicity instead of loading the packge. 
+
+```{r}
+rollbar::rollbar.configure(access_token="d576994698c248faa7c990e16fee456a", env="production")
+rollbar::rollbar.error('Days > 30 in weather_plot API')
+```
+
+You'll see that the code ran well.
+```{r, echo=FALSE}
+img <- readPNG("images/rollbar5.png")
+ grid.raster(img)
+```
+
+You can go under settings and get notifications to Slack as well!
+```{r ,echo=FALSE}
+img <- readPNG("images/rollbar6.png")
+ grid.raster(img)
+```
+
+
+Next try this!
+
+Create this file and name it rollbar.R
+```
+library(rollbar)
+rollbar.configure(access_token="d1ed4487e4d7403b82c992448f3c5602", 
+                           env="production",
+                           root="/Users/freddydrennan/Documents/programming/rProjects/fdrennan")
+
+rollbar.attach()
+print(a)
+
+```
+
+Then run ```Rscript rollbar.R```
+
+and you'll get errors sent for general exceptions!

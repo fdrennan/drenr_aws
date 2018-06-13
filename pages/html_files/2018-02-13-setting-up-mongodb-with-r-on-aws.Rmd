@@ -1,0 +1,114 @@
+---
+name: "Freddy Drennan"
+title: "MongoDB on AWS"
+date: "March 4, 2018"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+
+Follow along with my [YouTube Tutorial HERE](https://youtu.be/FSUN_8F69KM)
+
+Run the commands below when you ssh into your AWS EC2 instance. 
+
+```
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+
+echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+
+sudo apt-get update
+
+sudo apt-get install -y mongodb-org
+```
+
+Next edit the configuration file
+
+```
+sudo vim /etc/mongod.conf
+```
+
+And replace
+```
+# network interfaces
+net:
+  port: 27017
+  bindIp: 127.0.0.1
+```
+
+with... 
+
+```
+# network interfaces
+net:
+  port: 27017
+  bindIp: 0.0.0.0  # Listen to local interface only, comment to listen on all interfaces.
+
+
+security:
+  authorization: 'enabled'
+```
+
+```
+sudo service mongod start
+```
+
+Next, edit this below for your ip address where it says HOSTIP.
+
+```
+sudo mongo --host HOSTIP:27017
+
+exit
+```
+
+
+Now create a root admin. 
+```
+sudo mongo
+```
+
+```
+use admin 
+
+db.createUser(
+    {
+      user: "admin",
+      pwd: "password",
+      roles: [ "root" ]
+    }
+)
+
+```
+
+
+```{r}
+library(mongolite)
+
+mongo_connect <- function(collectionName, dbName) {
+    # Cred
+    hostName = "mongodb://admin:password@18.217.141.236:27017"
+    
+    m <- mongolite::mongo(collection = collectionName , db = dbName, url = hostName)
+    
+    m
+}
+
+m = mongo_connect('mtcars', 'datasets')
+
+m$insert(mtcars)
+
+m$find('{"mpg": 21}')
+
+mongo_data <-
+  m$aggregate('[
+            {"$match"  : { "mpg" : {"$gt": 21} }},
+            {"$project": { "mpg" : 1  , "_id": 0, "wt": 1}}
+]')
+
+summary(lm(mongo_data))
+```

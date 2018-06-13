@@ -1,0 +1,149 @@
+---
+title: Indian Startup Funding EDA (In Progress)
+author: Freddy Drennan
+date: '2018-02-27'
+slug: indian-startup-funding-eda
+categories:
+  - Kaggle
+  - EDA
+tags: []
+---
+
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>Good morning, or good afternoon. Whatever time it is. I’m looking at this data for the first time and thought it would be fun to write out my initial throught process when exploring data. If you haven’t already, install <code>tidyverse</code> and <code>mongolite</code> using the typical <code>install.packages()</code> function to get started below.</p>
+<p>MongoDB is the database that I use on my server and so I’ve created a read-only user that you will be able to use to get access to the data needed for this walkthrough. The data comes from the Kaggle dataset <a href="https://www.kaggle.com/sudalairajkumar/indian-startup-funding">Indian Startup Funding</a>.</p>
+<p>According to the Kaggle site, possible questions to look at are:</p>
+<ul>
+<li>How does the funding ecosystem change with time?</li>
+<li>Do cities play a major role in funding?</li>
+<li>Which industries are favored by investors for funding?</li>
+<li>Who are the important investors in the Indian Ecosystem?</li>
+<li>How much funds does startups generally get in India?</li>
+</ul>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.4     
+## ✔ tibble  1.4.2          ✔ dplyr   0.7.4     
+## ✔ tidyr   0.8.0          ✔ stringr 1.2.0     
+## ✔ readr   1.1.1          ✔ forcats 0.2.0</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## ── Conflicts ───────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(forcats)
+library(mongolite)
+library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+<pre class="r"><code>library(ggthemes)</code></pre>
+<p>We’ll go ahead and grab the data from my server now. I’ve changed the column names to be a little easier to use as compared to the original dataset.</p>
+<pre class="r"><code>m &lt;- mongo(collection = &quot;startup_funding&quot; , 
+           db         = &quot;datasets&quot;, 
+           url        = &quot;mongodb://dbuser:password@drenr.com:27017&quot;)</code></pre>
+<pre><code>## Mongo Message: SCRAM: authenticating &quot;dbuser&quot; (step 1)
+## Mongo Message: SCRAM: authenticating &quot;dbuser&quot; (step 2)
+## Mongo Message: SCRAM: authenticating &quot;dbuser&quot; (step 3)
+## Mongo Message: SCRAM: &quot;dbuser&quot; authenticated</code></pre>
+<pre class="r"><code>startup_funding &lt;-
+  m$find()</code></pre>
+<pre><code>## 
+ Found 1000 records...
+ Found 2000 records...
+ Found 2372 records...
+ Imported 2372 records. Simplifying into dataframe...</code></pre>
+<p>Let’s look at the data and specify the column types.</p>
+<pre class="r"><code>startup_funding %&gt;% 
+  glimpse</code></pre>
+<pre><code>## Observations: 2,372
+## Variables: 10
+## $ number          &lt;int&gt; 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ...
+## $ date            &lt;chr&gt; &quot;01/08/2017&quot;, &quot;02/08/2017&quot;, &quot;02/08/2017&quot;, &quot;02/...
+## $ name            &lt;chr&gt; &quot;TouchKin&quot;, &quot;Ethinos&quot;, &quot;Leverage Edu&quot;, &quot;Zepo&quot;,...
+## $ vertical        &lt;chr&gt; &quot;Technology&quot;, &quot;Technology&quot;, &quot;Consumer Internet...
+## $ sub_vertical    &lt;chr&gt; &quot;Predictive Care Platform&quot;, &quot;Digital Marketing...
+## $ location        &lt;chr&gt; &quot;Bangalore&quot;, &quot;Mumbai&quot;, &quot;New Delhi&quot;, &quot;Mumbai&quot;, ...
+## $ investor_name   &lt;chr&gt; &quot;Kae Capital&quot;, &quot;Triton Investment Advisors&quot;, &quot;...
+## $ investment_type &lt;chr&gt; &quot;Private Equity&quot;, &quot;Private Equity&quot;, &quot;Seed Fund...
+## $ usd             &lt;dbl&gt; 1300000, NA, NA, 500000, 850000, 1000000, 2600...
+## $ remarks         &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...</code></pre>
+<pre class="r"><code>startups &lt;-
+  startup_funding %&gt;% 
+  transmute(
+    date            = dmy(date),
+    day             = wday(date),
+    week            = week(date),
+    month           = month(date),
+    name            = as.factor(name),
+    vertical        = as.factor(vertical),
+    sub_vertical    = as.factor(sub_vertical),
+    location        = as.factor(location),
+    investor_name   = as.factor(investor_name),
+    investment_type = as.factor(investment_type),
+    usd             = as.numeric(usd),
+    remarks         = as.factor(remarks)
+  )</code></pre>
+<p>Let’s look at the number of investments created over different date types.</p>
+<pre class="r"><code>col_count &lt;-
+  function(column, log = FALSE) {
+    
+    summed &lt;-
+      startups %&gt;% 
+      group_by_at(vars(one_of(column))) %&gt;% 
+      summarise(
+        count = n(),
+        lcount = n() %&gt;% log
+      ) %&gt;% 
+      ungroup() 
+      
+    ggplot(summed) +
+      aes_string(x = column, y = ifelse(log, &quot;lcount&quot;, &quot;count&quot;)) +
+      geom_col() +
+      ggtitle(paste0(&quot;Count of investments by: &quot;, column, &quot;.&quot;)) +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  }
+
+col_count(&#39;date&#39;)</code></pre>
+<p><img src="/post/2018-02-27-indian-startup-funding-eda_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>col_count(&#39;month&#39;)</code></pre>
+<p><img src="/post/2018-02-27-indian-startup-funding-eda_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<pre class="r"><code>col_count(&#39;day&#39;)</code></pre>
+<p><img src="/post/2018-02-27-indian-startup-funding-eda_files/figure-html/unnamed-chunk-4-3.png" width="672" /></p>
+<pre class="r"><code>col_count(&#39;week&#39;)</code></pre>
+<p><img src="/post/2018-02-27-indian-startup-funding-eda_files/figure-html/unnamed-chunk-4-4.png" width="672" /></p>
+<pre class="r"><code>col_count(&#39;investment_type&#39;, log = TRUE)</code></pre>
+<p><img src="/post/2018-02-27-indian-startup-funding-eda_files/figure-html/unnamed-chunk-4-5.png" width="672" /></p>
+<pre class="r"><code>col_sum &lt;-
+  function(column, log = FALSE) {
+    startups %&gt;% 
+    group_by_at(vars(one_of(column))) %&gt;% 
+    summarise(
+      usd = sum(usd, na.rm = TRUE),
+      lusd = log(sum(usd, na.rm = TRUE))
+    ) %&gt;% 
+    ungroup() %&gt;% 
+    ggplot() +
+      aes_string(x = column, y = ifelse(log, &quot;lusd&quot;, &quot;usd&quot;)) +
+      geom_col() +
+      ggtitle(paste0(&quot;Sum of spend by: &quot;, column,&quot;.&quot;)) +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  }
+
+col_sum(&#39;date&#39;)</code></pre>
+<p><img src="/post/2018-02-27-indian-startup-funding-eda_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>col_sum(&#39;month&#39;)</code></pre>
+<p><img src="/post/2018-02-27-indian-startup-funding-eda_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<pre class="r"><code>col_sum(&#39;day&#39;)</code></pre>
+<p><img src="/post/2018-02-27-indian-startup-funding-eda_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
+<pre class="r"><code>col_sum(&#39;week&#39;)</code></pre>
+<p><img src="/post/2018-02-27-indian-startup-funding-eda_files/figure-html/unnamed-chunk-5-4.png" width="672" /></p>
+<pre class="r"><code>col_sum(&#39;investment_type&#39;, log = TRUE)</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_col).</code></pre>
+<p><img src="/post/2018-02-27-indian-startup-funding-eda_files/figure-html/unnamed-chunk-5-5.png" width="672" /></p>
+</div>

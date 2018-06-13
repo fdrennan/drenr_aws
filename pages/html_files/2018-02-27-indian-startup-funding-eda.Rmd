@@ -1,0 +1,122 @@
+---
+title: Indian Startup Funding EDA (In Progress)
+author: Freddy Drennan
+date: '2018-02-27'
+slug: indian-startup-funding-eda
+categories:
+  - Kaggle
+  - EDA
+tags: []
+---
+
+## Introduction
+
+Good morning, or good afternoon. Whatever time it is. I'm looking at this data for the first time and thought it would be fun to write out my initial throught process when exploring data. If you haven't already, install `tidyverse` and `mongolite` using the typical `install.packages()` function to get started below. 
+
+MongoDB is the database that I use on my server and so I've created a read-only user that you will be able to use to get access to the data needed for this walkthrough. The data comes from the Kaggle dataset [Indian Startup Funding](https://www.kaggle.com/sudalairajkumar/indian-startup-funding).
+
+According to the Kaggle site, possible questions to look at are:
+
+* How does the funding ecosystem change with time?
+* Do cities play a major role in funding?
+* Which industries are favored by investors for funding?
+* Who are the important investors in the Indian Ecosystem?
+* How much funds does startups generally get in India?
+
+
+```{r}
+library(tidyverse)
+library(forcats)
+library(mongolite)
+library(lubridate)
+library(ggthemes)
+```
+
+We'll go ahead and grab the data from my server now. I've changed the column names to be a little easier to use as compared to the original dataset. 
+
+```{r}
+m <- mongo(collection = "startup_funding" , 
+           db         = "datasets", 
+           url        = "mongodb://dbuser:password@drenr.com:27017")
+
+startup_funding <-
+  m$find()
+```
+
+Let's look at the data and specify the column types. 
+```{r}
+startup_funding %>% 
+  glimpse
+
+startups <-
+  startup_funding %>% 
+  transmute(
+    date            = dmy(date),
+    day             = wday(date),
+    week            = week(date),
+    month           = month(date),
+    name            = as.factor(name),
+    vertical        = as.factor(vertical),
+    sub_vertical    = as.factor(sub_vertical),
+    location        = as.factor(location),
+    investor_name   = as.factor(investor_name),
+    investment_type = as.factor(investment_type),
+    usd             = as.numeric(usd),
+    remarks         = as.factor(remarks)
+  )
+```
+
+
+Let's look at the number of investments created over different date types. 
+```{r}
+col_count <-
+  function(column, log = FALSE) {
+    
+    summed <-
+      startups %>% 
+      group_by_at(vars(one_of(column))) %>% 
+      summarise(
+        count = n(),
+        lcount = n() %>% log
+      ) %>% 
+      ungroup() 
+      
+    ggplot(summed) +
+      aes_string(x = column, y = ifelse(log, "lcount", "count")) +
+      geom_col() +
+      ggtitle(paste0("Count of investments by: ", column, ".")) +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  }
+
+col_count('date')
+col_count('month')
+col_count('day')
+col_count('week')
+col_count('investment_type', log = TRUE)
+```
+
+
+```{r}
+col_sum <-
+  function(column, log = FALSE) {
+    startups %>% 
+    group_by_at(vars(one_of(column))) %>% 
+    summarise(
+      usd = sum(usd, na.rm = TRUE),
+      lusd = log(sum(usd, na.rm = TRUE))
+    ) %>% 
+    ungroup() %>% 
+    ggplot() +
+      aes_string(x = column, y = ifelse(log, "lusd", "usd")) +
+      geom_col() +
+      ggtitle(paste0("Sum of spend by: ", column,".")) +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  }
+
+col_sum('date')
+col_sum('month')
+col_sum('day')
+col_sum('week')
+col_sum('investment_type', log = TRUE)
+```
+

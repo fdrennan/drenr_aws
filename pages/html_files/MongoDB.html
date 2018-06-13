@@ -1,0 +1,144 @@
+---
+title: Setting up MongoDB with R on AWS
+author: Freddy Drennan
+date: '2018-02-13'
+slug: setting-up-mongodb-with-r-on-aws
+categories:
+  - MongoDB
+tags: []
+---
+
+
+
+<p>Follow along with my <a href="https://youtu.be/FSUN_8F69KM">YouTube Tutorial HERE</a></p>
+<p>Run the commands below when you ssh into your AWS EC2 instance.</p>
+<pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+
+echo &quot;deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+
+sudo apt-get update
+
+sudo apt-get install -y mongodb-org</code></pre>
+<p>Next edit the configuration file</p>
+<pre><code>sudo vim /etc/mongod.conf</code></pre>
+<p>And replace</p>
+<pre><code># network interfaces
+net:
+  port: 27017
+  bindIp: 127.0.0.1</code></pre>
+<p>with…</p>
+<pre><code># network interfaces
+net:
+  port: 27017
+  bindIp: 0.0.0.0  # Listen to local interface only, comment to listen on all interfaces.
+
+
+security:
+  authorization: &#39;enabled&#39;</code></pre>
+<pre><code>sudo service mongod start</code></pre>
+<p>Next, edit this below for your ip address where it says HOSTIP.</p>
+<pre><code>sudo mongo --host HOSTIP:27017
+
+exit</code></pre>
+<p>Now create a root admin.</p>
+<pre><code>sudo mongo</code></pre>
+<pre><code>use admin 
+
+db.createUser(
+    {
+      user: &quot;admin&quot;,
+      pwd: &quot;password&quot;,
+      roles: [ &quot;root&quot; ]
+    }
+)
+</code></pre>
+<pre class="r"><code>library(mongolite)
+
+mongo_connect &lt;- function(collectionName, dbName) {
+    # Cred
+    hostName = &quot;mongodb://admin:password@18.217.141.236:27017&quot;
+    
+    m &lt;- mongolite::mongo(collection = collectionName , db = dbName, url = hostName)
+    
+    m
+}
+
+m = mongo_connect(&#39;mtcars&#39;, &#39;datasets&#39;)</code></pre>
+<pre><code>## Mongo Message: SCRAM: authenticating &quot;admin&quot; (step 1)
+## Mongo Message: SCRAM: authenticating &quot;admin&quot; (step 2)
+## Mongo Message: SCRAM: authenticating &quot;admin&quot; (step 3)
+## Mongo Message: SCRAM: &quot;admin&quot; authenticated</code></pre>
+<pre class="r"><code>m$insert(mtcars)</code></pre>
+<pre><code>## 
+Complete! Processed total of 32 rows.</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>m$find(&#39;{&quot;mpg&quot;: 21}&#39;)</code></pre>
+<pre><code>## 
+ Found 36 records...
+ Imported 36 records. Simplifying into dataframe...</code></pre>
+<pre><code>## Warning: Duplicate names in &quot;_row&quot; field. Data frames must have unique row
+## names.</code></pre>
+<pre><code>##                  mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.1       21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.1   21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.2       21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.2   21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.3       21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.3   21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.4       21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.4   21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.5       21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.5   21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.6       21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.6   21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.7       21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.7   21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.8       21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.8   21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.9       21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.9   21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.10      21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.10  21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.11      21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.11  21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.12      21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.12  21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.13      21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.13  21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.14      21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.14  21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.15      21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.15  21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.16      21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.16  21   6  160 110  3.9 2.875 17.02  0  1    4    4
+## Mazda RX4.17      21   6  160 110  3.9 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag.17  21   6  160 110  3.9 2.875 17.02  0  1    4    4</code></pre>
+<pre class="r"><code>mongo_data &lt;-
+  m$aggregate(&#39;[
+            {&quot;$match&quot;  : { &quot;mpg&quot; : {&quot;$gt&quot;: 21} }},
+            {&quot;$project&quot;: { &quot;mpg&quot; : 1  , &quot;_id&quot;: 0, &quot;wt&quot;: 1}}
+]&#39;)</code></pre>
+<pre><code>## 
+ Found 216 records...
+ Imported 216 records. Simplifying into dataframe...</code></pre>
+<pre class="r"><code>summary(lm(mongo_data))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = mongo_data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.1496 -1.7319 -0.3406  1.4774  5.2530 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  39.5778     0.8277   47.81   &lt;2e-16 ***
+## wt           -5.6504     0.3402  -16.61   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.899 on 214 degrees of freedom
+## Multiple R-squared:  0.5632, Adjusted R-squared:  0.5611 
+## F-statistic: 275.9 on 1 and 214 DF,  p-value: &lt; 2.2e-16</code></pre>

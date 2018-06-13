@@ -1,0 +1,314 @@
+---
+output:
+  html_document: default
+  html_notebook: default
+---
+
+
+ <meta charset="utf-8" />
+<link rel="stylesheet" href="~/~/css/font-awesome.min.css">
+
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+cat("Last push: ", as.character(Sys.time()))
+```
+
+
+
+
+<!-- Footer -->
+<header>
+<!-- <div class="container"> -->
+<div class="row">
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center">
+<li>
+<a href="mailto:drennanfreddy@gmail.com?Subject=Hello">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/freddy-drennan-4a8b79aa">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href="http://facebook.com/freddy.drennan">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li> 
+<li>
+<a href="https://github.com/fdrennan">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</header>
+
+
+<center>
+# Economic Indicators
+</center>
+
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+threeYears = Sys.Date() - 365*10
+threeYears = paste0(threeYears, "::")
+```
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+library(quantmod)
+library(Quandl)
+# library(data.table)
+invisible(getSymbols(c("GDP", "MKTGDP1WA646NWDB"), src = "FRED"))
+```
+
+ US GDP
+```{r}
+# US GDP
+invisible(chartSeries(GDP[threeYears], name = "GDP"))
+# WORLD GDP
+```
+
+
+ World GDP
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(chartSeries(MKTGDP1WA646NWDB["2005::"], name = "World GDP"))
+```
+
+ Real GDP Percent Change
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+# Real GDP, percent change from preceding period
+invisible(getSymbols("A191RL1Q225SBEA", src = "FRED"))
+
+chartSeries(A191RL1Q225SBEA[threeYears], name = "Read GDP: Percent Change")
+```
+
+ GDP Price Deflator
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(getSymbols(c("GDPDEF", "CPIAUCSL"), src = "FRED"))
+chartSeries(GDPDEF[threeYears], name = "GDP Price Deflator")
+```
+
+ CPI
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+chartSeries(CPIAUCSL[threeYears], name = "Consumer Price Index for All Consumers: All Items")
+```
+
+
+
+<!-- ```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10} -->
+<!-- library(fdRen) -->
+<!-- bonds=fdRen::bondTable() -->
+<!-- bills=as.xts(bonds$Bills[,5], order.by = bonds$Bills[,1]) -->
+<!-- billsChange=as.xts(bonds$Bills[,4], order.by = bonds$Bills[,1]) -->
+<!-- notes=as.xts(bonds$NotesBonds[,6], order.by = bonds$NotesBonds[,1]) -->
+<!-- notesChange=as.xts(bonds$NotesBonds[,5], order.by = bonds$NotesBonds[,1]) -->
+<!-- tips=as.xts(bonds$tips[,7], order.by = bonds$tips[,1]) -->
+<!-- ``` -->
+
+<!-- ```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10} -->
+<!-- chartSeries(bills, name = "Treasury Bills Yeild Curve") -->
+<!-- ``` -->
+
+<!-- ```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10} -->
+<!-- chartSeries(billsChange, name = "Treasury Bills Change") -->
+<!-- ``` -->
+
+
+<!-- ```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10} -->
+<!-- chartSeries(notes, name = "Treasury Notes Yeild Curve") -->
+<!-- ``` -->
+
+<!-- ```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10} -->
+<!-- chartSeries(notesChange, name = "Treasury Notes Change") -->
+<!-- ``` -->
+
+<!-- ```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10} -->
+<!-- chartSeries(tips, name = "Tips Yeild Curve") -->
+<!-- ``` -->
+
+ Shiller PE
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+library(fdRen)
+dat = urlTables("http://www.multpl.com/shiller-pe/table")
+dat=dat[[1]]
+
+colnames(dat) = c("Date", "Value")
+dat$Date = as.Date(dat$Date,
+                   format ="%b %d, %Y")
+
+dat=as.xts(dat[,2], order.by = dat[,1])
+chartSeries(dat, name = "Shiller PE")
+```
+
+ Shiller Home Price Index
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(getSymbols("CSUSHPINSA", src="FRED"))
+chartSeries(CSUSHPINSA[threeYears], name = "S&P/Case-Shiller U.S. National Home Price Index")
+```
+
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10, eval = FALSE}
+
+
+library(fdRen)
+tickers = urlTables("https://en.wikipedia.org/wiki/List_of_S%26P_500_companies", fill = TRUE)
+tickers = tickers[[1]]
+tickers = tickers
+# ticks = c(tickers[,1], "SPY", "GLD", "SHV", "BND", "TSLA", "SNAP")
+
+
+stuff = c("Market Capitalization", "P/E Ratio")
+theData = matrix(0, ncol = (length(stuff)+1), nrow = 1)
+for(i in 1:length(tickers[,1])) {
+     theData = rbind(as.matrix(getQuote(tickers[i,1], what = yahooQF(c("Market Capitalization", "P/E Ratio")))), theData)
+}
+
+library(dplyr)
+# pem=as.data.frame(readRDS("pemarket.Rds"))
+pem = as.data.frame(theData)
+pem$`Market Capitalization` = sub("B", "", pem$`Market Capitalization`)
+pem$`Market Capitalization` = as.numeric(as.character(pem$`Market Capitalization`))
+pem$`P/E Ratio` = as.numeric(as.character(pem$`P/E Ratio`))
+pem=pem[complete.cases(pem),]
+hist(pem$`Market Capitalization`, breaks = dim(pem)[1], ylab = "Frequency", xlab = "Market Cap in Billions", main = "S&P Market Cap")
+pem$ticker = rownames(pem)
+pem = pem[,c(4,3,2)]
+colnames(pem) = c("ticker", "pe", "mc")
+pem=arrange(pem, pe)
+pem = pem[-1,]
+
+pem$propMc = (pem$mc/sum(pem$mc))
+pem$wape = pem$propMc*pem$pe
+pem$avgwape = pem$wape/sum(pem$wape)
+
+plot(pem$mc, pem$wape/sum(pem$wape), ylab = "Weighted Average PE Contribution", xlab = "Market Cap")
+plot(pem$mc, pem$wape/sum(pem$wape), ylab = "Weighted Average PE Contribution", 
+                                     xlab = "Market Cap", ylim = c(0, .04))
+hist(pem$pe, breaks = 500, xlim = c(0, quantile(pem$pe, .95)), xlab = "P/E Ratio", ylab = "Frequency", main = "S&P 500 P/E Ratios")
+hist(pem$pe, breaks = 300, xlab = "P/E Ratio", ylab = "Frequency", main = "S&P 500 P/E Ratios")
+
+pem=arrange(pem, rev(avgwape))
+
+pemNone = pem[-c(1:5),c(1:3)]
+http://fdrennan.net/pages/pages2/weather.html
+pemNone$propMc = (pemNone$mc/sum(pemNone$mc))
+pemNone$wape = pemNone$propMc*pemNone$pe
+pemNone$avgwape = pemNone$wape/sum(pemNone$wape)
+
+cat("The Weighted Average PE is: ", sum(pemNone$wape))
+cat("The Average PE is: ", mean(pemNone$pe))
+
+colnames(pem) = c("Ticker", "PE Ratio", "Market Cap", "MC Proportion", "Weighted PE", "PE Cont")
+pem[,2:6]= round(pem[,2:6], 5)
+DT::datatable(pem)
+write.csv(pem, "/home/fdrennan/Documents/r/website/pem.csv")
+library(RCurl)
+invisible(ftpUpload("/home/fdrennan/Documents/r/website/pem.csv", 
+"ftp://fdrennan.net/public_html/pages/pages2/datasets/pem.csv", 
+    userpwd="fdrennan:Thirdday1!"))
+```
+Download the above table [here](http://fdrennan.net/pages/pages2/datasets/pem.csv)
+
+
+<!-- ```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10} -->
+<!-- invisible(getSymbols(c("LFWA64TTUSM647S"), src = "FRED")) -->
+<!-- chartSeries(LFWA64TTUSM647S, name = "Working Age Population: Ages 15-64") -->
+<!-- ``` -->
+
+ Civilian Unemployment Rate
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(getSymbols("UNRATE", src = "FRED"))
+chartSeries(UNRATE[threeYears], name = "Civilian Unemployment Rate",
+            show.grid = TRUE)
+```
+
+
+
+The PMI (R) is a composite index based on the diffusion indexes of five of the indexes
+with equal weights: New Orders (seasonally adjusted), Production (seasonally adjusted),
+Employment (seasonally adjusted), Supplier Deliveries (seasonally adjusted), and Inventories. A value above 50 suggests positive outlook and below 50 the opposite. 
+
+ Manufacturing Confidence Index
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+library(Quandl)
+PMI = Quandl("ISM/MAN_PMI")
+PMI = as.xts(PMI[,2],order.by = PMI[,1])
+chartSeries(PMI[threeYears], name = "PMI")
+```
+
+ Housing Starts
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(getSymbols(c("HOUST", "CSUSHPINSA"), src = "FRED"))
+chartSeries(HOUST[threeYears], name = "Housing Starts")
+```
+
+
+ Hiring 
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(getSymbols(c("JTSHIL"), src = "FRED"))
+chartSeries(JTSHIL["2005-01-01::"], name = "Hiring")
+```
+
+ Capacity Utilization
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(getSymbols(c("TCU"), src = "FRED"))
+chartSeries(TCU, name = "Capacity Utilization")
+```
+
+ Stock Market Capitalization to GDP for US
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(getSymbols(c("DDDM01USA156NWDB"), src = "FRED"))
+chartSeries(DDDM01USA156NWDB, name = "Stock Market Capitalization to GDP for United States")
+```
+Interesting document [here](https://fredblog.stlouisfed.org/2016/11/the-continuous-rise-of-the-stock-market/?utm_source=series_page&utm_medium=related_content&utm_term=related_resources&utm_campaign=fredblog) about the continuous rise of the stock market. 
+
+ Stock Market Total Value Traded to GDP
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(getSymbols(c("DDDM02USA156NWDB"), src = "FRED"))
+chartSeries(DDDM02USA156NWDB, name = "Stock Market Total Value Traded to GDP for United States")
+```
+
+ 
+ 10-Year Treasury Constant Maturity Rate
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(getSymbols(c("DGS10"), src = "FRED"))
+chartSeries(DGS10["1990-01-01::"], name = "10-Year Treasury Constant Maturity Rate")
+```
+
+
+
+ Fed Funds and Reverse RPs with Banks, All Commercial Banks 
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(getSymbols(c("FRPACBW027SBOG"), src = "FRED"))
+chartSeries(FRPACBW027SBOG["1988-01-01::"], name = "Fed Funds and Reverse RPs with Banks, All Commercial Banks")
+```
+
+
+ Effective Federal Funds Rate
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(getSymbols(c("FEDFUNDS"), src = "FRED"))
+chartSeries(FEDFUNDS, name = "Effective Federal Funds Rate")
+```
+
+ Interest Rates, Discount Rate for United States
+```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=10}
+invisible(getSymbols(c("INTDSRUSM193N"), src = "FREhttp://fdrennan.net/pages/pages2/weather.htmlD"))
+chartSeries(INTDSRUSM193N, name = "Interest Rates, Discount Rate for United States")
+```
