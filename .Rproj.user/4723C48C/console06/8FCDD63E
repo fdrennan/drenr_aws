@@ -1627,3 +1627,90 @@ Fast-forward
  create mode 100644 pages/html_files/.ipynb_checkpoints/knnRegressor-checkpoint.ipynb
  create mode 100644 pages/html_files/knnRegressor.ipynb
 ]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjectss/drenr_aws[0;33m (master)[0m$ [K[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ h[Kgit add --all
+]0;~/Documents/programming/rProjects/drenr_awsg[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git commit -m 'update'
+[master 636c314] update
+ 5 files changed, 12354 insertions(+), 4 deletions(-)
+ rewrite .Rproj.user/4723C48C/console06/INDEX001 (73%)
+ create mode 100644 pages/html_files/knnRegressor.html
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git push origin master
+Counting objects: 12, done.
+Delta compression using up to 4 threads.
+Compressing objects:   9% (1/11)   Compressing objects:  18% (2/11)   Compressing objects:  27% (3/11)   Compressing objects:  36% (4/11)   Compressing objects:  45% (5/11)   Compressing objects:  54% (6/11)   Compressing objects:  63% (7/11)   Compressing objects:  72% (8/11)   Compressing objects:  81% (9/11)   Compressing objects:  90% (10/11)   Compressing objects: 100% (11/11)   Compressing objects: 100% (11/11), done.
+Writing objects:   8% (1/12)   Writing objects:  16% (2/12)   Writing objects:  25% (3/12)   Writing objects:  33% (4/12)   Writing objects:  41% (5/12)   Writing objects:  50% (6/12)   Writing objects:  58% (7/12)   Writing objects:  66% (8/12)   Writing objects:  75% (9/12)   Writing objects:  83% (10/12)   Writing objects:  91% (11/12)   Writing objects: 100% (12/12)   Writing objects: 100% (12/12), 63.83 KiB | 0 bytes/s, done.
+Total 12 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/6)   [Kremote: Resolving deltas:  16% (1/6)   [Kremote: Resolving deltas:  33% (2/6)   [Kremote: Resolving deltas:  50% (3/6)   [Kremote: Resolving deltas:  66% (4/6)   [Kremote: Resolving deltas:  83% (5/6)   [Kremote: Resolving deltas: 100% (6/6)   [Kremote: Resolving deltas: 100% (6/6), completed with 6 local objects.[K
+To github.com:fdrennan/drenr_aws.git
+   4372c60..636c314  master -> master
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ g[Kgit pull origin master
+remote: Counting objects: 33, done.[K
+remote: Compressing objects:   3% (1/26)   [Kremote: Compressing objects:   7% (2/26)   [Kremote: Compressing objects:  11% (3/26)   [Kremote: Compressing objects:  15% (4/26)   [Kremote: Compressing objects:  19% (5/26)   [Kremote: Compressing objects:  23% (6/26)   [Kremote: Compressing objects:  26% (7/26)   [Kremote: Compressing objects:  30% (8/26)   [Kremote: Compressing objects:  34% (9/26)   [Kremote: Compressing objects:  38% (10/26)   [Kremote: Compressing objects:  42% (11/26)   [Kremote: Compressing objects:  46% (12/26)   [Kremote: Compressing objects:  50% (13/26)   [Kremote: Compressing objects:  53% (14/26)   [Kremote: Compressing objects:  57% (15/26)   [Kremote: Compressing objects:  61% (16/26)   [Kremote: Compressing objects:  65% (17/26)   [Kremote: Compressing objects:  69% (18/26)   [Kremote: Compressing objects:  73% (19/26)   [Kremote: Compressing objects:  76% (20/26)   [Kremote: Compressing objects:  80% (21/26)   [Kremote: Compressing objects:  84% (22/26)   [Kremote: Compressing objects:  88% (23/26)   [Kremote: Compressing objects:  92% (24/26)   [Kremote: Compressing objects:  96% (25/26)   [Kremote: Compressing objects: 100% (26/26)   [Kremote: Compressing objects: 100% (26/26), done.[K
+Unpacking objects:   3% (1/33)   Unpacking objects:   6% (2/33)   Unpacking objects:   9% (3/33)   Unpacking objects:  12% (4/33)   Unpacking objects:  15% (5/33)   Unpacking objects:  18% (6/33)   Unpacking objects:  21% (7/33)   Unpacking objects:  24% (8/33)   Unpacking objects:  27% (9/33)   Unpacking objects:  30% (10/33)   Unpacking objects:  33% (11/33)   Unpacking objects:  36% (12/33)   Unpacking objects:  39% (13/33)   Unpacking objects:  42% (14/33)   Unpacking objects:  45% (15/33)   Unpacking objects:  48% (16/33)   Unpacking objects:  51% (17/33)   Unpacking objects:  54% (18/33)   ls
+^CKilled by signal 2.
+
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git pull orgin master
+fatal: 'orgin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ ls
+README.md	datasets	fonts		index.Rmd	jquery		pages
+css		drenr_aws.Rproj	images		index.html	js		template.Rmd
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git pull origin master
+remote: Counting objects: 33, done.[K
+remote: Compressing objects:   3% (1/26)   [Kremote: Compressing objects:   7% (2/26)   [Kremote: Compressing objects:  11% (3/26)   [Kremote: Compressing objects:  15% (4/26)   [Kremote: Compressing objects:  19% (5/26)   [Kremote: Compressing objects:  23% (6/26)   [Kremote: Compressing objects:  26% (7/26)   [Kremote: Compressing objects:  30% (8/26)   [Kremote: Compressing objects:  34% (9/26)   [Kremote: Compressing objects:  38% (10/26)   [Kremote: Compressing objects:  42% (11/26)   [Kremote: Compressing objects:  46% (12/26)   [Kremote: Compressing objects:  50% (13/26)   [Kremote: Compressing objects:  53% (14/26)   [Kremote: Compressing objects:  57% (15/26)   [Kremote: Compressing objects:  61% (16/26)   [Kremote: Compressing objects:  65% (17/26)   [Kremote: Compressing objects:  69% (18/26)   [Kremote: Compressing objects:  73% (19/26)   [Kremote: Compressing objects:  76% (20/26)   [Kremote: Compressing objects:  80% (21/26)   [Kremote: Compressing objects:  84% (22/26)   [Kremote: Compressing objects:  88% (23/26)   [Kremote: Compressing objects:  92% (24/26)   [Kremote: Compressing objects:  96% (25/26)   [Kremote: Compressing objects: 100% (26/26)   [Kremote: Compressing objects: 100% (26/26), done.[K
+Unpacking objects:   3% (1/33)   Unpacking objects:   6% (2/33)   Unpacking objects:   9% (3/33)   Unpacking objects:  12% (4/33)   Unpacking objects:  15% (5/33)   Unpacking objects:  18% (6/33)   Unpacking objects:  21% (7/33)   Unpacking objects:  24% (8/33)   Unpacking objects:  27% (9/33)   Unpacking objects:  30% (10/33)   Unpacking objects:  33% (11/33)   Unpacking objects:  36% (12/33)   Unpacking objects:  39% (13/33)   Unpacking objects:  42% (14/33)   Unpacking objects:  45% (15/33)   Unpacking objects:  48% (16/33)   Unpacking objects:  51% (17/33)   Unpacking objects:  54% (18/33)   Unpacking objects:  57% (19/33)   Unpacking objects:  60% (20/33)   Unpacking objects:  63% (21/33)   Unpacking objects:  66% (22/33)   Unpacking objects:  69% (23/33)   Unpacking objects:  72% (24/33)   Unpacking objects:  75% (25/33)   Unpacking objects:  78% (26/33)   Unpacking objects:  81% (27/33)   remote: Total 33 (delta 6), reused 32 (delta 5), pack-reused 0[K
+Unpacking objects:  84% (28/33)   Unpacking objects:  87% (29/33)   Unpacking objects:  90% (30/33)   Unpacking objects:  93% (31/33)   Unpacking objects:  96% (32/33)   Unpacking objects: 100% (33/33)   Unpacking objects: 100% (33/33), done.
+From github.com:fdrennan/drenr_aws
+ * branch            master     -> FETCH_HEAD
+   636c314..ea1b4e5  master     -> origin/master
+Updating 636c314..ea1b4e5
+Fast-forward
+ pages/html_files/.ipynb_checkpoints/hello_world_nn-checkpoint.ipynb    |  403 [32m++++++++[m
+ pages/html_files/.ipynb_checkpoints/knnRegressor-checkpoint.ipynb      |   35 [32m+[m[31m-[m
+ pages/html_files/3.5-classifying-movie-reviews.ipynb                   | 1051 [32m+++++++++++++++++++[m
+ pages/html_files/3.6-classifying-newswires.ipynb                       |  984 [32m++++++++++++++++++[m
+ pages/html_files/3.7-predicting-house-prices.ipynb                     |  709 [32m+++++++++++++[m
+ pages/html_files/4.4-overfitting-and-underfitting.ipynb                |  980 [32m++++++++++++++++++[m
+ pages/html_files/5.1-introduction-to-convnets.ipynb                    |  330 [32m++++++[m
+ pages/html_files/5.2-using-convnets-with-small-datasets.ipynb          | 1275 [32m+++++++++++++++++++++++[m
+ pages/html_files/5.3-using-a-pretrained-convnet.ipynb                  | 1417 [32m+++++++++++++++++++++++++[m
+ pages/html_files/5.4-visualizing-what-convnets-learn.ipynb             | 1152 [32m+++++++++++++++++++++[m
+ pages/html_files/6.1-one-hot-encoding-of-words-or-characters.ipynb     |  243 [32m+++++[m
+ pages/html_files/6.1-using-word-embeddings.ipynb                       |  946 [32m+++++++++++++++++[m
+ pages/html_files/6.2-understanding-recurrent-neural-networks.ipynb     |  487 [32m+++++++++[m
+ pages/html_files/6.3-advanced-usage-of-recurrent-neural-networks.ipynb | 1676 [32m++++++++++++++++++++++++++++++[m
+ pages/html_files/6.4-sequence-processing-with-convnets.ipynb           |  720 [32m+++++++++++++[m
+ pages/html_files/8.1-text-generation-with-lstm.ipynb                   | 2345 [32m++++++++++++++++++++++++++++++++++++++++++[m
+ pages/html_files/8.2-deep-dream.ipynb                                  |  437 [32m++++++++[m
+ pages/html_files/8.3-neural-style-transfer.ipynb                       |  723 [32m+++++++++++++[m
+ pages/html_files/8.4-generating-images-with-vaes.ipynb                 |  494 [32m+++++++++[m
+ pages/html_files/8.5-introduction-to-gans.ipynb                        |  783 [32m++++++++++++++[m
+ pages/html_files/LICENSE                                               |   21 [32m+[m
+ pages/html_files/README.md                                             |   34 [32m+[m
+ pages/html_files/hello_world_nn.ipynb                                  |  403 [32m++++++++[m
+ pages/html_files/knnRegressor.ipynb                                    |   35 [32m+[m[31m-[m
+ 24 files changed, 17669 insertions(+), 14 deletions(-)
+ create mode 100644 pages/html_files/.ipynb_checkpoints/hello_world_nn-checkpoint.ipynb
+ create mode 100644 pages/html_files/3.5-classifying-movie-reviews.ipynb
+ create mode 100644 pages/html_files/3.6-classifying-newswires.ipynb
+ create mode 100644 pages/html_files/3.7-predicting-house-prices.ipynb
+ create mode 100644 pages/html_files/4.4-overfitting-and-underfitting.ipynb
+ create mode 100644 pages/html_files/5.1-introduction-to-convnets.ipynb
+ create mode 100644 pages/html_files/5.2-using-convnets-with-small-datasets.ipynb
+ create mode 100644 pages/html_files/5.3-using-a-pretrained-convnet.ipynb
+ create mode 100644 pages/html_files/5.4-visualizing-what-convnets-learn.ipynb
+ create mode 100644 pages/html_files/6.1-one-hot-encoding-of-words-or-characters.ipynb
+ create mode 100644 pages/html_files/6.1-using-word-embeddings.ipynb
+ create mode 100644 pages/html_files/6.2-understanding-recurrent-neural-networks.ipynb
+ create mode 100644 pages/html_files/6.3-advanced-usage-of-recurrent-neural-networks.ipynb
+ create mode 100644 pages/html_files/6.4-sequence-processing-with-convnets.ipynb
+ create mode 100644 pages/html_files/8.1-text-generation-with-lstm.ipynb
+ create mode 100644 pages/html_files/8.2-deep-dream.ipynb
+ create mode 100644 pages/html_files/8.3-neural-style-transfer.ipynb
+ create mode 100644 pages/html_files/8.4-generating-images-with-vaes.ipynb
+ create mode 100644 pages/html_files/8.5-introduction-to-gans.ipynb
+ create mode 100644 pages/html_files/LICENSE
+ create mode 100644 pages/html_files/README.md
+ create mode 100644 pages/html_files/hello_world_nn.ipynb
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git add --alll[K
