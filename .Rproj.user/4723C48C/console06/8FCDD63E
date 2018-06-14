@@ -1714,3 +1714,8 @@ Fast-forward
  create mode 100644 pages/html_files/README.md
  create mode 100644 pages/html_files/hello_world_nn.ipynb
 ]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git add --alll[K
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git o[Kcommit -m 'update'
+[master 86b220f] update
+ 3 files changed, 12418 insertions(+), 2 deletions(-)
+ create mode 100644 pages/html_files/hello_world_nn.html
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m  (master)[0m$ [K[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rrProjects/drenr_aws[0;33m (master)[0m$  [K[A[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git add --all
