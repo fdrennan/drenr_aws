@@ -1554,3 +1554,45 @@ To github.com:fdrennan/drenr_aws.git
    d07787d..82a1e87  master -> master
 ]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master))[0m$ him him[K[K[K[K[K[K[K[K[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master))[0m$ him[K[K[Kgit add --all
 ]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master))[0m$ git commit -a -m ''u'p'd'a't'e'
+[master 29c4d00] update
+ 3 files changed, 14 insertions(+), 4 deletions(-)
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master))[0m$ git push origin master
+Counting objects: 8, done.
+Delta compression using up to 4 threads.
+Compressing objects:  12% (1/8)   Compressing objects:  25% (2/8)   Compressing objects:  37% (3/8)   Compressing objects:  50% (4/8)   Compressing objects:  62% (5/8)   Compressing objects:  75% (6/8)   Compressing objects:  87% (7/8)   Compressing objects: 100% (8/8)   Compressing objects: 100% (8/8), done.
+Writing objects:  12% (1/8)   Writing objects:  25% (2/8)   Writing objects:  37% (3/8)   Writing objects:  50% (4/8)   Writing objects:  62% (5/8)   Writing objects:  75% (6/8)   Writing objects:  87% (7/8)   Writing objects: 100% (8/8)   Writing objects: 100% (8/8), 817 bytes | 0 bytes/s, done.
+Total 8 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/4)   [Kremote: Resolving deltas:  25% (1/4)   [Kremote: Resolving deltas:  50% (2/4)   [Kremote: Resolving deltas:  75% (3/4)   [Kremote: Resolving deltas: 100% (4/4)   [Kremote: Resolving deltas: 100% (4/4), completed with 4 local objects.[K
+To github.com:fdrennan/drenr_aws.git
+   82a1e87..29c4d00  master -> master
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master))[0m$ [K[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master) [0m$ [K[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git pull origin master
+remote: Counting objects: 11, done.[K
+remote: Compressing objects:  16% (1/6)   [Kremote: Compressing objects:  33% (2/6)   [Kremote: Compressing objects:  50% (3/6)   [Kremote: Compressing objects:  66% (4/6)   [Kremote: Compressing objects:  83% (5/6)   [Kremote: Compressing objects: 100% (6/6)   [Kremote: Compressing objects: 100% (6/6), done.[K
+Unpacking objects:   9% (1/11)   Unpacking objects:  18% (2/11)   Unpacking objects:  27% (3/11)   Unpacking objects:  36% (4/11)   Unpacking objects:  45% (5/11)   Unpacking objects:  54% (6/11)   Unpacking objects:  63% (7/11)   Unpacking objects:  72% (8/11)   Unpacking objects:  81% (9/11)   Unpacking objects:  90% (10/11)   remote: Total 11 (delta 4), reused 10 (delta 3), pack-reused 0[K
+Unpacking objects: 100% (11/11)   Unpacking objects: 100% (11/11), done.
+From github.com:fdrennan/drenr_aws
+ * branch            master     -> FETCH_HEAD
+   29c4d00..602be82  master     -> origin/master
+Updating 29c4d00..602be82
+Fast-forward
+ pages/html_files/.ipynb_checkpoints/irisClass-checkpoint.ipynb | 232 [32m+++++++++++++++++++++++++++++++++++[m
+ pages/html_files/irisClass.ipynb                               | 232 [32m+++++++++++++++++++++++++++++++++++[m
+ 2 files changed, 464 insertions(+)
+ create mode 100644 pages/html_files/.ipynb_checkpoints/irisClass-checkpoint.ipynb
+ create mode 100644 pages/html_files/irisClass.ipynb
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git p ull origin master
+remote: Counting objects: 6, done.[K
+remote: Compressing objects:  33% (1/3)   [Kremote: Compressing objects:  66% (2/3)   [Kremote: Compressing objects: 100% (3/3)   [Kremote: Compressing objects: 100% (3/3), done.[K
+Unpacking objects:  16% (1/6)   Unpacking objects:  33% (2/6)   Unpacking objects:  50% (3/6)   Unpacking objects:  66% (4/6)   Unpacking objects:  83% (5/6)   remote: Total 6 (delta 2), reused 6 (delta 2), pack-reused 0[K
+Unpacking objects: 100% (6/6)   Unpacking objects: 100% (6/6), done.
+From github.com:fdrennan/drenr_aws
+ * branch            master     -> FETCH_HEAD
+   602be82..90951ae  master     -> origin/master
+Updating 602be82..90951ae
+Fast-forward
+ .../{irisClass-checkpoint.ipynb => irisClassKNN-checkpoint.ipynb}             | 2 [32m+[m[31m-[m
+ pages/html_files/{irisClass.ipynb => irisClassKNN.ipynb}                      | 2 [32m+[m[31m-[m
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+ rename pages/html_files/.ipynb_checkpoints/{irisClass-checkpoint.ipynb => irisClassKNN-checkpoint.ipynb} (99%)
+ rename pages/html_files/{irisClass.ipynb => irisClassKNN.ipynb} (99%)
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;;33m (master)[0m$ git add --all
