@@ -1125,3 +1125,16 @@ remote: Resolving deltas:   0% (0/5)   [Kremote: Resolving deltas:  20% (1/5) 
 To github.com:fdrennan/drenr_aws.git
    feb708c..d85acb7  master -> master
 ]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenrr_aws[0;33m (master)[0m$ [K[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git ad d --all
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git co mmit -m 'update'
+[master 4d90048] update
+ 5 files changed, 22 insertions(+), 8 deletions(-)
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git pu sh origin master
+Counting objects: 10, done.
+Delta compression using up to 4 threads.
+Compressing objects:  11% (1/9)   Compressing objects:  22% (2/9)   Compressing objects:  33% (3/9)   Compressing objects:  44% (4/9)   Compressing objects:  55% (5/9)   Compressing objects:  66% (6/9)   Compressing objects:  77% (7/9)   Compressing objects:  88% (8/9)   Compressing objects: 100% (9/9)   Compressing objects: 100% (9/9), done.
+Writing objects:  10% (1/10)   Writing objects:  20% (2/10)   Writing objects:  30% (3/10)   Writing objects:  40% (4/10)   Writing objects:  50% (5/10)   Writing objects:  60% (6/10)   Writing objects:  70% (7/10)   Writing objects:  80% (8/10)   Writing objects:  90% (9/10)   Writing objects: 100% (10/10)   Writing objects: 100% (10/10), 14.33 KiB | 0 bytes/s, done.
+Total 10 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/6)   [Kremote: Resolving deltas:  16% (1/6)   [Kremote: Resolving deltas:  33% (2/6)   [Kremote: Resolving deltas:  50% (3/6)   [Kremote: Resolving deltas:  66% (4/6)   [Kremote: Resolving deltas:  83% (5/6)   [Kremote: Resolving deltas: 100% (6/6)   [Kremote: Resolving deltas: 100% (6/6), completed with 6 local objects.[K
+To github.com:fdrennan/drenr_aws.git
+   d85acb7..4d90048  master -> master
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git ad d --all
