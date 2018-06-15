@@ -89,7 +89,11 @@ body {
 
 ```{r,echo = FALSE}
 paste("Last Push: ", as.character(Sys.Date()))
+paste0('Plot below is call to an API I built. http://www.drenr.com:8000/weather?days=2')
 ```
+
+
+<img src="http://www.drenr.com:8000/weather?days=2">
 
 <center>
 <h1>Ports</h1>
