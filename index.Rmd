@@ -119,6 +119,7 @@ paste("Last Push: ", as.character(Sys.Date()))
 <center>
 <h1>Projects in Python</h1>
 </center>
+<a href="pages/html_files/python_aggregate.html" class="btn btn-primary btn-block bg5" role="button">Simple Aggregation</a>
 <a href="pages/html_files/python_weather.html" class="btn btn-primary btn-block bg5" role="button">Weather API</a>
 <a href="pages/html_files/hello_world_nn.html" class="btn btn-primary btn-block bg5" role="button"> Keras Hello World</a>
 <a href="pages/html_files/knnRegressor.html" class="btn btn-primary btn-block bg5" role="button"> KNN Regression</a>
