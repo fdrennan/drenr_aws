@@ -1,736 +1,4 @@
 
- create mode 100644 images/glyphicons-social/png/glyphicons-social-23-youtube.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-24-open-id.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-25-foursquare.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-26-quora.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-27-badoo.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-28-spotify.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-29-stumbleupon.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-3-google-plus.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-30-readability.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-31-facebook.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-32-twitter.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-33-instagram.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-34-posterous-spaces.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-35-vimeo.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-36-flickr.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-37-last-fm.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-38-rss.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-39-skype.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-4-jolicloud.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-40-e-mail.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-41-vine.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-42-myspace.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-43-goodreads.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-44-apple.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-45-windows.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-46-yelp.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-47-playstation.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-48-xbox.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-49-android.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-5-yahoo.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-50-ios.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-51-wikipedia.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-52-pocket.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-53-steam.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-54-soundcloud.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-55-slideshare.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-56-netflix.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-57-paypal.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-58-google-drive.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-59-linux-foundation.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-6-blogger.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-60-ebay.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-61-bitbucket.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-62-whatsapp.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-63-buffer.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-64-medium.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-65-stackoverflow.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-66-linux.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-67-vk.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-68-snapchat.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-69-etsy.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-7-picasa.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-70-stackexchange.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-8-amazon.png
- create mode 100644 images/glyphicons-social/png/glyphicons-social-9-tumblr.png
- create mode 100644 images/glyphicons/png/glyphicons-1-glass.png
- create mode 100644 images/glyphicons/png/glyphicons-10-magic.png
- create mode 100644 images/glyphicons/png/glyphicons-100-vector-path-all.png
- create mode 100644 images/glyphicons/png/glyphicons-101-font.png
- create mode 100644 images/glyphicons/png/glyphicons-102-italic.png
- create mode 100644 images/glyphicons/png/glyphicons-103-bold.png
- create mode 100644 images/glyphicons/png/glyphicons-104-text-underline.png
- create mode 100644 images/glyphicons/png/glyphicons-105-text-strike.png
- create mode 100644 images/glyphicons/png/glyphicons-106-text-height.png
- create mode 100644 images/glyphicons/png/glyphicons-107-text-width.png
- create mode 100644 images/glyphicons/png/glyphicons-108-text-resize.png
- create mode 100644 images/glyphicons/png/glyphicons-109-left-indent.png
- create mode 100644 images/glyphicons/png/glyphicons-11-envelope.png
- create mode 100644 images/glyphicons/png/glyphicons-110-right-indent.png
- create mode 100644 images/glyphicons/png/glyphicons-111-align-left.png
- create mode 100644 images/glyphicons/png/glyphicons-112-align-center.png
- create mode 100644 images/glyphicons/png/glyphicons-113-align-right.png
- create mode 100644 images/glyphicons/png/glyphicons-114-justify.png
- create mode 100644 images/glyphicons/png/glyphicons-115-list.png
- create mode 100644 images/glyphicons/png/glyphicons-116-text-smaller.png
- create mode 100644 images/glyphicons/png/glyphicons-117-text-bigger.png
- create mode 100644 images/glyphicons/png/glyphicons-118-embed.png
- create mode 100644 images/glyphicons/png/glyphicons-119-embed-close.png
- create mode 100644 images/glyphicons/png/glyphicons-12-camera.png
- create mode 100644 images/glyphicons/png/glyphicons-120-table.png
- create mode 100644 images/glyphicons/png/glyphicons-121-message-full.png
- create mode 100644 images/glyphicons/png/glyphicons-122-message-empty.png
- create mode 100644 images/glyphicons/png/glyphicons-123-message-in.png
- create mode 100644 images/glyphicons/png/glyphicons-124-message-out.png
- create mode 100644 images/glyphicons/png/glyphicons-125-message-plus.png
- create mode 100644 images/glyphicons/png/glyphicons-126-message-minus.png
- create mode 100644 images/glyphicons/png/glyphicons-127-message-ban.png
- create mode 100644 images/glyphicons/png/glyphicons-128-message-flag.png
- create mode 100644 images/glyphicons/png/glyphicons-129-message-lock.png
- create mode 100644 images/glyphicons/png/glyphicons-13-heart.png
- create mode 100644 images/glyphicons/png/glyphicons-130-message-new.png
- create mode 100644 images/glyphicons/png/glyphicons-131-inbox.png
- create mode 100644 images/glyphicons/png/glyphicons-132-inbox-plus.png
- create mode 100644 images/glyphicons/png/glyphicons-133-inbox-minus.png
- create mode 100644 images/glyphicons/png/glyphicons-134-inbox-lock.png
- create mode 100644 images/glyphicons/png/glyphicons-135-inbox-in.png
- create mode 100644 images/glyphicons/png/glyphicons-136-inbox-out.png
- create mode 100644 images/glyphicons/png/glyphicons-137-cogwheel.png
- create mode 100644 images/glyphicons/png/glyphicons-138-cogwheels.png
- create mode 100644 images/glyphicons/png/glyphicons-139-picture.png
- create mode 100644 images/glyphicons/png/glyphicons-14-beach-umbrella.png
- create mode 100644 images/glyphicons/png/glyphicons-140-adjust-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-141-database-lock.png
- create mode 100644 images/glyphicons/png/glyphicons-142-database-plus.png
- create mode 100644 images/glyphicons/png/glyphicons-143-database-minus.png
- create mode 100644 images/glyphicons/png/glyphicons-144-database-ban.png
- create mode 100644 images/glyphicons/png/glyphicons-145-folder-open.png
- create mode 100644 images/glyphicons/png/glyphicons-146-folder-plus.png
- create mode 100644 images/glyphicons/png/glyphicons-147-folder-minus.png
- create mode 100644 images/glyphicons/png/glyphicons-148-folder-lock.png
- create mode 100644 images/glyphicons/png/glyphicons-149-folder-flag.png
- create mode 100644 images/glyphicons/png/glyphicons-15-train.png
- create mode 100644 images/glyphicons/png/glyphicons-150-folder-new.png
- create mode 100644 images/glyphicons/png/glyphicons-151-edit.png
- create mode 100644 images/glyphicons/png/glyphicons-152-new-window.png
- create mode 100644 images/glyphicons/png/glyphicons-153-check.png
- create mode 100644 images/glyphicons/png/glyphicons-154-unchecked.png
- create mode 100644 images/glyphicons/png/glyphicons-155-more-windows.png
- create mode 100644 images/glyphicons/png/glyphicons-156-show-big-thumbnails.png
- create mode 100644 images/glyphicons/png/glyphicons-157-show-thumbnails.png
- create mode 100644 images/glyphicons/png/glyphicons-158-show-thumbnails-with-lines.png
- create mode 100644 images/glyphicons/png/glyphicons-159-show-lines.png
- create mode 100644 images/glyphicons/png/glyphicons-16-print.png
- create mode 100644 images/glyphicons/png/glyphicons-160-playlist.png
- create mode 100644 images/glyphicons/png/glyphicons-161-imac.png
- create mode 100644 images/glyphicons/png/glyphicons-162-macbook.png
- create mode 100644 images/glyphicons/png/glyphicons-163-ipad.png
- create mode 100644 images/glyphicons/png/glyphicons-164-iphone.png
- create mode 100644 images/glyphicons/png/glyphicons-165-iphone-transfer.png
- create mode 100644 images/glyphicons/png/glyphicons-166-iphone-exchange.png
- create mode 100644 images/glyphicons/png/glyphicons-167-ipod.png
- create mode 100644 images/glyphicons/png/glyphicons-168-ipod-shuffle.png
- create mode 100644 images/glyphicons/png/glyphicons-169-ear-plugs.png
- create mode 100644 images/glyphicons/png/glyphicons-17-bin.png
- create mode 100644 images/glyphicons/png/glyphicons-170-record.png
- create mode 100644 images/glyphicons/png/glyphicons-171-step-backward.png
- create mode 100644 images/glyphicons/png/glyphicons-172-fast-backward.png
- create mode 100644 images/glyphicons/png/glyphicons-173-rewind.png
- create mode 100644 images/glyphicons/png/glyphicons-174-play.png
- create mode 100644 images/glyphicons/png/glyphicons-175-pause.png
- create mode 100644 images/glyphicons/png/glyphicons-176-stop.png
- create mode 100644 images/glyphicons/png/glyphicons-177-forward.png
- create mode 100644 images/glyphicons/png/glyphicons-178-fast-forward.png
- create mode 100644 images/glyphicons/png/glyphicons-179-step-forward.png
- create mode 100644 images/glyphicons/png/glyphicons-18-music.png
- create mode 100644 images/glyphicons/png/glyphicons-180-eject.png
- create mode 100644 images/glyphicons/png/glyphicons-181-facetime-video.png
- create mode 100644 images/glyphicons/png/glyphicons-182-download-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-183-mute.png
- create mode 100644 images/glyphicons/png/glyphicons-184-volume-down.png
- create mode 100644 images/glyphicons/png/glyphicons-185-volume-up.png
- create mode 100644 images/glyphicons/png/glyphicons-186-screenshot.png
- create mode 100644 images/glyphicons/png/glyphicons-187-move.png
- create mode 100644 images/glyphicons/png/glyphicons-188-more.png
- create mode 100644 images/glyphicons/png/glyphicons-189-brightness-reduce.png
- create mode 100644 images/glyphicons/png/glyphicons-19-music-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-190-brightness-increase.png
- create mode 100644 images/glyphicons/png/glyphicons-191-plus-sign.png
- create mode 100644 images/glyphicons/png/glyphicons-192-minus-sign.png
- create mode 100644 images/glyphicons/png/glyphicons-193-remove-sign.png
- create mode 100644 images/glyphicons/png/glyphicons-194-ok-sign.png
- create mode 100644 images/glyphicons/png/glyphicons-195-question-sign.png
- create mode 100644 images/glyphicons/png/glyphicons-196-info-sign.png
- create mode 100644 images/glyphicons/png/glyphicons-197-exclamation-sign.png
- create mode 100644 images/glyphicons/png/glyphicons-198-remove-circle.png
- create mode 100644 images/glyphicons/png/glyphicons-199-ok-circle.png
- create mode 100644 images/glyphicons/png/glyphicons-2-leaf.png
- create mode 100644 images/glyphicons/png/glyphicons-20-heart-empty.png
- create mode 100644 images/glyphicons/png/glyphicons-200-ban-circle.png
- create mode 100644 images/glyphicons/png/glyphicons-201-download.png
- create mode 100644 images/glyphicons/png/glyphicons-202-upload.png
- create mode 100644 images/glyphicons/png/glyphicons-203-shopping-cart.png
- create mode 100644 images/glyphicons/png/glyphicons-204-lock.png
- create mode 100644 images/glyphicons/png/glyphicons-205-unlock.png
- create mode 100644 images/glyphicons/png/glyphicons-206-electricity.png
- create mode 100644 images/glyphicons/png/glyphicons-207-ok.png
- create mode 100644 images/glyphicons/png/glyphicons-208-remove.png
- create mode 100644 images/glyphicons/png/glyphicons-209-cart-in.png
- create mode 100644 images/glyphicons/png/glyphicons-21-home.png
- create mode 100644 images/glyphicons/png/glyphicons-210-cart-out.png
- create mode 100644 images/glyphicons/png/glyphicons-211-arrow-left.png
- create mode 100644 images/glyphicons/png/glyphicons-212-arrow-right.png
- create mode 100644 images/glyphicons/png/glyphicons-213-arrow-down.png
- create mode 100644 images/glyphicons/png/glyphicons-214-arrow-up.png
- create mode 100644 images/glyphicons/png/glyphicons-215-resize-small.png
- create mode 100644 images/glyphicons/png/glyphicons-216-resize-full.png
- create mode 100644 images/glyphicons/png/glyphicons-217-circle-arrow-left.png
- create mode 100644 images/glyphicons/png/glyphicons-218-circle-arrow-right.png
- create mode 100644 images/glyphicons/png/glyphicons-219-circle-arrow-top.png
- create mode 100644 images/glyphicons/png/glyphicons-22-snowflake.png
- create mode 100644 images/glyphicons/png/glyphicons-220-circle-arrow-down.png
- create mode 100644 images/glyphicons/png/glyphicons-221-play-button.png
- create mode 100644 images/glyphicons/png/glyphicons-222-unshare.png
- create mode 100644 images/glyphicons/png/glyphicons-223-share.png
- create mode 100644 images/glyphicons/png/glyphicons-224-chevron-right.png
- create mode 100644 images/glyphicons/png/glyphicons-225-chevron-left.png
- create mode 100644 images/glyphicons/png/glyphicons-226-bluetooth.png
- create mode 100644 images/glyphicons/png/glyphicons-227-euro.png
- create mode 100644 images/glyphicons/png/glyphicons-228-usd.png
- create mode 100644 images/glyphicons/png/glyphicons-229-gbp.png
- create mode 100644 images/glyphicons/png/glyphicons-23-fire.png
- create mode 100644 images/glyphicons/png/glyphicons-230-retweet-2.png
- create mode 100644 images/glyphicons/png/glyphicons-231-moon.png
- create mode 100644 images/glyphicons/png/glyphicons-232-sun.png
- create mode 100644 images/glyphicons/png/glyphicons-233-cloud.png
- create mode 100644 images/glyphicons/png/glyphicons-234-direction.png
- create mode 100644 images/glyphicons/png/glyphicons-235-brush.png
- create mode 100644 images/glyphicons/png/glyphicons-236-pen.png
- create mode 100644 images/glyphicons/png/glyphicons-237-zoom-in.png
- create mode 100644 images/glyphicons/png/glyphicons-238-zoom-out.png
- create mode 100644 images/glyphicons/png/glyphicons-239-pin.png
- create mode 100644 images/glyphicons/png/glyphicons-24-magnet.png
- create mode 100644 images/glyphicons/png/glyphicons-240-albums.png
- create mode 100644 images/glyphicons/png/glyphicons-241-rotation-lock.png
- create mode 100644 images/glyphicons/png/glyphicons-242-flash.png
- create mode 100644 images/glyphicons/png/glyphicons-243-map-marker.png
- create mode 100644 images/glyphicons/png/glyphicons-244-anchor.png
- create mode 100644 images/glyphicons/png/glyphicons-245-conversation.png
- create mode 100644 images/glyphicons/png/glyphicons-246-chat.png
- create mode 100644 images/glyphicons/png/glyphicons-247-note-empty.png
- create mode 100644 images/glyphicons/png/glyphicons-248-note.png
- create mode 100644 images/glyphicons/png/glyphicons-249-asterisk.png
- create mode 100644 images/glyphicons/png/glyphicons-25-parents.png
- create mode 100644 images/glyphicons/png/glyphicons-250-divide.png
- create mode 100644 images/glyphicons/png/glyphicons-251-snorkel-diving.png
- create mode 100644 images/glyphicons/png/glyphicons-252-scuba-diving.png
- create mode 100644 images/glyphicons/png/glyphicons-253-oxygen-bottle.png
- create mode 100644 images/glyphicons/png/glyphicons-254-fins.png
- create mode 100644 images/glyphicons/png/glyphicons-255-fishes.png
- create mode 100644 images/glyphicons/png/glyphicons-256-boat.png
- create mode 100644 images/glyphicons/png/glyphicons-257-delete.png
- create mode 100644 images/glyphicons/png/glyphicons-258-sheriffs-star.png
- create mode 100644 images/glyphicons/png/glyphicons-259-qrcode.png
- create mode 100644 images/glyphicons/png/glyphicons-26-binoculars.png
- create mode 100644 images/glyphicons/png/glyphicons-260-barcode.png
- create mode 100644 images/glyphicons/png/glyphicons-261-pool.png
- create mode 100644 images/glyphicons/png/glyphicons-262-buoy.png
- create mode 100644 images/glyphicons/png/glyphicons-263-spade.png
- create mode 100644 images/glyphicons/png/glyphicons-264-bank.png
- create mode 100644 images/glyphicons/png/glyphicons-265-vcard.png
- create mode 100644 images/glyphicons/png/glyphicons-266-electrical-plug.png
- create mode 100644 images/glyphicons/png/glyphicons-267-flag.png
- create mode 100644 images/glyphicons/png/glyphicons-268-credit-card.png
- create mode 100644 images/glyphicons/png/glyphicons-269-keyboard-wireless.png
- create mode 100644 images/glyphicons/png/glyphicons-27-road.png
- create mode 100644 images/glyphicons/png/glyphicons-270-keyboard-wireless.png
- create mode 100644 images/glyphicons/png/glyphicons-271-shield.png
- create mode 100644 images/glyphicons/png/glyphicons-272-ring.png
- create mode 100644 images/glyphicons/png/glyphicons-273-cake.png
- create mode 100644 images/glyphicons/png/glyphicons-274-drink.png
- create mode 100644 images/glyphicons/png/glyphicons-275-beer.png
- create mode 100644 images/glyphicons/png/glyphicons-276-fast-food.png
- create mode 100644 images/glyphicons/png/glyphicons-277-cutlery.png
- create mode 100644 images/glyphicons/png/glyphicons-278-pizza.png
- create mode 100644 images/glyphicons/png/glyphicons-279-birthday-cake.png
- create mode 100644 images/glyphicons/png/glyphicons-28-search.png
- create mode 100644 images/glyphicons/png/glyphicons-280-tablet.png
- create mode 100644 images/glyphicons/png/glyphicons-281-settings.png
- create mode 100644 images/glyphicons/png/glyphicons-282-bullets.png
- create mode 100644 images/glyphicons/png/glyphicons-283-cardio.png
- create mode 100644 images/glyphicons/png/glyphicons-284-t-shirt.png
- create mode 100644 images/glyphicons/png/glyphicons-285-pants.png
- create mode 100644 images/glyphicons/png/glyphicons-286-sweater.png
- create mode 100644 images/glyphicons/png/glyphicons-287-fabric.png
- create mode 100644 images/glyphicons/png/glyphicons-288-leather.png
- create mode 100644 images/glyphicons/png/glyphicons-289-scissors.png
- create mode 100644 images/glyphicons/png/glyphicons-29-cars.png
- create mode 100644 images/glyphicons/png/glyphicons-290-bomb.png
- create mode 100644 images/glyphicons/png/glyphicons-291-skull.png
- create mode 100644 images/glyphicons/png/glyphicons-292-celebration.png
- create mode 100644 images/glyphicons/png/glyphicons-293-tea-kettle.png
- create mode 100644 images/glyphicons/png/glyphicons-294-french-press.png
- create mode 100644 images/glyphicons/png/glyphicons-295-coffee-cup.png
- create mode 100644 images/glyphicons/png/glyphicons-296-pot.png
- create mode 100644 images/glyphicons/png/glyphicons-297-grater.png
- create mode 100644 images/glyphicons/png/glyphicons-298-kettle.png
- create mode 100644 images/glyphicons/png/glyphicons-299-hospital.png
- create mode 100644 images/glyphicons/png/glyphicons-3-dog.png
- create mode 100644 images/glyphicons/png/glyphicons-30-notes-2.png
- create mode 100644 images/glyphicons/png/glyphicons-300-hospital-h.png
- create mode 100644 images/glyphicons/png/glyphicons-301-microphone.png
- create mode 100644 images/glyphicons/png/glyphicons-302-webcam.png
- create mode 100644 images/glyphicons/png/glyphicons-303-temple-christianity-church.png
- create mode 100644 images/glyphicons/png/glyphicons-304-temple-islam.png
- create mode 100644 images/glyphicons/png/glyphicons-305-temple-hindu.png
- create mode 100644 images/glyphicons/png/glyphicons-306-temple-buddhist.png
- create mode 100644 images/glyphicons/png/glyphicons-307-bicycle.png
- create mode 100644 images/glyphicons/png/glyphicons-308-life-preserver.png
- create mode 100644 images/glyphicons/png/glyphicons-309-share-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-31-pencil.png
- create mode 100644 images/glyphicons/png/glyphicons-310-comments.png
- create mode 100644 images/glyphicons/png/glyphicons-311-flower.png
- create mode 100644 images/glyphicons/png/glyphicons-312-baseball.png
- create mode 100644 images/glyphicons/png/glyphicons-313-rugby.png
- create mode 100644 images/glyphicons/png/glyphicons-314-ax.png
- create mode 100644 images/glyphicons/png/glyphicons-315-table-tennis.png
- create mode 100644 images/glyphicons/png/glyphicons-316-bowling.png
- create mode 100644 images/glyphicons/png/glyphicons-317-tree-conifer.png
- create mode 100644 images/glyphicons/png/glyphicons-318-tree-deciduous.png
- create mode 100644 images/glyphicons/png/glyphicons-319-more-items.png
- create mode 100644 images/glyphicons/png/glyphicons-32-bus.png
- create mode 100644 images/glyphicons/png/glyphicons-320-sort.png
- create mode 100644 images/glyphicons/png/glyphicons-321-filter.png
- create mode 100644 images/glyphicons/png/glyphicons-322-gamepad.png
- create mode 100644 images/glyphicons/png/glyphicons-323-playing-dices.png
- create mode 100644 images/glyphicons/png/glyphicons-324-calculator.png
- create mode 100644 images/glyphicons/png/glyphicons-325-tie.png
- create mode 100644 images/glyphicons/png/glyphicons-326-wallet.png
- create mode 100644 images/glyphicons/png/glyphicons-327-piano.png
- create mode 100644 images/glyphicons/png/glyphicons-328-sampler.png
- create mode 100644 images/glyphicons/png/glyphicons-329-podium.png
- create mode 100644 images/glyphicons/png/glyphicons-33-wifi-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-330-soccer-ball.png
- create mode 100644 images/glyphicons/png/glyphicons-331-blog.png
- create mode 100644 images/glyphicons/png/glyphicons-332-dashboard.png
- create mode 100644 images/glyphicons/png/glyphicons-333-certificate.png
- create mode 100644 images/glyphicons/png/glyphicons-334-bell.png
- create mode 100644 images/glyphicons/png/glyphicons-335-candle.png
- create mode 100644 images/glyphicons/png/glyphicons-336-pushpin.png
- create mode 100644 images/glyphicons/png/glyphicons-337-iphone-shake.png
- create mode 100644 images/glyphicons/png/glyphicons-338-pin-flag.png
- create mode 100644 images/glyphicons/png/glyphicons-339-turtle.png
- create mode 100644 images/glyphicons/png/glyphicons-34-luggage.png
- create mode 100644 images/glyphicons/png/glyphicons-340-rabbit.png
- create mode 100644 images/glyphicons/png/glyphicons-341-globe.png
- create mode 100644 images/glyphicons/png/glyphicons-342-briefcase.png
- create mode 100644 images/glyphicons/png/glyphicons-343-hdd.png
- create mode 100644 images/glyphicons/png/glyphicons-344-thumbs-up.png
- create mode 100644 images/glyphicons/png/glyphicons-345-thumbs-down.png
- create mode 100644 images/glyphicons/png/glyphicons-346-hand-right.png
- create mode 100644 images/glyphicons/png/glyphicons-347-hand-left.png
- create mode 100644 images/glyphicons/png/glyphicons-348-hand-up.png
- create mode 100644 images/glyphicons/png/glyphicons-349-hand-down.png
- create mode 100644 images/glyphicons/png/glyphicons-35-old-man.png
- create mode 100644 images/glyphicons/png/glyphicons-350-fullscreen.png
- create mode 100644 images/glyphicons/png/glyphicons-351-shopping-bag.png
- create mode 100644 images/glyphicons/png/glyphicons-352-book-open.png
- create mode 100644 images/glyphicons/png/glyphicons-353-nameplate.png
- create mode 100644 images/glyphicons/png/glyphicons-354-nameplate-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-355-vases.png
- create mode 100644 images/glyphicons/png/glyphicons-356-bullhorn.png
- create mode 100644 images/glyphicons/png/glyphicons-357-dumbbell.png
- create mode 100644 images/glyphicons/png/glyphicons-358-suitcase.png
- create mode 100644 images/glyphicons/png/glyphicons-359-file-import.png
- create mode 100644 images/glyphicons/png/glyphicons-36-woman.png
- create mode 100644 images/glyphicons/png/glyphicons-360-file-export.png
- create mode 100644 images/glyphicons/png/glyphicons-361-bug.png
- create mode 100644 images/glyphicons/png/glyphicons-362-crown.png
- create mode 100644 images/glyphicons/png/glyphicons-363-smoking.png
- create mode 100644 images/glyphicons/png/glyphicons-364-cloud-upload.png
- create mode 100644 images/glyphicons/png/glyphicons-365-cloud-download.png
- create mode 100644 images/glyphicons/png/glyphicons-366-restart.png
- create mode 100644 images/glyphicons/png/glyphicons-367-security-camera.png
- create mode 100644 images/glyphicons/png/glyphicons-368-expand.png
- create mode 100644 images/glyphicons/png/glyphicons-369-collapse.png
- create mode 100644 images/glyphicons/png/glyphicons-37-file.png
- create mode 100644 images/glyphicons/png/glyphicons-370-collapse-top.png
- create mode 100644 images/glyphicons/png/glyphicons-371-globe-af.png
- create mode 100644 images/glyphicons/png/glyphicons-372-global.png
- create mode 100644 images/glyphicons/png/glyphicons-373-spray.png
- create mode 100644 images/glyphicons/png/glyphicons-374-nails.png
- create mode 100644 images/glyphicons/png/glyphicons-375-claw-hammer.png
- create mode 100644 images/glyphicons/png/glyphicons-376-classic-hammer.png
- create mode 100644 images/glyphicons/png/glyphicons-377-hand-saw.png
- create mode 100644 images/glyphicons/png/glyphicons-378-riflescope.png
- create mode 100644 images/glyphicons/png/glyphicons-379-electrical-socket-eu.png
- create mode 100644 images/glyphicons/png/glyphicons-38-coins.png
- create mode 100644 images/glyphicons/png/glyphicons-380-electrical-socket-us.png
- create mode 100644 images/glyphicons/png/glyphicons-381-message-forward.png
- create mode 100644 images/glyphicons/png/glyphicons-382-coat-hanger.png
- create mode 100644 images/glyphicons/png/glyphicons-383-dress.png
- create mode 100644 images/glyphicons/png/glyphicons-384-bathrobe.png
- create mode 100644 images/glyphicons/png/glyphicons-385-shirt.png
- create mode 100644 images/glyphicons/png/glyphicons-386-underwear.png
- create mode 100644 images/glyphicons/png/glyphicons-387-log-in.png
- create mode 100644 images/glyphicons/png/glyphicons-388-log-out.png
- create mode 100644 images/glyphicons/png/glyphicons-389-exit.png
- create mode 100644 images/glyphicons/png/glyphicons-39-plane.png
- create mode 100644 images/glyphicons/png/glyphicons-390-new-window-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-391-video-sd.png
- create mode 100644 images/glyphicons/png/glyphicons-392-video-hd.png
- create mode 100644 images/glyphicons/png/glyphicons-393-subtitles.png
- create mode 100644 images/glyphicons/png/glyphicons-394-sound-stereo.png
- create mode 100644 images/glyphicons/png/glyphicons-395-sound-dolby.png
- create mode 100644 images/glyphicons/png/glyphicons-396-sound-5-1.png
- create mode 100644 images/glyphicons/png/glyphicons-397-sound-6-1.png
- create mode 100644 images/glyphicons/png/glyphicons-398-sound-7-1.png
- create mode 100644 images/glyphicons/png/glyphicons-399-copyright-mark.png
- create mode 100644 images/glyphicons/png/glyphicons-4-user.png
- create mode 100644 images/glyphicons/png/glyphicons-40-notes.png
- create mode 100644 images/glyphicons/png/glyphicons-400-registration-mark.png
- create mode 100644 images/glyphicons/png/glyphicons-401-radar.png
- create mode 100644 images/glyphicons/png/glyphicons-402-skateboard.png
- create mode 100644 images/glyphicons/png/glyphicons-403-golf-course.png
- create mode 100644 images/glyphicons/png/glyphicons-404-sorting.png
- create mode 100644 images/glyphicons/png/glyphicons-405-sort-by-alphabet.png
- create mode 100644 images/glyphicons/png/glyphicons-406-sort-by-alphabet-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-407-sort-by-order.png
- create mode 100644 images/glyphicons/png/glyphicons-408-sort-by-order-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-409-sort-by-attributes.png
- create mode 100644 images/glyphicons/png/glyphicons-41-stats.png
- create mode 100644 images/glyphicons/png/glyphicons-410-sort-by-attributes-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-411-compressed.png
- create mode 100644 images/glyphicons/png/glyphicons-412-package.png
- create mode 100644 images/glyphicons/png/glyphicons-413-cloud-plus.png
- create mode 100644 images/glyphicons/png/glyphicons-414-cloud-minus.png
- create mode 100644 images/glyphicons/png/glyphicons-415-disk-save.png
- create mode 100644 images/glyphicons/png/glyphicons-416-disk-open.png
- create mode 100644 images/glyphicons/png/glyphicons-417-disk-saved.png
- create mode 100644 images/glyphicons/png/glyphicons-418-disk-remove.png
- create mode 100644 images/glyphicons/png/glyphicons-419-disk-import.png
- create mode 100644 images/glyphicons/png/glyphicons-42-charts.png
- create mode 100644 images/glyphicons/png/glyphicons-420-disk-export.png
- create mode 100644 images/glyphicons/png/glyphicons-421-tower.png
- create mode 100644 images/glyphicons/png/glyphicons-422-send.png
- create mode 100644 images/glyphicons/png/glyphicons-423-git-branch.png
- create mode 100644 images/glyphicons/png/glyphicons-424-git-create.png
- create mode 100644 images/glyphicons/png/glyphicons-425-git-private.png
- create mode 100644 images/glyphicons/png/glyphicons-426-git-delete.png
- create mode 100644 images/glyphicons/png/glyphicons-427-git-merge.png
- create mode 100644 images/glyphicons/png/glyphicons-428-git-pull-request.png
- create mode 100644 images/glyphicons/png/glyphicons-429-git-compare.png
- create mode 100644 images/glyphicons/png/glyphicons-43-pie-chart.png
- create mode 100644 images/glyphicons/png/glyphicons-430-git-commit.png
- create mode 100644 images/glyphicons/png/glyphicons-431-construction-cone.png
- create mode 100644 images/glyphicons/png/glyphicons-432-shoe-steps.png
- create mode 100644 images/glyphicons/png/glyphicons-433-plus.png
- create mode 100644 images/glyphicons/png/glyphicons-434-minus.png
- create mode 100644 images/glyphicons/png/glyphicons-435-redo.png
- create mode 100644 images/glyphicons/png/glyphicons-436-undo.png
- create mode 100644 images/glyphicons/png/glyphicons-437-golf.png
- create mode 100644 images/glyphicons/png/glyphicons-438-hockey.png
- create mode 100644 images/glyphicons/png/glyphicons-439-pipe.png
- create mode 100644 images/glyphicons/png/glyphicons-44-group.png
- create mode 100644 images/glyphicons/png/glyphicons-440-wrench.png
- create mode 100644 images/glyphicons/png/glyphicons-441-folder-closed.png
- create mode 100644 images/glyphicons/png/glyphicons-442-phone-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-443-earphone.png
- create mode 100644 images/glyphicons/png/glyphicons-444-floppy-disk.png
- create mode 100644 images/glyphicons/png/glyphicons-445-floppy-saved.png
- create mode 100644 images/glyphicons/png/glyphicons-446-floppy-remove.png
- create mode 100644 images/glyphicons/png/glyphicons-447-floppy-save.png
- create mode 100644 images/glyphicons/png/glyphicons-448-floppy-open.png
- create mode 100644 images/glyphicons/png/glyphicons-449-translate.png
- create mode 100644 images/glyphicons/png/glyphicons-45-keys.png
- create mode 100644 images/glyphicons/png/glyphicons-450-fax.png
- create mode 100644 images/glyphicons/png/glyphicons-451-factory.png
- create mode 100644 images/glyphicons/png/glyphicons-452-shop-window.png
- create mode 100644 images/glyphicons/png/glyphicons-453-shop.png
- create mode 100644 images/glyphicons/png/glyphicons-454-kiosk.png
- create mode 100644 images/glyphicons/png/glyphicons-455-kiosk-wheels.png
- create mode 100644 images/glyphicons/png/glyphicons-456-kiosk-light.png
- create mode 100644 images/glyphicons/png/glyphicons-457-kiosk-food.png
- create mode 100644 images/glyphicons/png/glyphicons-458-transfer.png
- create mode 100644 images/glyphicons/png/glyphicons-459-money.png
- create mode 100644 images/glyphicons/png/glyphicons-46-calendar.png
- create mode 100644 images/glyphicons/png/glyphicons-460-header.png
- create mode 100644 images/glyphicons/png/glyphicons-461-blacksmith.png
- create mode 100644 images/glyphicons/png/glyphicons-462-saw-blade.png
- create mode 100644 images/glyphicons/png/glyphicons-463-basketball.png
- create mode 100644 images/glyphicons/png/glyphicons-464-server.png
- create mode 100644 images/glyphicons/png/glyphicons-465-server-plus.png
- create mode 100644 images/glyphicons/png/glyphicons-466-server-minus.png
- create mode 100644 images/glyphicons/png/glyphicons-467-server-ban.png
- create mode 100644 images/glyphicons/png/glyphicons-468-server-flag.png
- create mode 100644 images/glyphicons/png/glyphicons-469-server-lock.png
- create mode 100644 images/glyphicons/png/glyphicons-47-router.png
- create mode 100644 images/glyphicons/png/glyphicons-470-server-new.png
- create mode 100644 images/glyphicons/png/glyphicons-471-charging-station.png
- create mode 100644 images/glyphicons/png/glyphicons-472-gas-station.png
- create mode 100644 images/glyphicons/png/glyphicons-473-target.png
- create mode 100644 images/glyphicons/png/glyphicons-474-bed.png
- create mode 100644 images/glyphicons/png/glyphicons-475-mosquito.png
- create mode 100644 images/glyphicons/png/glyphicons-476-dining-set.png
- create mode 100644 images/glyphicons/png/glyphicons-477-plate-of-food.png
- create mode 100644 images/glyphicons/png/glyphicons-478-hygiene-kit.png
- create mode 100644 images/glyphicons/png/glyphicons-479-blackboard.png
- create mode 100644 images/glyphicons/png/glyphicons-48-camera-small.png
- create mode 100644 images/glyphicons/png/glyphicons-480-marriage.png
- create mode 100644 images/glyphicons/png/glyphicons-481-bucket.png
- create mode 100644 images/glyphicons/png/glyphicons-482-none-color-swatch.png
- create mode 100644 images/glyphicons/png/glyphicons-483-bring-forward.png
- create mode 100644 images/glyphicons/png/glyphicons-484-bring-to-front.png
- create mode 100644 images/glyphicons/png/glyphicons-485-send-backward.png
- create mode 100644 images/glyphicons/png/glyphicons-486-send-to-back.png
- create mode 100644 images/glyphicons/png/glyphicons-487-fit-frame-to-image.png
- create mode 100644 images/glyphicons/png/glyphicons-488-fit-image-to-frame.png
- create mode 100644 images/glyphicons/png/glyphicons-489-multiple-displays.png
- create mode 100644 images/glyphicons/png/glyphicons-49-star-empty.png
- create mode 100644 images/glyphicons/png/glyphicons-490-handshake.png
- create mode 100644 images/glyphicons/png/glyphicons-491-child.png
- create mode 100644 images/glyphicons/png/glyphicons-492-baby-formula.png
- create mode 100644 images/glyphicons/png/glyphicons-493-medicine.png
- create mode 100644 images/glyphicons/png/glyphicons-494-atv-vehicle.png
- create mode 100644 images/glyphicons/png/glyphicons-495-motorcycle.png
- create mode 100644 images/glyphicons/png/glyphicons-496-bed-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-497-tent.png
- create mode 100644 images/glyphicons/png/glyphicons-498-glasses.png
- create mode 100644 images/glyphicons/png/glyphicons-499-sunglasses.png
- create mode 100644 images/glyphicons/png/glyphicons-5-girl.png
- create mode 100644 images/glyphicons/png/glyphicons-50-star.png
- create mode 100644 images/glyphicons/png/glyphicons-500-family.png
- create mode 100644 images/glyphicons/png/glyphicons-501-education.png
- create mode 100644 images/glyphicons/png/glyphicons-502-shoes.png
- create mode 100644 images/glyphicons/png/glyphicons-503-map.png
- create mode 100644 images/glyphicons/png/glyphicons-504-cd.png
- create mode 100644 images/glyphicons/png/glyphicons-505-alert.png
- create mode 100644 images/glyphicons/png/glyphicons-506-piggy-bank.png
- create mode 100644 images/glyphicons/png/glyphicons-507-star-half.png
- create mode 100644 images/glyphicons/png/glyphicons-508-cluster.png
- create mode 100644 images/glyphicons/png/glyphicons-509-flowchart.png
- create mode 100644 images/glyphicons/png/glyphicons-51-link.png
- create mode 100644 images/glyphicons/png/glyphicons-510-commodities.png
- create mode 100644 images/glyphicons/png/glyphicons-511-duplicate.png
- create mode 100644 images/glyphicons/png/glyphicons-512-copy.png
- create mode 100644 images/glyphicons/png/glyphicons-513-paste.png
- create mode 100644 images/glyphicons/png/glyphicons-514-bath-bathtub.png
- create mode 100644 images/glyphicons/png/glyphicons-515-bath-shower.png
- create mode 100644 images/glyphicons/png/glyphicons-516-shower.png
- create mode 100644 images/glyphicons/png/glyphicons-517-menu-hamburger.png
- create mode 100644 images/glyphicons/png/glyphicons-518-option-vertical.png
- create mode 100644 images/glyphicons/png/glyphicons-519-option-horizontal.png
- create mode 100644 images/glyphicons/png/glyphicons-52-eye-open.png
- create mode 100644 images/glyphicons/png/glyphicons-520-currency-conversion.png
- create mode 100644 images/glyphicons/png/glyphicons-521-user-ban.png
- create mode 100644 images/glyphicons/png/glyphicons-522-user-lock.png
- create mode 100644 images/glyphicons/png/glyphicons-523-user-flag.png
- create mode 100644 images/glyphicons/png/glyphicons-524-user-asterisk.png
- create mode 100644 images/glyphicons/png/glyphicons-525-user-alert.png
- create mode 100644 images/glyphicons/png/glyphicons-526-user-key.png
- create mode 100644 images/glyphicons/png/glyphicons-527-user-conversation.png
- create mode 100644 images/glyphicons/png/glyphicons-528-database.png
- create mode 100644 images/glyphicons/png/glyphicons-529-database-search.png
- create mode 100644 images/glyphicons/png/glyphicons-53-eye-close.png
- create mode 100644 images/glyphicons/png/glyphicons-530-list-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-531-hazard-sign.png
- create mode 100644 images/glyphicons/png/glyphicons-532-hazard.png
- create mode 100644 images/glyphicons/png/glyphicons-533-stop-sign.png
- create mode 100644 images/glyphicons/png/glyphicons-534-lab.png
- create mode 100644 images/glyphicons/png/glyphicons-535-lab-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-536-ice-cream.png
- create mode 100644 images/glyphicons/png/glyphicons-537-ice-lolly.png
- create mode 100644 images/glyphicons/png/glyphicons-538-ice-lolly-tasted.png
- create mode 100644 images/glyphicons/png/glyphicons-539-invoice.png
- create mode 100644 images/glyphicons/png/glyphicons-54-alarm.png
- create mode 100644 images/glyphicons/png/glyphicons-540-cart-tick.png
- create mode 100644 images/glyphicons/png/glyphicons-541-hourglass.png
- create mode 100644 images/glyphicons/png/glyphicons-542-cat.png
- create mode 100644 images/glyphicons/png/glyphicons-543-lamp.png
- create mode 100644 images/glyphicons/png/glyphicons-544-scale-classic.png
- create mode 100644 images/glyphicons/png/glyphicons-545-eye-plus.png
- create mode 100644 images/glyphicons/png/glyphicons-546-eye-minus.png
- create mode 100644 images/glyphicons/png/glyphicons-547-quote.png
- create mode 100644 images/glyphicons/png/glyphicons-548-bitcoin.png
- create mode 100644 images/glyphicons/png/glyphicons-549-yen.png
- create mode 100644 images/glyphicons/png/glyphicons-55-clock.png
- create mode 100644 images/glyphicons/png/glyphicons-550-ruble.png
- create mode 100644 images/glyphicons/png/glyphicons-551-erase.png
- create mode 100644 images/glyphicons/png/glyphicons-552-podcast.png
- create mode 100644 images/glyphicons/png/glyphicons-553-firework.png
- create mode 100644 images/glyphicons/png/glyphicons-554-scale.png
- create mode 100644 images/glyphicons/png/glyphicons-555-king.png
- create mode 100644 images/glyphicons/png/glyphicons-556-queen.png
- create mode 100644 images/glyphicons/png/glyphicons-557-pawn.png
- create mode 100644 images/glyphicons/png/glyphicons-558-bishop.png
- create mode 100644 images/glyphicons/png/glyphicons-559-knight.png
- create mode 100644 images/glyphicons/png/glyphicons-56-stopwatch.png
- create mode 100644 images/glyphicons/png/glyphicons-560-mic-mute.png
- create mode 100644 images/glyphicons/png/glyphicons-561-voicemail.png
- create mode 100644 images/glyphicons/png/glyphicons-562-paragraph-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-563-person-walking.png
- create mode 100644 images/glyphicons/png/glyphicons-564-person-wheelchair.png
- create mode 100644 images/glyphicons/png/glyphicons-565-underground.png
- create mode 100644 images/glyphicons/png/glyphicons-566-car-hov.png
- create mode 100644 images/glyphicons/png/glyphicons-567-car-rental.png
- create mode 100644 images/glyphicons/png/glyphicons-568-transport.png
- create mode 100644 images/glyphicons/png/glyphicons-569-taxi.png
- create mode 100644 images/glyphicons/png/glyphicons-57-projector.png
- create mode 100644 images/glyphicons/png/glyphicons-570-ice-cream-no.png
- create mode 100644 images/glyphicons/png/glyphicons-571-uk-rat-u.png
- create mode 100644 images/glyphicons/png/glyphicons-572-uk-rat-pg.png
- create mode 100644 images/glyphicons/png/glyphicons-573-uk-rat-12a.png
- create mode 100644 images/glyphicons/png/glyphicons-574-uk-rat-12.png
- create mode 100644 images/glyphicons/png/glyphicons-575-uk-rat-15.png
- create mode 100644 images/glyphicons/png/glyphicons-576-uk-rat-18.png
- create mode 100644 images/glyphicons/png/glyphicons-577-uk-rat-r18.png
- create mode 100644 images/glyphicons/png/glyphicons-578-tv.png
- create mode 100644 images/glyphicons/png/glyphicons-579-sms.png
- create mode 100644 images/glyphicons/png/glyphicons-58-history.png
- create mode 100644 images/glyphicons/png/glyphicons-580-mms.png
- create mode 100644 images/glyphicons/png/glyphicons-581-us-rat-g.png
- create mode 100644 images/glyphicons/png/glyphicons-582-us-rat-pg.png
- create mode 100644 images/glyphicons/png/glyphicons-583-us-rat-pg-13.png
- create mode 100644 images/glyphicons/png/glyphicons-584-us-rat-restricted.png
- create mode 100644 images/glyphicons/png/glyphicons-585-us-rat-no-one-17.png
- create mode 100644 images/glyphicons/png/glyphicons-586-equalizer.png
- create mode 100644 images/glyphicons/png/glyphicons-587-speakers.png
- create mode 100644 images/glyphicons/png/glyphicons-588-remote-control.png
- create mode 100644 images/glyphicons/png/glyphicons-589-remote-control-tv.png
- create mode 100644 images/glyphicons/png/glyphicons-59-truck.png
- create mode 100644 images/glyphicons/png/glyphicons-590-shredder.png
- create mode 100644 images/glyphicons/png/glyphicons-591-folder-heart.png
- create mode 100644 images/glyphicons/png/glyphicons-592-person-running.png
- create mode 100644 images/glyphicons/png/glyphicons-593-person.png
- create mode 100644 images/glyphicons/png/glyphicons-594-voice.png
- create mode 100644 images/glyphicons/png/glyphicons-595-stethoscope.png
- create mode 100644 images/glyphicons/png/glyphicons-596-paired.png
- create mode 100644 images/glyphicons/png/glyphicons-597-activity.png
- create mode 100644 images/glyphicons/png/glyphicons-598-watch.png
- create mode 100644 images/glyphicons/png/glyphicons-599-scissors-alt.png
- create mode 100644 images/glyphicons/png/glyphicons-6-car.png
- create mode 100644 images/glyphicons/png/glyphicons-60-cargo.png
- create mode 100644 images/glyphicons/png/glyphicons-600-car-wheel.png
- create mode 100644 images/glyphicons/png/glyphicons-601-chevron-up.png
- create mode 100644 images/glyphicons/png/glyphicons-602-chevron-down.png
- create mode 100644 images/glyphicons/png/glyphicons-603-superscript.png
- create mode 100644 images/glyphicons/png/glyphicons-604-subscript.png
- create mode 100644 images/glyphicons/png/glyphicons-605-text-size.png
- create mode 100644 images/glyphicons/png/glyphicons-606-text-color.png
- create mode 100644 images/glyphicons/png/glyphicons-607-text-background.png
- create mode 100644 images/glyphicons/png/glyphicons-608-modal-window.png
- create mode 100644 images/glyphicons/png/glyphicons-609-newspaper.png
- create mode 100644 images/glyphicons/png/glyphicons-61-compass.png
- create mode 100644 images/glyphicons/png/glyphicons-610-tractor.png
- create mode 100644 images/glyphicons/png/glyphicons-611-camping.png
- create mode 100644 images/glyphicons/png/glyphicons-612-camping-benches.png
- create mode 100644 images/glyphicons/png/glyphicons-613-forest.png
- create mode 100644 images/glyphicons/png/glyphicons-614-park.png
- create mode 100644 images/glyphicons/png/glyphicons-615-field.png
- create mode 100644 images/glyphicons/png/glyphicons-616-mountains.png
- create mode 100644 images/glyphicons/png/glyphicons-617-fees-payments.png
- create mode 100644 images/glyphicons/png/glyphicons-618-small-payments.png
- create mode 100644 images/glyphicons/png/glyphicons-619-mixed-buildings.png
- create mode 100644 images/glyphicons/png/glyphicons-62-keynote.png
- create mode 100644 images/glyphicons/png/glyphicons-620-industrial-zone.png
- create mode 100644 images/glyphicons/png/glyphicons-621-visitor-tag.png
- create mode 100644 images/glyphicons/png/glyphicons-622-businessman.png
- create mode 100644 images/glyphicons/png/glyphicons-623-meditation.png
- create mode 100644 images/glyphicons/png/glyphicons-624-bath.png
- create mode 100644 images/glyphicons/png/glyphicons-625-donate.png
- create mode 100644 images/glyphicons/png/glyphicons-626-sauna.png
- create mode 100644 images/glyphicons/png/glyphicons-627-bedroom-nightstand.png
- create mode 100644 images/glyphicons/png/glyphicons-628-bedroom-lamp.png
- create mode 100644 images/glyphicons/png/glyphicons-629-doctor.png
- create mode 100644 images/glyphicons/png/glyphicons-63-paperclip.png
- create mode 100644 images/glyphicons/png/glyphicons-630-engineering-networks.png
- create mode 100644 images/glyphicons/png/glyphicons-631-washing-machine.png
- create mode 100644 images/glyphicons/png/glyphicons-632-dryer.png
- create mode 100644 images/glyphicons/png/glyphicons-633-dishwasher.png
- create mode 100644 images/glyphicons/png/glyphicons-634-luggage-group.png
- create mode 100644 images/glyphicons/png/glyphicons-635-teenager.png
- create mode 100644 images/glyphicons/png/glyphicons-636-person-stick.png
- create mode 100644 images/glyphicons/png/glyphicons-637-person-stick-old.png
- create mode 100644 images/glyphicons/png/glyphicons-638-traveler.png
- create mode 100644 images/glyphicons/png/glyphicons-639-veteran.png
- create mode 100644 images/glyphicons/png/glyphicons-64-power.png
- create mode 100644 images/glyphicons/png/glyphicons-640-group-chat.png
- create mode 100644 images/glyphicons/png/glyphicons-641-elections.png
- create mode 100644 images/glyphicons/png/glyphicons-642-law-justice.png
- create mode 100644 images/glyphicons/png/glyphicons-643-judiciary.png
- create mode 100644 images/glyphicons/png/glyphicons-644-house-fire.png
- create mode 100644 images/glyphicons/png/glyphicons-645-firefighters.png
- create mode 100644 images/glyphicons/png/glyphicons-646-police.png
- create mode 100644 images/glyphicons/png/glyphicons-647-ambulance.png
- create mode 100644 images/glyphicons/png/glyphicons-648-light-beacon.png
- create mode 100644 images/glyphicons/png/glyphicons-649-important-day.png
- create mode 100644 images/glyphicons/png/glyphicons-65-lightbulb.png
- create mode 100644 images/glyphicons/png/glyphicons-650-bike-park.png
- create mode 100644 images/glyphicons/png/glyphicons-651-object-align-top.png
- create mode 100644 images/glyphicons/png/glyphicons-652-object-align-bottom.png
- create mode 100644 images/glyphicons/png/glyphicons-653-object-align-horizontal.png
- create mode 100644 images/glyphicons/png/glyphicons-654-object-align-left.png
- create mode 100644 images/glyphicons/png/glyphicons-655-object-align-vertical.png
- create mode 100644 images/glyphicons/png/glyphicons-656-object-align-right.png
- create mode 100644 images/glyphicons/png/glyphicons-657-reflect-y.png
- create mode 100644 images/glyphicons/png/glyphicons-658-reflect-x.png
- create mode 100644 images/glyphicons/png/glyphicons-659-tick.png
- create mode 100644 images/glyphicons/png/glyphicons-66-tag.png
- create mode 100644 images/glyphicons/png/glyphicons-660-lawnmower.png
- create mode 100644 images/glyphicons/png/glyphicons-661-call-redirect.png
- create mode 100644 images/glyphicons/png/glyphicons-662-call-ip.png
- create mode 100644 images/glyphicons/png/glyphicons-663-call-record.png
- create mode 100644 images/glyphicons/png/glyphicons-664-call-ringtone.png
- create mode 100644 images/glyphicons/png/glyphicons-665-call-traffic.png
- create mode 100644 images/glyphicons/png/glyphicons-666-call-hold.png
- create mode 100644 images/glyphicons/png/glyphicons-667-call-incoming.png
- create mode 100644 images/glyphicons/png/glyphicons-668-call-outgoing.png
- create mode 100644 images/glyphicons/png/glyphicons-669-call-video.png
- create mode 100644 images/glyphicons/png/glyphicons-67-tags.png
- create mode 100644 images/glyphicons/png/glyphicons-670-call-missed.png
- create mode 100644 images/glyphicons/png/glyphicons-671-theater.png
- create mode 100644 images/glyphicons/png/glyphicons-672-heartbeat.png
- create mode 100644 images/glyphicons/png/glyphicons-673-kettlebell.png
- create mode 100644 images/glyphicons/png/glyphicons-674-fireplace.png
- create mode 100644 images/glyphicons/png/glyphicons-675-street-lights.png
- create mode 100644 images/glyphicons/png/glyphicons-676-pedestrian.png
- create mode 100644 images/glyphicons/png/glyphicons-677-flood.png
- create mode 100644 images/glyphicons/png/glyphicons-678-open-water.png
- create mode 100644 images/glyphicons/png/glyphicons-679-for-sale.png
- create mode 100644 images/glyphicons/png/glyphicons-68-cleaning.png
- create mode 100644 images/glyphicons/png/glyphicons-680-dustbin.png
- create mode 100644 images/glyphicons/png/glyphicons-681-door.png
- create mode 100644 images/glyphicons/png/glyphicons-682-camp-fire.png
- create mode 100644 images/glyphicons/png/glyphicons-683-fleur-de-lis.png
- create mode 100644 images/glyphicons/png/glyphicons-684-temperature-settings.png
- create mode 100644 images/glyphicons/png/glyphicons-685-article.png
- create mode 100644 images/glyphicons/png/glyphicons-686-sunbath.png
- create mode 100644 images/glyphicons/png/glyphicons-687-balanced-diet.png
- create mode 100644 images/glyphicons/png/glyphicons-688-ticket.png
- create mode 100644 images/glyphicons/png/glyphicons-689-parking-ticket.png
- create mode 100644 images/glyphicons/png/glyphicons-69-ruler.png
- create mode 100644 images/glyphicons/png/glyphicons-690-parking-meter.png
- create mode 100644 images/glyphicons/png/glyphicons-691-laptop.png
- create mode 100644 images/glyphicons/png/glyphicons-692-tree-structure.png
- create mode 100644 images/glyphicons/png/glyphicons-693-weather-warning.png
- create mode 100644 images/glyphicons/png/glyphicons-694-temperature-low.png
- create mode 100644 images/glyphicons/png/glyphicons-695-temperature-high.png
- create mode 100644 images/glyphicons/png/glyphicons-696-temperature-low-warning.png
- create mode 100644 images/glyphicons/png/glyphicons-697-temperature-high-warning.png
- create mode 100644 images/glyphicons/png/glyphicons-698-hurricane.png
- create mode 100644 images/glyphicons/png/glyphicons-699-storm.png
- create mode 100644 images/glyphicons/png/glyphicons-7-user-add.png
- create mode 100644 images/glyphicons/png/glyphicons-70-gift.png
- create mode 100644 images/glyphicons/png/glyphicons-700-sorted-waste.png
- create mode 100644 images/glyphicons/png/glyphicons-701-ear.png
- create mode 100644 images/glyphicons/png/glyphicons-702-ear-deaf.png
- create mode 100644 images/glyphicons/png/glyphicons-703-file-plus.png
- create mode 100644 images/glyphicons/png/glyphicons-704-file-minus.png
- create mode 100644 images/glyphicons/png/glyphicons-705-file-lock.png
- create mode 100644 images/glyphicons/png/glyphicons-706-file-cloud.png
- create mode 100644 images/glyphicons/png/glyphicons-707-file-cloud-download.png
- create mode 100644 images/glyphicons/png/glyphicons-708-file-cloud-upload.png
  create mode 100644 images/glyphicons/png/glyphicons-709-paragraph.png
  create mode 100644 images/glyphicons/png/glyphicons-71-umbrella.png
  create mode 100644 images/glyphicons/png/glyphicons-710-list-numbered.png
@@ -1719,3 +987,36 @@ Fast-forward
  3 files changed, 12418 insertions(+), 2 deletions(-)
  create mode 100644 pages/html_files/hello_world_nn.html
 ]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m  (master)[0m$ [K[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rrProjects/drenr_aws[0;33m (master)[0m$  [K[A[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git add --all
+]0;~/Documents/programming/rProjects/drenr_awsg[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git commit -m 'update '
+[master 6375823] update
+ 4 files changed, 8 insertions(+), 2 deletions(-)
+]0;~/Documents/programming/rProjects/drenr_awsg[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git push origin maste r
+Counting objects: 19, done.
+Delta compression using up to 4 threads.
+Compressing objects:   5% (1/18)   Compressing objects:  11% (2/18)   Compressing objects:  16% (3/18)   Compressing objects:  22% (4/18)   Compressing objects:  27% (5/18)   Compressing objects:  33% (6/18)   Compressing objects:  38% (7/18)   Compressing objects:  44% (8/18)   Compressing objects:  50% (9/18)   Compressing objects:  55% (10/18)   Compressing objects:  61% (11/18)   Compressing objects:  66% (12/18)   Compressing objects:  72% (13/18)   Compressing objects:  77% (14/18)   Compressing objects:  83% (15/18)   Compressing objects:  88% (16/18)   Compressing objects:  94% (17/18)   Compressing objects: 100% (18/18)   Compressing objects: 100% (18/18), done.
+Writing objects:   5% (1/19)   Writing objects:  10% (2/19)   Writing objects:  15% (3/19)   Writing objects:  21% (4/19)   Writing objects:  26% (5/19)   Writing objects:  31% (6/19)   Writing objects:  36% (7/19)   Writing objects:  42% (8/19)   Writing objects:  47% (9/19)   Writing objects:  52% (10/19)   Writing objects:  57% (11/19)   Writing objects:  63% (12/19)   Writing objects:  68% (13/19)   Writing objects:  73% (14/19)   Writing objects:  78% (15/19)   Writing objects:  84% (16/19)   Writing objects:  89% (17/19)   Writing objects:  94% (18/19)   Writing objects: 100% (19/19)   Writing objects: 100% (19/19), 51.68 KiB | 0 bytes/s, done.
+Total 19 (delta 9), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/9)   [Kremote: Resolving deltas:  22% (2/9)   [Kremote: Resolving deltas:  44% (4/9)   [Kremote: Resolving deltas:  66% (6/9)   [Kremote: Resolving deltas:  77% (7/9)   [Kremote: Resolving deltas:  88% (8/9)   [Kremote: Resolving deltas: 100% (9/9)   [Kremote: Resolving deltas: 100% (9/9), completed with 6 local objects.[K
+To github.com:fdrennan/drenr_aws.git
+   ea1b4e5..6375823  master -> master
+[K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git pull ori gin master
+remote: Counting objects: 7, done.[K
+remote: Compressing objects:  33% (1/3)   [Kremote: Compressing objects:  66% (2/3)   [Kremote: Compressing objects: 100% (3/3)   [Kremote: Compressing objects: 100% (3/3), done.[K
+remote: Total 7 (delta 3), reused 7 (delta 3), pack-reused 0[K
+Unpacking objects:  14% (1/7)   Unpacking objects:  28% (2/7)   Unpacking objects:  42% (3/7)   Unpacking objects:  57% (4/7)   Unpacking objects:  71% (5/7)   Unpacking objects:  85% (6/7)   Unpacking objects: 100% (7/7)   Unpacking objects: 100% (7/7), done.
+From github.com:fdrennan/drenr_aws
+ * branch            master     -> FETCH_HEAD
+   6375823..b92dbd8  master     -> origin/master
+Updating 6375823..b92dbd8
+Fast-forward
+ .../html_files/.ipynb_checkpoints/Untitled-checkpoint.ipynb |   6 [32m++[m
+ .../.ipynb_checkpoints/python_weather-checkpoint.ipynb      | 137 [32m+++++++++++++++++++++++++[m
+ pages/html_files/Untitled.ipynb                             |   6 [32m++[m
+ pages/html_files/python_weather.ipynb                       | 137 [32m+++++++++++++++++++++++++[m
+ 4 files changed, 286 insertions(+)
+ create mode 100644 pages/html_files/.ipynb_checkpoints/Untitled-checkpoint.ipynb
+ create mode 100644 pages/html_files/.ipynb_checkpoints/python_weather-checkpoint.ipynb
+ create mode 100644 pages/html_files/Untitled.ipynb
+ create mode 100644 pages/html_files/python_weather.ipynb
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjeccts/drenr_aws[0;33m (master)[0m$ [K[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/DDocuments/programmi
+ramming/rProjects/ddrenr_aws[0;33m (master)[0m$ [K[A[A[A[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git add - -all
