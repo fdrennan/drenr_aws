@@ -1041,3 +1041,22 @@ remote: Resolving deltas:   0% (0/12)   [Kremote: Resolving deltas:  33% (4/12
 To github.com:fdrennan/drenr_aws.git
    50ccaab..bca9313  master -> master
 ]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjeccts/drenr_aws[0;33m (master)[0m$ [K[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [K[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git add --all
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git commit -m 'u pdate'
+[master efa4a06] update
+ 8 files changed, 889 insertions(+), 1146 deletions(-)
+ rewrite pages/html_files/.ipynb_checkpoints/tftheta-checkpoint.ipynb (87%)
+ create mode 100644 pages/html_files/events_tf/events.out.tfevents.1529421482.MNG-IT-M-099.local
+ create mode 100644 pages/html_files/events_tf/events.out.tfevents.1529421803.MNG-IT-M-099.local
+ create mode 160000 pages/html_files/handson-ml
+ rewrite pages/html_files/tftheta.ipynb (81%)
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git push origin  master
+Counting objects: 16, done.
+Delta compression using up to 4 threads.
+Compressing objects:   7% (1/14)   Compressing objects:  14% (2/14)   Compressing objects:  21% (3/14)   Compressing objects:  28% (4/14)   Compressing objects:  35% (5/14)   Compressing objects:  42% (6/14)   Compressing objects:  50% (7/14)   Compressing objects:  57% (8/14)   Compressing objects:  64% (9/14)   Compressing objects:  71% (10/14)   Compressing objects:  78% (11/14)   Compressing objects:  85% (12/14)   Compressing objects:  92% (13/14)   Compressing objects: 100% (14/14)   Compressing objects: 100% (14/14), done.
+Writing objects:   6% (1/16)   Writing objects:  12% (2/16)   Writing objects:  18% (3/16)   Writing objects:  25% (4/16)   Writing objects:  31% (5/16)   Writing objects:  37% (6/16)   Writing objects:  43% (7/16)   Writing objects:  50% (8/16)   Writing objects:  56% (9/16)   Writing objects:  62% (10/16)   Writing objects:  68% (11/16)   Writing objects:  75% (12/16)   Writing objects:  75% (12/16), 112.00 KiB | 4.00 KiB/s   Writing objects:  75% (12/16), 1.30 MiB | 31.00 KiB/s   Writing objects:  75% (12/16), 1.93 MiB | 45.00 KiB/s   Writing objects:  87% (14/16), 1.93 MiB | 45.00 KiB/s   Writing objects:  93% (15/16), 1.93 MiB | 45.00 KiB/s   Writing objects: 100% (16/16), 1.93 MiB | 45.00 KiB/s   Writing objects: 100% (16/16), 2.20 MiB | 45.00 KiB/s, done.
+Total 16 (delta 8), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/8)   [Kremote: Resolving deltas:  12% (1/8)   [Kremote: Resolving deltas:  25% (2/8)   [Kremote: Resolving deltas:  37% (3/8)   [Kremote: Resolving deltas:  50% (4/8)   [Kremote: Resolving deltas:  62% (5/8)   [Kremote: Resolving deltas:  75% (6/8)   [Kremote: Resolving deltas:  87% (7/8)   [Kremote: Resolving deltas: 100% (8/8)   [Kremote: Resolving deltas: 100% (8/8), completed with 6 local objects.[K
+To github.com:fdrennan/drenr_aws.git
+   bca9313..efa4a06  master -> master
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git push origin mmaster[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [C[C[C[Ccommit -m 'update'[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [C[C[C[C[3Padd --all
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
