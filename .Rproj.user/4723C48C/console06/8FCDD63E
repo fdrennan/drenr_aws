@@ -1,79 +1,4 @@
 
- create mode 100644 pages/html_files/2018-04-29-automation-doesn-t-have-to-be-efficient.Rmd
- create mode 100644 pages/html_files/2018-04-29-automation-doesn-t-have-to-be-efficient.html
- create mode 100644 pages/html_files/2018-05-27-playing-with-ggplot2.Rmd
- create mode 100644 pages/html_files/2018-05-27-playing-with-ggplot2.html
- create mode 100644 pages/html_files/AssociationRules.html
- create mode 100644 pages/html_files/Best_Fit_Using_Matrix_Algebra.html
- create mode 100644 pages/html_files/Beta_Function.html
- create mode 100644 pages/html_files/Black-Litterman_Model.html
- create mode 100644 pages/html_files/Cross_Optimization.html
- create mode 100644 pages/html_files/Estimating_WACC_and_Equity_Cost_of_Capital.html
- create mode 100644 pages/html_files/FINAL1.html
- create mode 100644 pages/html_files/FinancialMarketData.html
- create mode 100644 pages/html_files/Fitting_Sin_Wave_to_Data.html
- create mode 100644 pages/html_files/GoodSol.html
- create mode 100644 pages/html_files/K-Means.html
- create mode 100644 pages/html_files/Knn.html
- create mode 100644 pages/html_files/Logistic_Regression.html
- create mode 100644 pages/html_files/Matrices.html
- create mode 100644 pages/html_files/MeasuringRisks.html
- create mode 100644 pages/html_files/MongoDB.html
- create mode 100644 pages/html_files/OLSpythonR (2).html
- create mode 100644 pages/html_files/OLSpythonR.html
- create mode 100644 pages/html_files/OptimalHubs.html
- create mode 100644 pages/html_files/Optimal_Portfolio.html
- create mode 100644 pages/html_files/Options.html
- create mode 100644 pages/html_files/PageRank.html
- create mode 100644 pages/html_files/QuantMod.html
- create mode 100644 pages/html_files/Quantmod_Examples.html
- create mode 100644 pages/html_files/Sending_Mail_in_R.html
- create mode 100644 pages/html_files/Simple+Statistics.html
- create mode 100644 pages/html_files/Statistics_Functions.html
- create mode 100644 pages/html_files/Symmetric_Matrices_and_Quadratic_Forms.html
- create mode 100644 pages/html_files/Twitter.html
- create mode 100644 pages/html_files/TwitterAssociationFunc.html
- create mode 100644 pages/html_files/Uber Report.htm
- create mode 100644 pages/html_files/advertisingOptimization.Rmd
- create mode 100644 pages/html_files/advertisingOptimization.html
- create mode 100644 pages/html_files/americanOptions.html
- create mode 100644 pages/html_files/automated_efficient.html
- create mode 100644 pages/html_files/beginning-c.Rmd
- create mode 100644 pages/html_files/beginning-c.html
- create mode 100644 pages/html_files/blmData.html
- create mode 100644 pages/html_files/caret-on-multiple-servers.Rmd
- create mode 100644 pages/html_files/caret-on-multiple-servers.html
- create mode 100644 pages/html_files/caret.html
- create mode 100644 pages/html_files/cashflowmatching.html
- create mode 100644 pages/html_files/ch3preProcessing.html
- create mode 100644 pages/html_files/ch4HRex1.html
- create mode 100644 pages/html_files/ch4overFitting.html
- create mode 100644 pages/html_files/ch5measuringPerformance.html
- create mode 100644 pages/html_files/ch6pls.html
- create mode 100644 pages/html_files/decisionTree.html
- create mode 100644 pages/html_files/dplyrExamples.html
- create mode 100644 pages/html_files/duis_markdown.html
- create mode 100644 pages/html_files/economicIndicators.Rmd
- create mode 100644 pages/html_files/economicindicators.html
- create mode 100644 pages/html_files/efficientR.html
- create mode 100644 pages/html_files/efficientResampBlack.html
- create mode 100644 pages/html_files/efficientResample.Rmd
- create mode 100644 pages/html_files/efficientResample.html
- create mode 100644 pages/html_files/errorist.Rmd
- create mode 100644 pages/html_files/errorist.html
- create mode 100644 pages/html_files/explanation.html
- create mode 100644 pages/html_files/factor_selector.html
- create mode 100644 pages/html_files/homework1.html
- create mode 100644 pages/html_files/homework2.html
- create mode 100644 pages/html_files/homework_2.html
- create mode 100644 pages/html_files/housepricesModels.html
- create mode 100644 pages/html_files/housepricesNew.html
- create mode 100644 pages/html_files/impliedvolatility.html
- create mode 100644 pages/html_files/indexFundComplete.html
- create mode 100644 pages/html_files/introduction-to-keras.Rmd
- create mode 100644 pages/html_files/introduction-to-keras.html
- create mode 100644 pages/html_files/introductiontointegerprogrammingLec1.html
- create mode 100644 pages/html_files/investment_tools.html
  create mode 100644 pages/html_files/montecarlopy.html
  create mode 100644 pages/html_files/monthly_returns.csv
  create mode 100644 pages/html_files/myCurve.html
@@ -1060,3 +985,18 @@ To github.com:fdrennan/drenr_aws.git
    bca9313..efa4a06  master -> master
 ]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git push origin mmaster[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [C[C[C[Ccommit -m 'update'[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [C[C[C[C[3Padd --all
 [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git add --allpush origin mmaster[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [C[C[C[Ccommit -m 'update'
+[master ed91808] update
+ 4 files changed, 510 insertions(+), 514 deletions(-)
+ rewrite pages/html_files/tftheta.ipynb (87%)
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git commit -m 'uppdate'[A[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ [C[C[C[C[3Padd --all
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpush origin mmaster
+Counting objects: 12, done.
+Delta compression using up to 4 threads.
+Compressing objects:  10% (1/10)   Compressing objects:  20% (2/10)   Compressing objects:  30% (3/10)   Compressing objects:  40% (4/10)   Compressing objects:  50% (5/10)   Compressing objects:  60% (6/10)   Compressing objects:  70% (7/10)   Compressing objects:  80% (8/10)   Compressing objects:  90% (9/10)   Compressing objects: 100% (10/10)   Compressing objects: 100% (10/10), done.
+Writing objects:   8% (1/12)   Writing objects:  16% (2/12)   Writing objects:  25% (3/12)   Writing objects:  33% (4/12)   Writing objects:  41% (5/12)   Writing objects:  50% (6/12)   Writing objects:  58% (7/12)   Writing objects:  66% (8/12)   Writing objects:  75% (9/12)   Writing objects:  91% (11/12)   Writing objects: 100% (12/12)   Writing objects: 100% (12/12), 891.10 KiB | 0 bytes/s, done.
+Total 12 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/6)   [Kremote: Resolving deltas:  33% (2/6)   [Kremote: Resolving deltas:  50% (3/6)   [Kremote: Resolving deltas:  66% (4/6)   [Kremote: Resolving deltas:  83% (5/6)   [Kremote: Resolving deltas: 100% (6/6)   [Kremote: Resolving deltas: 100% (6/6), completed with 4 local objects.[K
+To github.com:fdrennan/drenr_aws.git
+   efa4a06..ed91808  master -> master
+git add --all

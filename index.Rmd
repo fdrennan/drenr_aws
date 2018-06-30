@@ -88,6 +88,7 @@ body {
 <!-- <a href="pages/html_files/economicIndicators.html" class="btn btn-primary btn-block bg5 button" role="button">Current Economic Indicators</a> -->
 
 ```{r,echo = FALSE}
+#
 paste("Last Push: ", as.character(Sys.Date()))
 # paste0('Plot below is call to an API I built. http://www.drenr.com:8000/weather?days=1')
 ```
