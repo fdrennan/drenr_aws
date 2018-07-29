@@ -1,48 +1,4 @@
 
-drwxr-xr-x    5 freddydrennan  staff   170B Jan 21 12:12 [34mcashFlowMatching[39;49m[0m/
-drwxr-xr-x   10 freddydrennan  staff   340B Mar  5 23:20 [34mchurn[39;49m[0m/
-drwxr-xr-x    6 freddydrennan  staff   204B Mar 15 14:44 [34mclasses[39;49m[0m/
-drwxr-xr-x    6 freddydrennan  staff   204B Mar 10 20:29 [34mcloudera[39;49m[0m/
-drwxr-xr-x    6 freddydrennan  staff   204B Oct  6  2017 [34mconditionalPanel[39;49m[0m/
-drwxr-xr-x   17 freddydrennan  staff   578B Mar 17 14:30 [34mcpp[39;49m[0m/
-drwxr-xr-x   16 freddydrennan  staff   544B Feb 25 09:20 [34mcpp_course[39;49m[0m/
-drwxr-xr-x    8 freddydrennan  staff   272B Mar  5 23:21 [34mcredit_fraud[39;49m[0m/
-drwxr-xr-x    9 freddydrennan  staff   306B Dec 13  2017 [34mcross_optimization[39;49m[0m/
-drwxr-xr-x   14 freddydrennan  staff   476B Mar 25 14:06 [34mdacpp[39;49m[0m/
-drwxr-xr-x    8 freddydrennan  staff   272B Nov 17  2017 [34mdailySRT[39;49m[0m/
-drwxr-xr-x   24 freddydrennan  staff   816B Mar  4 16:50 [34mdaily_srt[39;49m[0m/
-drwxr-xr-x    8 freddydrennan  staff   272B Jan 14 12:04 [34mdataPreProcessing[39;49m[0m/
-drwxr-xr-x    9 freddydrennan  staff   306B Sep 19  2017 [34mdataWrangling[39;49m[0m/
-drwxr-xr-x    6 freddydrennan  staff   204B May 25 19:52 [34mdata_exploration[39;49m[0m/
-drwxr-xr-x    7 freddydrennan  staff   238B Dec 23 08:41 [34mdata_explorer[39;49m[0m/
-drwxr-xr-x   17 freddydrennan  staff   578B Jan 20 21:01 [34mdata_scripts[39;49m[0m/
-drwxr-xr-x   10 freddydrennan  staff   340B Jan  8 13:59 [34mdatabasetoxml[39;49m[0m/
-drwxr-xr-x    8 freddydrennan  staff   272B Jan  8 14:08 [34mdb_to_xml[39;49m[0m/
-drwxr-xr-x   18 freddydrennan  staff   612B Mar 26 12:28 [34mdcpp[39;49m[0m/
-drwxr-xr-x   14 freddydrennan  staff   476B Feb 24 14:44 [34mdeep-learning-with-r-notebooks[39;49m[0m/
-drwxr-xr-x    7 freddydrennan  staff   238B Jun 11 09:23 [34mdefault[39;49m[0m/
-drwxr-xr-x    5 freddydrennan  staff   170B Mar 17 14:30 [34mdrencpp[39;49m[0m/
-drwxr-xr-x    3 freddydrennan  staff   102B Jun 13 12:07 [34mdrenr[39;49m[0m/
-drwxr-xr-x   18 freddydrennan  staff   612B Jun 13 12:13 [34mdrenr_aws[39;49m[0m/
-drwxr-xr-x   19 freddydrennan  staff   646B May  4 21:47 [34mdrentools[39;49m[0m/
-drwxr-xr-x    6 freddydrennan  staff   204B Dec 26 09:10 [34meda[39;49m[0m/
-drwxr-xr-x   13 freddydrennan  staff   442B Jan 30 11:32 [34mexcel_combiner[39;49m[0m/
-drwxr-xr-x   21 freddydrennan  staff   714B May 31 16:00 [34mfdrennan[39;49m[0m/
-drwxr-xr-x   75 freddydrennan  staff   2.5K May 23 09:48 [34mfinance[39;49m[0m/
-drwxr-xr-x    5 freddydrennan  staff   170B Aug 14  2017 [34mfirstProject[39;49m[0m/
-drwxr-xr-x   10 freddydrennan  staff   340B Sep 12  2017 [34mgTrends[39;49m[0m/
-drwxr-xr-x    5 freddydrennan  staff   170B Jan  8 14:51 [34mgithub[39;49m[0m/
-drwxr-xr-x    5 freddydrennan  staff   170B Mar  4 16:49 [34mhealthcare[39;49m[0m/
-drwxr-xr-x    7 freddydrennan  staff   238B Oct 14  2017 [34mhouse_prices[39;49m[0m/
-drwxr-xr-x    8 freddydrennan  staff   272B Jan  8 14:53 [34mhow_to_github[39;49m[0m/
-drwxr-xr-x    8 freddydrennan  staff   272B Sep 21  2017 [34mhrAnalytics[39;49m[0m/
-drwxr-xr-x   10 freddydrennan  staff   340B Mar  1 21:49 [34mindian_startup[39;49m[0m/
-drwxr-xr-x   12 freddydrennan  staff   408B Oct 29  2017 [34mjavascript[39;49m[0m/
-drwxr-xr-x    7 freddydrennan  staff   238B May  6 20:13 [34mkeras[39;49m[0m/
-drwxr-xr-x   12 freddydrennan  staff   408B Feb  5 17:22 [34mkeras-customer-churn[39;49m[0m/
-drwxr-xr-x   13 freddydrennan  staff   442B Feb 24 16:30 [34mlearn_cpp[39;49m[0m/
-drwxr-xr-x    6 freddydrennan  staff   204B Nov 16  2017 [34mlearningR[39;49m[0m/
-drwxr-xr-x   33 freddydrennan  staff   1.1K Apr  5 00:45 [34mlinearprogramming[39;49m[0m/
 drwxr-xr-x   12 freddydrennan  staff   408B Dec  7  2017 [34mlpSelect[39;49m[0m/
 drwxr-xr-x   14 freddydrennan  staff   476B Oct  8  2017 [34mmachLearn[39;49m[0m/
 drwxr-xr-x   69 freddydrennan  staff   2.3K Apr 11 17:36 [34mmagellanLP[39;49m[0m/
@@ -1031,3 +987,20 @@ remote: Resolving deltas:   0% (0/5)   [Kremote: Resolving deltas:  20% (1/5) 
 To github.com:fdrennan/drenr_aws.git
    698f7d8..0aedd7e  master -> master
 ]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenrr_aws[0;33m (master)[0m$ git add --all
+g]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenrr_aws[0;33m (master)[0m$ git commit -m 'update'
+[master 82d84eb] update
+ 2 files changed, 15 insertions(+), 2 deletions(-)
+]0;~/Documents/programming/rProjects/drenr_awsg[0;32mfreddydrennan@MNG-IT-M-099[0m:~/Documents/programming/rProjects/drenrr_aws[0;33m (master)[0m$ git push origin master
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects:  16% (1/6)   Compressing objects:  33% (2/6)   Compressing objects:  50% (3/6)   Compressing objects:  66% (4/6)   Compressing objects:  83% (5/6)   Compressing objects: 100% (6/6)   Compressing objects: 100% (6/6), done.
+Writing objects:  14% (1/7)   Writing objects:  28% (2/7)   Writing objects:  42% (3/7)   Writing objects:  57% (4/7)   Writing objects:  71% (5/7)   Writing objects:  85% (6/7)   Writing objects: 100% (7/7)   Writing objects: 100% (7/7), 830 bytes | 0 bytes/s, done.
+Total 7 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/3)   [Kremote: Resolving deltas:  33% (1/3)   [Kremote: Resolving deltas:  66% (2/3)   [Kremote: Resolving deltas: 100% (3/3)   [Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
+To github.com:fdrennan/drenr_aws.git
+   0aedd7e..82d84eb  master -> master
+[K[A[0;32mfreddydrennan@MNG-IT-M-165[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git pull origin master
+From github.com:fdrennan/drenr_aws
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+]0;~/Documents/programming/rProjects/drenr_aws[0;32mfreddydrennan@MNG-IT-M-165[0m:~/Documents/programming/rProjects/drenr_aws[0;33m (master)[0m$ git add --all

@@ -1,0 +1,7 @@
+aws ec2 stop-instances --instance-ids i-08db6c7cacac2ce4e
+aws ec2 modify-instance-attribute --instance-id i-08db6c7cacac2ce4e --instance-type "{\"Value\": \"t2.small\"}"
+aws ec2 start-instances --instance-ids i-08db6c7cacac2ce4e
+
+aws ec2 stop-instances --instance-ids i-08db6c7cacac2ce4e
+aws ec2 modify-instance-attribute --instance-id i-08db6c7cacac2ce4e --instance-type "{\"Value\": \"t2.medium\"}"
+aws ec2 start-instances --instance-ids i-08db6c7cacac2ce4e
