@@ -124,9 +124,8 @@ paste("Last Push: ", as.character(Sys.Date()))
 <center>
 <h1>Projects in Python</h1>
 </center>
-```{r, echo = FALSE}
-print("I\'m newish to Python. Most of the Python scripts below are me getting up to speed with methods I'm already familar with in R")
-```
+
+<a href="pages/html_files/mnist_tf.html" class="btn btn-primary btn-block bg5" role="button">MNIST and TF</a>
 <a href="pages/html_files/tftheta.html" class="btn btn-primary btn-block bg5" role="button">LR by hand with Tensorflow</a>
 <a href="pages/html_files/python_aggregate.html" class="btn btn-primary btn-block bg5" role="button">Simple Aggregation</a>
 <a href="pages/html_files/python_weather.html" class="btn btn-primary btn-block bg5" role="button">Weather API</a>
