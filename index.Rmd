@@ -135,6 +135,7 @@ paste("Last Push: ", as.character(Sys.Date()))
 <a href="pages/html_files/pythonbasicregression.html" class="btn btn-primary btn-block bg5" role="button"> Some Math in Python</a>
 <a href="pages/html_files/impliedvolatility.html" class="btn btn-primary btn-block bg5" role="button"> Implied Volatilities</a>
 <a href="pages/html_files/montecarlopy.html" class="btn btn-primary btn-block bg5" role="button"> Simple Black-Scholes</a>
+<a href="pages/html_files/classes_iris.html" class="btn btn-primary btn-block bg5" role="button"> Iris/SVM/Classes</a>
 
 
 
