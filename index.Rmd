@@ -125,6 +125,8 @@ paste("Last Push: ", as.character(Sys.Date()))
 <h1>Projects in Python</h1>
 </center>
 
+<a href="pages/html_files/DNN-Classifier.html" class="btn btn-primary btn-block bg5" role="button">DNN Classifier</a>
+<a href="pages/html_files/cali_dnn.html" class="btn btn-primary btn-block bg5" role="button">Cali DNN</a>
 <a href="pages/html_files/mnist_tf.html" class="btn btn-primary btn-block bg5" role="button">MNIST and TF</a>
 <a href="pages/html_files/tftheta.html" class="btn btn-primary btn-block bg5" role="button">LR by hand with Tensorflow</a>
 <a href="pages/html_files/python_aggregate.html" class="btn btn-primary btn-block bg5" role="button">Simple Aggregation</a>
