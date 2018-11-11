@@ -246,6 +246,10 @@ paste("Last Push: ", as.character(Sys.Date()))
 
 
 <a href="https://github.com/jjallaire/deep-learning-with-r-notebooks" class="btn btn-primary btn-block bg5" role="button">JJ Allaire Github: Deep Learning</a>
+<a href="https://explained.ai/matrix-calculus/index.html#intro" class="btn btn-primary btn-block bg5" role="button">Matrix Calculus</a>
+<a href="http://mccormickml.com/2014/03/04/gradient-descent-derivation/" class="btn btn-primary btn-block bg5" role="button">Gradient Descent</a>
+<a href="http://liuchengxu.org/books/src/Theory/Machine-Learning-A-Probabilistic-Perspective.pdf" class="btn btn-primary btn-block bg5" role="button">ML: A Probabilistic Perspective</a>
+
 
 
 
