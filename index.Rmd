@@ -124,7 +124,7 @@ paste("Last Push: ", as.character(Sys.Date()))
 <center>
 <h1>Projects in Python</h1>
 </center>
-
+<a href="pages/html_files/SympyGradientDescent.html" class="btn btn-primary btn-block bg5" role="button">Gradient Descent with Sympy</a>
 <a href="pages/html_files/DNN-Classifier.html" class="btn btn-primary btn-block bg5" role="button">DNN Classifier</a>
 <a href="pages/html_files/cali_dnn.html" class="btn btn-primary btn-block bg5" role="button">Cali DNN</a>
 <a href="pages/html_files/mnist_tf.html" class="btn btn-primary btn-block bg5" role="button">MNIST and TF</a>
