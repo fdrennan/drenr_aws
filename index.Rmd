@@ -228,6 +228,7 @@ paste("Last Push: ", as.character(Sys.Date()))
 <center>
 <h1>Projects in R & Python</h1>
 </center>
+<a href="pages/html_files/bisection_1.html" class="btn btn-primary btn-block bg5" role="button">Finding Roots / Bisection</a>
 <a href="pages/html_files/Simple+Statistics.html" class="btn btn-primary btn-block bg5" role="button"> Simple Statistics</a>
 <a href="pages/html_files/OLSpythonR.html" class="btn btn-primary btn-block bg5" role="button"> Linear Regression</a>
 <a href="pages/html_files/plotRPython.html" class="btn btn-primary btn-block bg5" role="button"> Simple Plot</a>
