@@ -1,0 +1,93 @@
+---
+title: "The Secant Method"
+author: "Freddy Drennan"
+date: "11/20/2018"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+
+Although the bisection (interval halving) method is easy to compute and has simple error analysis, it is not very efficient. For most functions, we can improve the speed at which the root is approached through a different scheme. Almost every function can be approximated by a straight line over a small interval. We begin from a value - say, $x_0$ - that is the to a root, $r$.
+
+```{r}
+library(reticulate)
+library(zeallot)
+use_python('/Users/digitalfirstmedia/Documents/R/numerical_analysis/numerical_analysis/bin/python3')
+```
+
+To determine the root of $f(x)=0$, given two values, $x_0$ and $x_1$, that are near the root.
+```
+IF |f(x_0)| < |f(x_1)|:
+  Swap x_0 with x1
+REPEAT
+  Set x_2 = x_0 - f(x_0)*(x_0 - x_1)/[f(x_0) - f(x_1)]
+  Set x_0 = x_1
+  Set x_1 = x_2
+Until |f(x_2)| < tolerance value
+```
+## R
+```{r}
+
+secant_method <- function(f, x_0, x_1, verbose = TRUE, tolerance = 1e-10) {
+  if (abs(f(x_0) < abs(f(x_1)))) 
+    # swap variables
+    c(x_1, x_0) %<-% c(x_0, x_1)
+  
+  repeat {
+    x_2 = x_0 - f(x_0)*(x_0 - x_1)/(f(x_0) - f(x_1))
+    if (verbose) print(x_2)
+    c(x_0, x_1) %<-% c(x_1, x_2)
+    if(abs(f(x_2)) < tolerance) break
+  }
+    
+  return(x_2)
+  
+}
+
+f = function(x) {
+  x^2 - 16
+}
+
+x_0 = 5000
+x_1 = 10
+tolerance = 1e-10
+
+secant_method(f, x_0, x_1)
+```
+
+## Python
+```{python}
+import numpy as np
+
+def secant_method(f, x_0, x_1, verbose = True, tolerance = 1e-10):
+  if np.abs(f(x_0)) < np.abs(f(x_1)):
+    x_1, x_0 = x_0, x_1
+    
+  while True:
+    x_2 = x_0 - f(x_0)*(x_0 - x_1)/(f(x_0) - f(x_1))
+    if verbose:
+      print(x_2)
+      
+    x_0, x_1 = x_1, x_2
+    if np.abs(f(x_2)) < tolerance:
+      break
+  
+  return x_2
+    
+def f(x):
+  return x ** 2 - 16
+  
+x_0 = 5000
+x_1 = 10
+tolerance = 1e-10
+
+print(secant_method(f, x_0, x_1))
+  
+  
+```
