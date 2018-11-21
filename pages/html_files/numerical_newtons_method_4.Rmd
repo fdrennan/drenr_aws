@@ -1,0 +1,109 @@
+---
+title: "False Position"
+author: "Freddy Drennan"
+date: "11/21/2018"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+
+
+
+```{r}
+library(reticulate)
+use_python('/Library/Frameworks/Python.framework/Versions/3.5/bin/python3')
+```
+
+
+One of the most widely used methods of solving equations is Newton's method. This method is based on a linear approximation of the function, but does so using a tangent to the curve. Starting from a single initial estimate, $x_0$, that is not too far from a root, we move along the tangent to its intersetion with the x-axis, and take that as the next approximation. This is continues until either the successive x-values are sufficiently close or the value of the function is sufficiently near zero.
+
+
+![Newtons Method: Wikipedia](NewtonIteration_Ani.gif)
+
+To determine a root of $f(x) = 0$, given a value $x_0$ reasonably close to the root,
+
+```
+Compute f(x_0), f'(x_0).
+Set x_1 = x_0
+IF (f(x_0) != 0) AND (f'(x_0) != 0)
+  REPEAT 
+    Set x_0 = x_1
+    Set x_1 = x_0 - f(x_0)/f'(x_0)
+  UNTIL
+    (|x_0 - x_1| < tolerance value 1) OR
+    (|f(x_1)| < tolerance value 2)
+```
+
+## R
+
+```{r}
+library(Deriv)
+
+newtons_method <- function(f, x_0, tolerance_1 = 1e-10, tolerance_2 = 1e-10, verbose = FALSE) {
+  f_prime = Deriv(f)
+  x_1 = x_0
+  if ((f(x_0) != 0) & (f_prime(x_0) != 0)) 
+    repeat {
+      x_0 = x_1 
+      x_1 = x_0 - f(x_0)/f_prime(x_0)
+      if (verbose) cat(x_1, "\n")
+      check_1 = abs(x_0 - x_1) < tolerance_1
+      check_2 = abs(f(x_1))    < tolerance_2
+      if(check_1 | check_1)
+        break
+    }
+  return(x_1)
+}
+
+f <- function(x) {
+ (3*x + sin(x) - exp(x) - x^3)^3 + 3
+}
+
+x_0 = 1
+
+result = newtons_method(f, x_0)
+print("Verify root:\n")
+print(result)
+print(f(result))
+```
+
+## Python
+
+```{python}
+from scipy.misc import derivative
+import numpy as np
+
+def newtons_method(f, x_0, tolerance_1 = 1e-10, tolerance_2 = 1e-10, verbose = False, print_mod = 20):
+  x_1 = x_0
+  i = 0
+  if (f(x_0) != 0) & (derivative(f, x_0) != 0): 
+    while True:
+      i += 1
+      x_0 = x_1 
+      x_1 = x_0 - f(x_0)/derivative(f, x_0)
+      if verbose and (i%print_mod == 0):
+        print(x_0)
+      check_1 = np.abs(x_0 - x_1) < tolerance_1
+      check_2 = np.abs(f(x_1))    < tolerance_2
+      if check_1 or check_1:
+        break
+  return x_1
+
+def f(x):
+  return (3*x + np.sin(x) - np.exp(x) - x**3)**3 + 3
+
+
+x_0 = 100
+result = newtons_method(f, x_0, verbose = True, print_mod = 100)
+
+print("Near Zero:\n")
+print(result)
+print(f(result))
+```
+
