@@ -19,6 +19,7 @@ Although the bisection (interval halving) method is easy to compute and has simp
 library(reticulate)
 library(zeallot)
 use_python('/Users/digitalfirstmedia/Documents/R/numerical_analysis/numerical_analysis/bin/python3')
+
 ```
 
 To determine the root of $f(x)=0$, given two values, $x_0$ and $x_1$, that are near the root.
