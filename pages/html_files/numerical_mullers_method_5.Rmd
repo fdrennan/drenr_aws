@@ -128,7 +128,3 @@ print(result_2)
 print(func(result_2))
 
 ```
-
-```{r}
-
-```

@@ -95,6 +95,10 @@ paste("Last Push: ", as.character(Sys.Date()))
 
 <!-- <img src="http://www.drenr.com:8000/weather?days=1"> -->
 
+
+
+<a href="https://github.com/fdrennan/drenr_aws" class="btn btn-primary btn-block bg5" role="button">Download Website</a>
+
 <center>
 <h1>Ports</h1>
 </center>

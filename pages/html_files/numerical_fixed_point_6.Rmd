@@ -1,0 +1,57 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+f = function(x) {
+  x^2 - 2*x - 3
+}
+
+g = function(x) {
+  sqrt(2*x + 3)
+}
+
+x = 4
+
+for(i in 1:100) {
+  x = g(x)
+  print(x)
+}
+
+f(x)
+```
+
+
+```{r}
+
+h = function(x) {
+  (x^2-3)/2
+}
+
+x = 4
+
+for(i in 1:10) {
+  x = h(x)
+  print(x)
+}
+
+f(x)
+```
+
+
+```{r}
+
+z = function(x) {
+  3/(x-2)
+}
+
+x = 4
+
+for(i in 1:20) {
+  x = z(x)
+  print(x)
+}
+
+f(x)
+```
