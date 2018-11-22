@@ -228,6 +228,7 @@ paste("Last Push: ", as.character(Sys.Date()))
 <center>
 <h1>Projects in R & Python</h1>
 </center>
+<a href="pages/html_files/numerical_mullers_method_5.html" class="btn btn-primary btn-block bg5" role="button">Finding Roots / Mullers Method</a>
 <a href="pages/html_files/numerical_newtons_method_4.html" class="btn btn-primary btn-block bg5" role="button">Finding Roots / Newtons Method</a>
 <a href="pages/html_files/numerical_false_position_3.html" class="btn btn-primary btn-block bg5" role="button">Finding Roots / False Position</a>
 <a href="pages/html_files/numerical_secant_2.html" class="btn btn-primary btn-block bg5" role="button">Finding Roots / Secant</a>

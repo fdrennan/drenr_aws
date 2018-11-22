@@ -1,0 +1,134 @@
+---
+title: "Mullers Method"
+author: "Freddy Drennan"
+date: "11/21/2018"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+
+Another root finding method. 
+
+```{r}
+rm(list  = ls())
+library(reticulate)
+library(zeallot)
+use_python('/Library/Frameworks/Python.framework/Versions/3.5/bin/python3')
+```
+
+Given the points $x_2$, $x_0$, $x_1$ in increasing value,
+
++ Evaluate the corresponding function values $f_2$, $f_0$, $f_1$.
++ Find the coefficients of the parabola determined by the three points.
++ Compute the two roots of the parabolic equation.
++ Choose the root closest to $x_0$ and label it $x_r$.
++ IF $x_r \gt x_0$ THEN rearrange $x_0$, $x_r$, $x_1$ into $x_2$, $x_0$, $x_1$.
+  + ELSE rearrange $x_2$, $x_r$, $x_0$ into $x_2$, $x_0$, $x_1$.
++ IF $|f(x_r)| < \text{FTOL}$, $\text{THEN}$ return $(x_r)$.
+  + ELSE go to 1
+  
+```{r}
+f = function(x) {
+  x^3 + 4*x^2 - 3
+}
+
+curve(f(x), from = -3, to = 3)
+abline(h = 0)
+```
+
+## R
+```{r}
+
+mullers_method = function(f, lower, middle, upper, verbose = TRUE) {
+  repeat {
+    
+    h_1 = upper - middle
+    h_2 = middle - lower
+    
+    gamma = h_2/h_1
+    
+    a = (gamma*f(upper) - f(middle)*(1 + gamma) + f(lower))/(gamma*h_1^2*(1+gamma))
+    b = (f(upper) - f(middle) - a*h_1^2)/h_1
+    c = f(middle)
+    
+    roots = middle - (2*c)/(b + c(-1, 1)*sqrt(b^2 - 4*a*c))
+    x_r = roots[abs(middle - roots) == min(abs(middle - roots))]
+    
+    if (verbose) print(x_r)
+    
+    if (x_r > middle) {
+      c(lower, middle, upper) %<-% c(middle, x_r, upper)
+    } else {
+      c(lower, middle, upper) %<-% c(lower, x_r, middle)
+    }
+    
+    if(abs(f(x_r)) < 1e-10) 
+      return(x_r)
+  }
+}
+
+
+result_1 = mullers_method(f, 0, .5, 1)
+result_2 = mullers_method(f, -5, -2, -1)
+
+curve(f(x), from = -2, to = 2)
+abline(h = 0)
+points(c(result_1, result_2), c(f(result_1), f(result_2)))
+```
+
+## Python
+```{python}
+import numpy as np
+
+def mullers_method(f, lower, middle, upper, verbose = True):
+  
+  while True:
+    
+    h_1 = upper - middle
+    h_2 = middle - lower
+    
+    gamma = h_2/h_1
+    
+    a = (gamma*f(upper) - f(middle)*(1 + gamma) + f(lower))/(gamma*(h_1**2)*(1+gamma))
+    b = (f(upper) - f(middle) - a*h_1**2)/h_1
+    c = f(middle)
+
+    roots = middle - (2*c)/(b + np.array([-1, 1])*np.sqrt(b**2 - 4*a*c))
+    
+    x_r = roots[np.abs(middle - roots) == np.min(np.abs(middle - roots))]
+
+    if verbose:
+      print(x_r)
+
+    if x_r > middle:
+      lower, middle, upper = middle, x_r, upper
+    else:
+      lower, middle, upper = lower, x_r, middle
+
+
+    if np.abs(f(x_r)) < 1e-10:
+      return x_r
+      
+def func(x):
+  return x**3 + 4*x**2 - 3
+
+
+result_1 = mullers_method(func, 0, .5, 1)
+result_2 = mullers_method(func, -5, -2, -1)
+
+print(result_1)
+print(func(result_1))
+print(result_2)
+print(func(result_2))
+
+```
+
+```{r}
+
+```
