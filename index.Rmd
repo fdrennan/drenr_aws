@@ -89,7 +89,7 @@ body {
 
 ```{r,echo = FALSE}
 paste("Last Push: ", as.character(Sys.Date()))
-# paste0('Plot below is call to an API I built. http://www.drenr.com:8000/weather?days=1')
+paste0("Welcome! This is where a dump all my random notes while reading or exploring mathematics, programming, and data science.")
 ```
 
 
@@ -126,7 +126,7 @@ paste("Last Push: ", as.character(Sys.Date()))
 
 
 <center>
-<h1>Projects in Python</h1>
+<h1>Python Notes</h1>
 </center>
 <a href="pages/html_files/SympyGradientDescent.html" class="btn btn-primary btn-block bg5" role="button">Gradient Descent with Sympy</a>
 <a href="pages/html_files/DNN-Classifier.html" class="btn btn-primary btn-block bg5" role="button">DNN Classifier</a>
@@ -146,8 +146,9 @@ paste("Last Push: ", as.character(Sys.Date()))
 
 
 <center>
-<h1>Projects in R</h1>
+<h1>R Notes</h1>
 </center>
+<a href="pages/html_files/dot_product_classification.html" class="btn btn-primary btn-block bg5" role="button">Dot Product Classification</a>
 <a href="pages/html_files/tangent_surface.html" class="btn btn-primary btn-block bg5" role="button">Vector Cal: Tangent Plane Function</a>
 <a href="pages/html_files/beginning-c.html" class="btn btn-primary btn-block bg5" role="button">Beginning C++</a>
 <a href="pages/html_files/caret-on-multiple-servers.html" class="btn btn-primary btn-block bg5" role="button">Caret on Multiple Servers</a>
@@ -231,7 +232,7 @@ paste("Last Push: ", as.character(Sys.Date()))
 
 
 <center>
-<h1>Projects in R & Python</h1>
+<h1>Notes in R & Python</h1>
 </center>
 <a href="pages/html_files/numerical_mullers_method_5.html" class="btn btn-primary btn-block bg5" role="button">Finding Roots / Mullers Method</a>
 <a href="pages/html_files/numerical_newtons_method_4.html" class="btn btn-primary btn-block bg5" role="button">Finding Roots / Newtons Method</a>

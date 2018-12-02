@@ -1,0 +1,83 @@
+---
+title: 'SVM/Quadprog'
+date: "December 2, 2018"
+output:
+  html_document:
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+
+# THIS PARTICULAR SET OF CODE IS NOT ORIGINALLY MINE
+
+```{r}
+library(kernlab) # for the spam data
+# Load the input data to be used
+data(spam)
+
+# Use only a subset of the data (20%)
+spam <- spam[sample(nrow(spam), round(0.2 * nrow(spam)), replace = FALSE), ]
+
+# Retrieve the features and data
+X <- spam[, 1:(ncol(spam) - 1)]
+Y_f <- spam[, ncol(spam)]
+Y <- 2 * (as.numeric(Y_f) - 1.5) # {-1, 1}
+
+# Sample size
+N <- nrow(X)
+# Number of dimensions
+n_d <- ncol(X)
+
+# Value of the regularization parameter
+C <- 1
+
+d <- c(0, rep(0, n_d), rep(-C, N)) # -C * sum(zeta)
+
+# Need a work-around for the matrix D, which must be positive definite (being 
+# positive semi-definite is not enough...)
+# See http://www.r-bloggers.com/more-on-quadratic-progamming-in-r/
+eps <- 1e-10 # this will ultimately be the lowest eigenvalue of matrix D (with multiplicity N + 1)
+D <- diag(c(eps, rep(1, n_d), rep(eps, N))) # beta^T * beta
+
+#
+# Matrix specifying the constraints
+# For zeta_i > 0: 
+#          beta_0 |    beta       |     zeta
+#   A_1 = [      0,   0, 0, ..., 0, 1, 0, 0, ..., 0]
+#         [      0,   0, 0, ..., 0, 0, 1, 0, ..., 0]
+#         [      0,   0, 0, ..., 0, 0, 0, 1, ..., 0]  
+#          ...
+#         [      0,   0, 0, ..., 0, 0, 0, 0, ..., 1]
+# where matrix A_1 has N rows, and N + n_d + 1 columns
+#
+# For beta_0 * y_i + beta^T * x_i * y_i + zeta_i >= 1:
+#          beta_0 |                         beta                        |        zeta
+#   A_2 = [    y_1, y_1 * x_{1, 1}, y_1 * x_{2, 2}, ..., y_1 * x{i, n_d}, 1, 0, 0, ..., 0]
+#         [    y_2, y_2 * x_{2, 1}, y_2 * x_{2, 2}, ..., y_2 * x{i, n_d}, 0, 1, 0, ..., 0]
+#          ...        
+#         [    y_N, y_N * x_{N, 1}, y_2 * x_{N, 2}, ..., y_N * x{N, n_d}, 0, 0, 0, ..., 1]
+#
+I_N <- diag(N) # N x N identity matrix
+
+A_1 <- cbind(matrix(0, ncol = n_d + 1, nrow = N), I_N) # zeta_i > 0, for all i; N rows
+A_2 <- as.matrix(cbind(as.matrix(Y), X * as.matrix(Y)[, rep(1, n_d)], I_N)) # zeta_i + beta_0 * y_i + beta^T * x_i * y_i >= 1, for all i; N rows
+rownames(A_1) <- NULL; rownames(A_2) <- NULL
+colnames(A_1) <- NULL; colnames(A_2) <- NULL
+
+A <- t(rbind(A_1, A_2))
+b_0 <- c(rep(0, N), rep(1, N))
+
+library(quadprog)
+results <- solve.QP(D, d, A, b_0)
+
+# Retrieve the results
+b_optim <- results$solution
+
+beta_0 <- b_optim[1]
+beta <- b_optim[1 + (1:n_d)]
+zeta <- b_optim[(n_d + 1) + (1:N)]
+
+# Y_pred <- sign(apply(X_test, 1, function(x) beta_0 + sum(beta * as.vector(x))))
+
+```
+
