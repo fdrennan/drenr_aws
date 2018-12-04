@@ -135,7 +135,7 @@ saveGIF({
 
 
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 ## make sure ImageMagick has been installed in your system
 saveGIF({df
   
