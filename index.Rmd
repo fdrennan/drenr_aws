@@ -148,6 +148,7 @@ paste0("Welcome! This is where a dump all my random notes while reading or explo
 <center>
 <h1>R Notes</h1>
 </center>
+<a href="pages/html_files/3d_line_plotly.html" class="btn btn-primary btn-block bg5" role="button">3d Curve Plotly</a>
 <a href="pages/html_files/linear_algebra.html" class="btn btn-primary btn-block bg5" role="button">Linear Algebra Animations</a>
 <a href="pages/html_files/dot_product_classification.html" class="btn btn-primary btn-block bg5" role="button">Dot Product Classification</a>
 <a href="pages/html_files/tangent_surface.html" class="btn btn-primary btn-block bg5" role="button">Vector Cal: Tangent Plane Function</a>

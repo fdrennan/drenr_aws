@@ -1,0 +1,30 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(pracma)
+library(plotly)
+library(tidyverse)
+
+C = function(t) {
+  data.frame(
+    t = t,
+    x = cos(t),
+    y = sin(t),
+    z = t
+  )
+}
+
+t = linspace(0, 10, 100)
+data = C(t)
+```
+
+
+
+```{r}
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'lines')
+
+
+```

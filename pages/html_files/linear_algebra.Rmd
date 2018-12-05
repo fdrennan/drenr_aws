@@ -1,9 +1,13 @@
 ---
-title: "R Notebook"
+title: 'Linear Agebra Animations'
+date: "December 2, 2018"
 output:
   html_document:
-    df_print: paged
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
 ---
+
 
 
 ```{r}
