@@ -1,0 +1,36 @@
+---
+title: '3d Line Plot'
+date: "December 3, 2018"
+output:
+  html_document:
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+
+
+```{r, warning = FALSE, message = FALSE}
+library(pracma)
+library(plotly)
+
+
+C = function(t) {
+  data.frame(
+    t = t,
+    x = cos(t),
+    y = sin(t),
+    z = t
+  )
+}
+
+t = linspace(0, 10, 100)
+data = C(t)
+```
+
+
+
+```{r, warning = FALSE, message = FALSE}
+plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'lines')
+
+
+```

@@ -89,7 +89,7 @@ body {
 
 ```{r,echo = FALSE}
 paste("Last Push: ", as.character(Sys.Date()))
-paste0("Welcome! This is where a dump all my random notes while reading or exploring mathematics, programming, and data science.")
+paste0("Welcome! This is where a dump all my notes while reading or exploring mathematics, programming, and data science.")
 ```
 
 
