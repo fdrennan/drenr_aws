@@ -128,6 +128,7 @@ paste0("Welcome! This is where a dump all my notes while reading or exploring ma
 <center>
 <h1>Python Notes</h1>
 </center>
+<a href="pages/html_files/one_variable_tf.html" class="btn btn-primary btn-block bg5" role="button">Minimizing One Variable Functions with TF</a>
 <a href="pages/html_files/SympyGradientDescent.html" class="btn btn-primary btn-block bg5" role="button">Gradient Descent with Sympy</a>
 <a href="pages/html_files/DNN-Classifier.html" class="btn btn-primary btn-block bg5" role="button">DNN Classifier</a>
 <a href="pages/html_files/cali_dnn.html" class="btn btn-primary btn-block bg5" role="button">Cali DNN</a>
