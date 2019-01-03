@@ -151,6 +151,7 @@ paste0("Welcome! This is where a dump all my notes while reading or exploring ma
 <center>
 <h1>R Notes</h1>
 </center>
+<a href="pages/html_files/data_tk.html" class="btn btn-primary btn-block bg5" role="button">Keras/RNN GoFundMe</a>
 <a href="pages/html_files/keras_iris.html" class="btn btn-primary btn-block bg5" role="button">IRIS/Keras DNN/Cat</a>
 <a href="pages/html_files/iris_mnist.html" class="btn btn-primary btn-block bg5" role="button">MIST/Keras DNN/Cat</a>
 <a href="pages/html_files/3d_line_plotly.html" class="btn btn-primary btn-block bg5" role="button">3d Curve Plotly</a>
