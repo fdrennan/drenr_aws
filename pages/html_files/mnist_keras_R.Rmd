@@ -1,0 +1,88 @@
+---
+name: "Freddy Drennan"
+title: "MNIST Keras"
+date: "January 2, 2019"
+output:
+  html_document:
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+
+```{r}
+library(keras)
+```
+
+```{r}
+set.seed(1)
+mnist <- dataset_mnist()
+```
+
+```{r}
+train_images <- array_reshape(mnist$train$x, c(60000, 28 * 28)) / 255
+test_images  <- array_reshape(mnist$test$x,  c(10000, 28 * 28)) / 255
+train_labels <- to_categorical(mnist$train$y)
+test_labels <- to_categorical(mnist$test$y)
+```
+
+```{r}
+network <- 
+  keras_model_sequential() %>% 
+  layer_dense(units = 512, input_shape = c(28 * 28)) %>% 
+  layer_activation_leaky_relu() %>% 
+  layer_dropout(rate = 0.2) %>% 
+  layer_dense(units = 10, activation = "softmax")
+```
+
+```{r}
+network
+```
+
+```{r}
+network %>% 
+  compile(
+    optimizer = "rmsprop",
+    loss      = "categorical_crossentropy",
+    metrics   = c("accuracy")
+  )
+```
+
+
+```{r}
+callbacks <- list(
+  callback_early_stopping(patience = 2, monitor = 'val_loss') # acc,loss,val_acc,val_loss
+)
+
+
+model <- network %>% 
+  fit(train_images, 
+      train_labels, 
+      epochs = 10, 
+      batch_size = 128,
+      validation_split = .2, 
+      callbacks = callbacks)
+```
+
+```{r}
+plot(model)
+```
+
+```{r}
+network %>% evaluate(test_images, test_labels)
+```
+
+```{r}
+actual <- apply(test_labels, 1, function(x) which.max(x)) -1
+preds  <- network %>% predict_classes(test_images)
+
+conf_matrix = table(preds, actual) 
+
+caret::confusionMatrix(conf_matrix)
+```
+
+
+
+```{r}
+K <- backend()
+K$clear_session()
+```

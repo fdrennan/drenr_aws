@@ -1,0 +1,118 @@
+---
+name: "Freddy Drennan"
+title: "IRIS Keras"
+date: "January 2, 2019"
+output:
+  html_document:
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+
+```{r, message = FALSE, warning = FALSE}
+library(keras)
+library(tidyverse)
+library(rsample)
+library(recipes)
+```
+
+```{r, message = FALSE, warning = FALSE}
+train_test_split <- initial_split(iris, strata = "Species")
+iris_train <- training(train_test_split)
+iris_test <- testing(train_test_split)
+
+rec_obj <- recipe(Species ~ ., data = iris_train)
+
+rec_obj <- rec_obj %>% 
+  step_center(all_predictors())  %>%
+  step_scale(all_predictors()) %>% 
+  step_dummy(Species, one_hot = TRUE) 
+
+trained_iris <- prep(rec_obj, training = iris_train)
+
+iris_train <- bake(trained_iris, iris_train) 
+iris_test  <- bake(trained_iris, iris_test) 
+```
+
+
+```{r}
+train_data <- iris_train %>% select(-starts_with("Species")) %>% as.matrix
+test_data  <- iris_test  %>% select(-starts_with("Species")) %>% as.matrix
+train_labels <- iris_train %>% select( starts_with("Species")) %>% as.matrix
+test_labels  <- iris_test  %>% select( starts_with("Species")) %>% as.matrix
+```
+
+```{r}
+network <- 
+  keras_model_sequential() %>% 
+  layer_dense(units = 4, input_shape = 4) %>% 
+  layer_activation_leaky_relu() %>%
+  layer_alpha_dropout(rate = .05) %>% 
+  layer_dense(units = 4, input_shape = 4) %>% 
+  layer_activation_leaky_relu() %>%
+  layer_alpha_dropout(rate = .02) %>% 
+  layer_dense(units = 3, activation = "softmax")
+
+network
+```
+
+```{r}
+network %>% 
+  compile(
+    optimizer = "rmsprop",
+    loss      = "categorical_crossentropy",
+    metrics   = c("accuracy")
+  )
+```
+
+```{r}
+lr.sched.func <- function(epoch_index, lr){
+    if(epoch_index<20) {
+      0.05
+    } else {
+      0.01
+    }
+}
+
+callbacks <- list(
+  callback_early_stopping(patience = 20, monitor = 'val_loss'), # acc,loss,val_acc,val_loss
+  callback_learning_rate_scheduler(schedule=lr.sched.func)
+)
+```
+
+```{r}
+model <- network %>% 
+  fit(train_data, 
+      train_labels, 
+      epochs = 40, 
+      batch_size = 19,
+      validation_split = .2, 
+      callbacks = callbacks)
+```
+
+```{r}
+plot(model)
+```
+
+```{r}
+network %>% evaluate(test_data, test_labels)
+```
+
+```{r}
+actual <- apply(test_labels, 1, function(x) which.max(x)) -1
+preds  <- network %>% predict_classes(test_data)
+
+conf_matrix = table(preds, actual) 
+
+caret::confusionMatrix(conf_matrix)
+```
+
+
+
+```{r}
+K <- backend()
+K$clear_session()
+```
+
+```{r}
+```
