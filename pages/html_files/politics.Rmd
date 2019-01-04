@@ -87,7 +87,7 @@ DT::datatable(washington)
 
 Next we can plot year year the person came into office and wether he or she is a Republican. In looking at the plot we see generally that Democrats tend to have more members what have been around for a while in the House and vice-verse in the Senate. 
 
-```{r}
+```{r, fig.width=10,fig.height=5}
 washington %>% 
   ggplot() +
   aes(x = year_assumed, y = republican, colour = party) +
