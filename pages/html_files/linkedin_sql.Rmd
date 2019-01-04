@@ -19,6 +19,9 @@ You can read/write/destroy anything in the database linkedin. Preferably you don
 
 Enjoy playing and learning. Don't be a butt... intentionally.
 
+[Official Docs](https://www.postgresql.org/docs/10/sql-commands.html)
+[R Docs](https://db.rstudio.com/databases/postgresql/)
+
 ```{r}
 library(RPostgreSQL)
 library(tidyverse)
