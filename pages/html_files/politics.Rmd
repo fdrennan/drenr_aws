@@ -1,0 +1,116 @@
+---
+title: Ted Cruz and Term Limits
+author: Freddy Drennan
+date: January 4, 2019
+output:
+  prettydoc::html_pretty:
+    theme: tactile
+    highlight: github
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+Senator Ted Cruz has proposed an [amendment](https://www.cruz.senate.gov/files/documents/Bills/20190103_termlimits.pdf) to the Constitution which would limit the term for a House Representative to 3 terms (6 years) and a senator to 2 terms (12 years). The amendment states that this would go into effect after 7 years of it's acceptance. 
+
+I was curious what this might look like if it was enacted today. The first step is to find a website with the data, scrape it, and then clean it up. We'll use `rvest` to scrape the data. 
+
+
+```{r}
+library(rvest)
+library(lubridate)
+library(tidyverse)
+library(stringr)
+```
+
+We're going to scrape from [this](https://ballotpedia.org/List_of_current_members_of_the_U.S._Congress) site. 
+
+```{r}
+url <- "https://ballotpedia.org/List_of_current_members_of_the_U.S._Congress"
+site <- read_html(url) %>% 
+  html_table(fill = TRUE)
+```
+
+We see that the relevant data is in the first two tables. 
+```{r}
+senate <- site %>% 
+  .[[1]]
+
+house <- site %>% 
+  .[[2]]
+
+DT::datatable(senate)
+DT::datatable(house)
+```
+
+There are a few issues with the data. First, the dates are strings and we need to convert them to an actual date format in R for plotting. I also prefer my column names to be lower case and without spaces. 
+
+The function below creates a binary indicator stating wether the person is Republican or not. I'm only curious about Democrats and Republicans, so I filter out Independents. Finally, I create a column `years_in_office` which is self explanatory.
+
+```{r}
+clean_table <- function(table) {
+  table %>% 
+    mutate(
+      year_assumed = case_when(
+        str_detect(`Date assumed office`, "\\-") ~ ymd(`Date assumed office`),
+        TRUE ~ ymd(paste0(`Date assumed office`, "-01-01")))
+    ) %>% 
+    transmute(name = `Officeholder name`,
+              party = `Party affiliation`,
+              year_assumed,
+              republican = if_else(party == "Republican Party", 1, 0),
+              years_in_office = year(Sys.time()) - year(year_assumed)) %>% 
+    arrange(year_assumed)
+}
+```
+
+We clean the data and the add a key stating which branch of government the data belongs to.
+```{r}
+house_clean = clean_table(house) %>% mutate(key = "house")
+senate_clean = clean_table(senate) %>% mutate(key = "senate")
+```
+
+Next, we select Democrats and Republicans and create a column called `too_long` which indicates wether the individual in question would technically be out of office at this point if the legislation was enforced today.
+
+```{r}
+washington = bind_rows(house_clean, senate_clean) %>% 
+  filter(party %in% c("Democratic Party", "Republican Party")) %>% 
+  mutate(too_long = case_when(
+    key == "senate" ~ 12 < years_in_office,
+    key == "house"  ~ 6 < years_in_office
+  ))
+
+DT::datatable(washington)
+```
+
+Next we can plot year year the person came into office and wether he or she is a Republican. In looking at the plot we see generally that Democrats tend to have more members what have been around for a while in the House and vice-verse in the Senate. 
+
+```{r}
+washington %>% 
+  ggplot() +
+  aes(x = year_assumed, y = republican, colour = party) +
+  geom_point() +
+  facet_grid(key ~.) +
+  theme(axis.title.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text.y = element_blank()) +
+  geom_jitter(width = .1, height = .05)
+```
+
+Now let's look at the numbers. If we were to enact the legislation today, how many members from each party will need to go? Overall, it's about even between parties.
+```{r}
+washington %>% 
+  filter(too_long) %>% 
+  group_by(party) %>% 
+  summarise(n = n())
+```
+
+What about by party, by branch? A few more Democrats in the House vs. a few more in the Senate. Overall, I don't get the impression that there is a huge political motivation behind the legislation.
+```{r}
+washington %>% 
+  filter(too_long) %>% 
+  group_by(party, key) %>% 
+  summarise(n = n())
+```
