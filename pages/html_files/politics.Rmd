@@ -114,3 +114,10 @@ washington %>%
   group_by(party, key) %>% 
   summarise(n = n())
 ```
+
+What percentage of each branch, in each party would be required to leave?
+```{r}
+washington %>% 
+  group_by(key, party) %>% 
+  summarise(percent = sum(too_long, na.rm = TRUE)/length(too_long))
+```
