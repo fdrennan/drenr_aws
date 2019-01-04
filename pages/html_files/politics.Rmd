@@ -47,7 +47,7 @@ DT::datatable(house)
 
 There are a few issues with the data. First, the dates are strings and we need to convert them to an actual date format in R for plotting. I also prefer my column names to be lower case and without spaces. 
 
-The function below creates a binary indicator stating wether the person is Republican or not. I'm only curious about Democrats and Republicans, so I filter out Independents. Finally, I create a column `years_in_office` which is self explanatory.
+The function below creates a binary indicator stating whether the person is Republican or not. I'm only curious about Democrats and Republicans, so I filter out Independents. Finally, I create a column `years_in_office` which is self explanatory.
 
 ```{r}
 clean_table <- function(table) {
