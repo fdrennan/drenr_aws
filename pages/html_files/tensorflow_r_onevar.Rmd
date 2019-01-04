@@ -1,0 +1,59 @@
+---
+title: One Variable Minimization / Tensorflow
+author: Freddy Drennan
+date: January 4, 2019
+output:
+  prettydoc::html_pretty:
+    theme: tactile
+    highlight: github
+---
+
+Python version [here](http://drenr.com/pages/html_files/one_variable_tf.html)
+
+```{r}
+library(tensorflow)
+f  = function(x) (x**2-3)**2    # Define f
+df =  function(x) 4*x*(x**2 - 3) # Define df/dx
+xrange_min = -2               # Minimum range for plotting
+xrange_max = 2                # Maximum range for plotting
+initial_value = -.3           # Starting value for gradient descent
+step_range = .01              # How quickly the optimizer moves in the negative direction of the derivative
+n_steps = 100                # How many times tensorflow will run the optimizer. 
+```
+
+```{r}
+library(pracma)
+a = linspace(xrange_min, xrange_max, 100) # x values for plotting. Using a to prevent stepping on x in tf. 
+b = f(a)                                  # y values for ploting. Using b to prevent stepping on y in tf.
+df_dx = df(a)                             # derivative values of f
+direction = 1
+
+x = tf$Variable(initial_value)
+
+loss = direction * f(x) 
+
+optimizer <- tf$train$GradientDescentOptimizer(step_range)
+opt     <- optimizer$minimize(loss)
+
+x_values = c()
+y_values = c()
+
+
+sess = tf$Session()
+sess$run(tf$global_variables_initializer())
+
+for (step in 1:n_steps) {
+    x_values  = c(x_values, sess$run(x))
+    y_values  = c(y_values, sess$run(loss))
+    if (step %% 20 == 0)
+      cat(step, "-", sess$run(x), sess$run(loss), "\n")
+    
+    sess$run(opt)
+}
+
+```
+
+
+```{r}
+
+```
