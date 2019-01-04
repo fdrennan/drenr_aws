@@ -1,0 +1,118 @@
+---
+title: SQL for LinkedIn
+author: Freddy Drennan
+date: January 4, 2019
+output:
+  prettydoc::html_pretty:
+    theme: tactile
+    highlight: github
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+Here's the deal. You have access to a database running on my website drenr.com.
+
+You can read/write/destroy anything in the database linkedin. Preferably you don't delete everything. Mistakes are ok. It's Postgres. 
+
+Enjoy playing and learning. Don't be a butt... intentionally.
+
+```{r}
+library(RPostgreSQL)
+library(tidyverse)
+```
+
+### Connecting
+```{r}
+
+con <- dbConnect(PostgreSQL(),
+                 dbname   = 'linkedin',
+                 host     = 'drenr.com',
+                 port     = 5432,
+                 user     = "linkedin_user",
+                 password = "password")
+
+```
+
+### List of tables that exist currently
+```{r}
+dbListTables(con)
+```
+
+### Grab an entire table
+```{r}
+dbReadTable(con, "p_weather") %>% head
+```
+
+### Send a query, do dplyr server side, then download. 
+```{r}
+query <- '
+SELECT *
+FROM mtcars
+WHERE 1 = 1
+'
+
+results <- tbl(con, sql(query))
+
+results
+```
+
+
+```{r}
+results <- 
+  results %>% 
+   # server side aggregation
+  filter(hp == 110) %>% 
+  group_by(am) %>% 
+  count 
+
+# Downloading the data
+results = as.data.frame(results)
+results
+```
+
+
+### Slightly more complicated query.
+```{r}
+query <- '
+SELECT 
+  COUNT(*),
+  year,
+  month,
+  day
+FROM 
+  p_flights
+GROUP BY 
+  year, 
+  month,
+  day
+ORDER BY year, month, day
+'
+
+results <- tbl(con, sql(query)) %>% as.data.frame()
+
+
+results %>% 
+  mutate(date = as.Date(paste0(year, "-", month, "-", day))) %>% 
+  ggplot() +
+  aes(x = date, y = count) +
+  geom_line()
+```
+
+### Inserting a table
+
+Choose a name that isnt taken above for name field. Insert your dataframe in the value field. If the table exists, the data will be appended assuming it is the same structure. 
+```{r}
+# dbWriteTable(conn = con,
+#              name = "somedataframe",
+#              value = mtcars,
+#              append = TRUE,
+#              row.names = FALSE)
+```
+
+### DISCONNECT WHEN YOU ARE DONE
+```{r}
+dbDisconnect(con)
+```
