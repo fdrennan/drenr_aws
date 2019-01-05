@@ -1,58 +1,298 @@
 ---
-title: One Variable Minimization / Tensorflow
+title: What is Gradient Descent? 
 author: Freddy Drennan
-date: January 4, 2019
+date: January 5, 2019
 output:
   prettydoc::html_pretty:
     theme: tactile
     highlight: github
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
 Python version [here](http://drenr.com/pages/html_files/one_variable_tf.html)
 
+# The Calculus
+
+Gradient descent is an algorithm for finding the minimum or maximum of a function. Suppose we have a function that returns the total error on a machine learning model. We would prefer to find the minimum of that function and thus the minimum total error. I will talk only about the single variable case in this particular mini-project.
+
+First, a little calculus. Suppose we have the function and wish to find the minimum of the function.
+
+$$
+h(x)=(x^{2}-3)^2
+$$
+
+Using simple calculus, we can find the derivative and then set it to 0. The derivative $\frac{d}{dx}f(x)$ of a function is that particular function's $f(x)$ rate of change. By finding the derivative and setting it to 0, we are locating where there is a maximum or a minimum in the function. 
+The chain rule is as follows:
+
+$$
+\frac{d}{dx} f(g(x)) = f^{\prime}(g(x))\;g^{\prime}(x)
+$$
+
+let's piece apart the math and see what we're looking at. The chain rule states that you can separate what is on the *inside* of a function vs what is on the *outside*. So let's take a look.
+
+We have.
+$$
+f(x) = x ^ 2 \\
+g(x) = x^2 - 3 \\
+\frac{d}{dx} f(x) = 2x \\
+\frac{d}{dx} g(x) = 2x
+$$
+
+Using the chain rule we can just pop them all together.
+
+$$
+\frac{d}{dx} h(x) = f^{\prime}(g(x))\;g^{\prime}(x) = 2 (x^2 - 3)2x
+$$
+Solving the problem sequentially is done as follows:
+$$
+\frac{d}{dx} h(x) = \frac{d}{dx} f(g(x)) =\frac{d}{dx} (x^2 - 3)^2 \\
+\frac{d}{dx} h(x) = 2 (x^2 - 3) \frac{dg}{dx}(x^2-3) \\
+\frac{d}{dx} h(x) = 2(x^2-3)2x \\
+\frac{d}{dx} h(x) = 4x(x^2-3)
+$$
+
+If you are new to the chain rule, after a few problems you'll soon get the hang of it. 
+
+With the derivative, we find where the solution equals 0 to figure out where $h(x)$ is a miximum or minimum value. The derivative is the slope of the original function at any point in time. So if there is a lot of change, the magnitude of the derivative will be higher. Where there is no change, the derivative is 0. There are three solutions to the problem. First, if we set x to 0 we have a trivial solution. 
+
+$$
+4*0 (0^2 - 3) = 0
+$$
+
+The other solutions are where $x^2-3 = 0$.
+
+$$
+x^2-3=0 \\
+x^2 = 3 \\
+\sqrt{x^2} = \sqrt {3} \\
+x = \pm \sqrt{3}
+$$
+
+We find in R that the square root of 3 is:
+
 ```{r}
-library(tensorflow)
-f  = function(x) (x**2-3)**2    # Define f
-df =  function(x) 4*x*(x**2 - 3) # Define df/dx
-xrange_min = -2               # Minimum range for plotting
-xrange_max = 2                # Maximum range for plotting
-initial_value = -.3           # Starting value for gradient descent
-step_range = .01              # How quickly the optimizer moves in the negative direction of the derivative
-n_steps = 100                # How many times tensorflow will run the optimizer. 
+sqrt(3)
 ```
+
+So we expect to find minima and maxima at $0, 1.732051, and -1.732051$.
+
+Let's verify our intution by plotting the two functions. I'll use the `pracma` package to select 100 numbers for $x$ between $-3$ and $3$. 
 
 ```{r}
 library(pracma)
-a = linspace(xrange_min, xrange_max, 100) # x values for plotting. Using a to prevent stepping on x in tf. 
-b = f(a)                                  # y values for ploting. Using b to prevent stepping on y in tf.
-df_dx = df(a)                             # derivative values of f
-direction = 1
+x_values = linspace(-3, 3, 100)
+```
 
-x = tf$Variable(initial_value)
+Now can define the functions above. 
+```{r}
+hx     = function(x) (x^2-3)^2    
+dh_dx = function(x) 4*x*(x^2 - 3)
+```
 
-loss = direction * f(x) 
+We'll make a table of our values so that we can plot them and bind it together.  We'll plot $h(x)$ as blue and $\frac{d}{dx} h(x)$ as red.
 
-optimizer <- tf$train$GradientDescentOptimizer(step_range)
-opt     <- optimizer$minimize(loss)
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
 
-x_values = c()
-y_values = c()
+h_tibble     = tibble(x = x_values)
+
+plot_gg = function() {
+  ggplot(data.frame(x=c(-3, 3)), aes(x)) + 
+  stat_function(fun=hx, colour = "blue") +
+  stat_function(fun=dh_dx, colour = "red") +
+  ylim(-10, 10) +
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 0) +
+  theme_solarized()
+}
+
+plot_gg()
+```
+
+Now that we have visualized the math, lets' get to gradient descent. 
+
+We know that the slope of the derivative is the rate of change of the original function; where the derivative is 0 so is the rate of change in the original function. 
 
 
+When $x=0$ we see that $h(x) = 9$ and $\frac{dh}{dx}h(x) = 0$. This is a local maximum in the function $h(x)$
+```{r}
+hx(0)
+```
+
+What about the 2 minimums? We found those values algebraically above as $\pm\sqrt{3}$ The values below are effectively zero.
+```{r}
+hx(sqrt(3))
+hx(-sqrt(3))
+```
+
+But here's the deal, we don't want to have to solve for zeros, or solve derivatives. But since we have the derivative, maybe we can find an algorithm that will find a zero for us. 
+
+If the derivative is positive, the function is increasing. If the derivative is negative, the function is decreasing. We want to find the point where the function changes signs. We can pick any point on the function and try to go backwards to find these points. For example. Let's pick an arbitrary point on $\frac{d}{dx} h(x)$ and search for a zero. 
+
+```{r}
+run_descent <- function(derivative, current_point = 3, n_steps = 100, step_size = .1) {
+  all_steps = 1:n_steps
+  last_10_values = all_steps[(length(all_steps) - 10):length(all_steps)]
+  for(i in all_steps) {
+      current_point = current_point - step_size
+      slope = derivative(current_point)
+      if(i %in% last_10_values) {
+       cat(slope, "\n") 
+      }
+      if(slope <= 0) {
+        cat("Function turned negative between: ", current_point, "and", current_point + step_size)
+        break
+      }
+      if(i == n_steps) {
+        print("No solution found, n_steps hit limit.")
+      }
+  }
+}
+
+run_descent(dh_dx)
+```
+
+We can get a more precise value by decreasing the step size. But oops, what happened? Below, we never found a solution because we didn't allow the function to try enough times *and* the step size was too small. We want to find a good tradeoff between an accurate solution `step_size` plus convergent speed `n_steps`.
+```{r}
+run_descent(dh_dx, step_size = .01)
+```
+
+```{r}
+run_descent(dh_dx, step_size = .0001, n_steps = 100000)
+```
+
+Let's write a function to do gradient descent more robustly. 
+
+```{r}
+gradient_descent = function(FUN, 
+                            derivative, 
+                            starting_point = 3, 
+                            n_steps = 100, 
+                            step_size = .1, 
+                            print_every = 100,
+                            MAXIMUM = FALSE) {
+  
+  
+  # We pick a starting value, then we see where the function is increasing and follow it backwards.
+  if(MAXIMUM) {
+    direction = 1
+  } else {
+    direction = -1
+  }
+  next_step = starting_point + direction * step_size * derivative(starting_point)
+  
+  for(i in 1:n_steps) {
+    
+    
+    if((i %% print_every) == 0) {
+      cat("Step: ", i, "\th(x) =", next_step, "\n")
+    }
+    
+    next_step = next_step + direction * step_size * derivative(next_step)
+    
+  }
+  
+  next_step
+}
+
+gradient_descent(hx, 
+                 dh_dx,  
+                 starting_point = 3, 
+                 step_size = .0001, 
+                 n_steps = 6000, 
+                 print_every = 500)
+```
+
+```{r}
+gradient_descent(hx, 
+                 dh_dx,  
+                 starting_point = -5, 
+                 step_size = .001, 
+                 n_steps = 500, 
+                 print_every = 50)
+```
+
+```{r}
+gradient_descent(hx, 
+                 dh_dx,  
+                 starting_point = 1, 
+                 step_size = .001, 
+                 n_steps = 5000, 
+                 print_every = 500,
+                 MAXIMUM = TRUE)
+```
+
+
+Whew, is there an easier way to do this? Yep, let's open up tensorflow. 
+```{r}
+library(tensorflow)
+```
+
+We'll use these paramters.
+```{r}
+starting_point = -.3
+step_size      = .01
+n_steps        = 100
+print_every    = 10
+```
+
+
+First thing first, we initialize a variable for tensorflow to use. We'll start at our `starting point` for x.
+```{r}
+x = tf$Variable(starting_point)
+```
+
+We can use our function `hx` defined above and place the tensorflow variable in it. 
+```{r}
+h_value = hx(x) 
+```
+
+Next, we simply create an optimizer and tell it what the step range should be.
+```{r}
+optimizer <- tf$train$GradientDescentOptimizer(step_size)
+```
+
+Next tell the optimizer to minimize the `h_value` defined above. 
+```{r}
+opt       <- optimizer$minimize(h_value)
+```
+
+Every tensorflow session will be initialized using the two snippets below. You don't have to know what they mean, you just go do it to say 'I'm ready to go!'
+```{r}
 sess = tf$Session()
 sess$run(tf$global_variables_initializer())
+```
 
+We use `sess$run()` to run a tensorflow object once. Each time we call `sess$run(h_value)`.
+```{r}
+x_values = c()
+y_values = c()
 for (step in 1:n_steps) {
-    x_values  = c(x_values, sess$run(x))
-    y_values  = c(y_values, sess$run(loss))
-    if (step %% 20 == 0)
-      cat(step, "-", sess$run(x), sess$run(loss), "\n")
+    new_x = sess$run(x)
+    new_y = sess$run(h_value)
+    x_values  = c(x_values, new_x)
+    y_values  = c(y_values, new_y)
+    if (step %% print_every == 0)
+      cat("\nStep ",step, "\nh(x):",new_x ,"\ndx_dh:", new_y, "\n")
     
     sess$run(opt)
 }
 
 ```
 
+
+```{r}
+data = data.frame(x_values, y_values)
+
+pgg = plot_gg() +
+  geom_point(data = data, aes(x_values, y_values)) 
+
+plotly::ggplotly(pgg)
+```
 
 ```{r}
 
