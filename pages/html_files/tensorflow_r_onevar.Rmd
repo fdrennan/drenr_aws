@@ -23,7 +23,7 @@ $$
 h(x)=(x^{2}-3)^2
 $$
 
-Using simple calculus, we can find the derivative and then set it to 0. The derivative $\frac{d}{dx}f(x)$ of a function is that particular function's $f(x)$ rate of change. By finding the derivative and setting it to 0, we are locating where there is a maximum or a minimum in the function. 
+Using simple calculus, we can find the derivative and then set it to 0. The derivative $\frac{d}{dx}f(x)$ of a function is that particular function's ($h(x)$) rate of change. By finding the derivative and setting it to 0, we are locating where there is a maximum or a minimum in the function. 
 The chain rule is as follows:
 
 $$
