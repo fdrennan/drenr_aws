@@ -154,7 +154,7 @@ paste0("Welcome! This is where a dump all my notes while reading or exploring ma
 <a href="pages/html_files/linkedin_sql.html" class="btn btn-primary btn-block bg5" role="button">Linkedin SQL</a>
 <a href="pages/html_files/tensorflow_r_onevar.html" class="btn btn-primary btn-block bg5" role="button">Tensorflow One Var</a>
 <a href="pages/html_files/politics.html" class="btn btn-primary btn-block bg5" role="button">Ted Cruz and Term Limits</a>
-<a href="pages/html_files/data_tk.html" class="btn btn-primary btn-block bg5" role="button">Keras/RNN GoFundMe</a>
+<a href="pages/html_files/data_tk_first.html" class="btn btn-primary btn-block bg5" role="button">Keras/RNN GoFundMe</a>
 <a href="pages/html_files/keras_iris.html" class="btn btn-primary btn-block bg5" role="button">IRIS/Keras DNN/Cat</a>
 <a href="pages/html_files/iris_mnist.html" class="btn btn-primary btn-block bg5" role="button">MIST/Keras DNN/Cat</a>
 <a href="pages/html_files/3d_line_plotly.html" class="btn btn-primary btn-block bg5" role="button">3d Curve Plotly</a>
