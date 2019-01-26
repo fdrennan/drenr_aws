@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>drenr.com::home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <!-- Side navigation -->
+<div class="sidenav">
+        <form method="GET" action="">
+                <p:hover, class="leftmenu">Sample Randomly over Year - Not Useful :)</p>
+                <input type="number", id="nSamples", value = "1", min = "0", max = "1"> <br>                    
+                <p, class="leftmenu">Start Date</p>
+                <input type="date" id="start" name="trip-start" value="2013-01-01" min="2013-01-01" max="2013-12-31"> <br>  
+                <p, class="leftmenu">End Date</p>
+                <input type="date" id="end" name="trip-end" value="2013-12-31" min="2013-01-01" max="2013-12-31"><br>  
+                <p, class="leftmenu">Submit Changes</p>
+                <input type="button" name="My button" value="Click" onClick="updateSamps();">
+              </form>
+  </div>
+  
+  <!-- Page content -->
+  <div class="main">
+
+        <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+              </div>
+              
+              <!-- Tab content -->
+              <div id="London" class="tabcontent">
+                    <h3>GGplot</h3>
+                    <img class = "loading" src="http://drenr.com:8000/get_flights_plot"  
+                         alt="GGPLOT Data",
+                         id = "ggplot">
+              </div>
+              
+              <div id="Paris" class="tabcontent">
+                <h3>Paris</h3>
+                <p>Paris is the capital of France.</p> 
+              </div>
+              
+              <div id="Tokyo" class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+              </div>
+
+
+  </div>
+</body>
+</html>
