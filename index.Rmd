@@ -274,7 +274,10 @@ paste0("Welcome! This is where a dump all my notes while reading or exploring ma
 <a href="http://liuchengxu.org/books/src/Theory/Machine-Learning-A-Probabilistic-Perspective.pdf" class="btn btn-primary btn-block bg5" role="button">ML: A Probabilistic Perspective</a>
 
 
-
+<center>
+<h1>Vanilla JS Apps</h1>
+<a href="pages/apps/plumberJS/index.html" class="btn btn-primary btn-block bg5" role="button"> Flights APP</a>
+</center>
 
 
 
