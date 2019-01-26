@@ -1,5 +1,8 @@
 
 console.log("Connected")
+var csv;
+var data;
+const arrayColumn = (arr, n) => arr.map(x => x[n]);
 
 function updateSamps() {
 
@@ -55,14 +58,46 @@ var request = new XMLHttpRequest();
 request.open('GET', 'http://drenr.com:8000/get_flights', true);
 
 request.onload = function () {
-  // Begin accessing JSON data here
-  // Begin accessing JSON data here
-        var data = JSON.parse(this.response);
-
-        console.log(data);
-  }
+    // Begin accessing JSON data here
+    // Begin accessing JSON data here
+    
+    data = JSON.parse(JSON.parse(this.response).data);
+    var json = data
+    var fields = Object.keys(json[0])
+    // var replacer = function(key, value) { return value === null ? '' : value } 
+    // csv = json.map(function(row){
+    // return fields.map(function(fieldName){
+    //     return JSON.stringify(row[fieldName], replacer)
+    // }).join(',')
+    // })
+    // csv.unshift(fields.join(',')) // add header column
+    console.log(csv)
+    data = data.map(x => [[x.date], [x.n]])
+    }
 
 
 // Send request
 request.send();
 
+
+// Create function to download the data
+function download_csv() {
+    var csv = 'Name,Title\n';
+    data.forEach(function(row) {
+            csv += row.join(',');
+            csv += "\n";
+    });
+
+    console.log(csv);
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'people.csv';
+    hiddenElement.click();
+    }
+
+
+
+// csv.unshift(fields.join(',')) // add header column
+
+// console.log(csv.join('\r\n'))

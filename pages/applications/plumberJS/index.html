@@ -6,9 +6,9 @@
     <title>drenr.com::home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    
     <script src="js/jquery-3.3.1.js"></script>
     <script src="main.js"></script>
+    <script src="js/json2csv.js"></script>
 </head>
 <body>
     <!-- Side navigation -->
@@ -22,6 +22,8 @@
                 <input type="date" id="end" name="trip-end" value="2013-12-31" min="2013-01-01" max="2013-12-31"><br>  
                 <p, class="leftmenu">Submit Changes</p>
                 <input type="button" name="My button" value="Click" onClick="updateSamps();">
+                <input type="button" onclick="download_csv()">Download CSV</button> 
+
               </form>
   </div>
   
@@ -29,7 +31,7 @@
   <div class="main">
 
         <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+                <button class="tablinks" onclick="openCity(event, 'London')">ggplot</button>
                 <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
                 <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
               </div>
