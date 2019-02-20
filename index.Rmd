@@ -10,6 +10,8 @@ output:
     fig_align: center
 ---
 
+<title>drenr.com::home</title>
+
 <!-- hint: You've added another git repository inside your current repository. -->
 <!-- hint: Clones of the outer repository will not contain the contents of -->
 <!-- hint: the embedded repository and will not know how to obtain it. -->
