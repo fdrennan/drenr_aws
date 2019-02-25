@@ -105,7 +105,7 @@ body {
 
 ```{r,echo = FALSE}
 cat("Last Push: ", as.character(Sys.time()))
-cat("Welcome! This is where a dump all my notes while reading or exploring mathematics, programming, and data science.")
+cat("Welcome! This is where I dump all my notes while reading or exploring mathematics, programming, and data science.")
 ```
 
 
