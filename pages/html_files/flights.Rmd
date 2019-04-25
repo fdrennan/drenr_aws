@@ -58,7 +58,7 @@ show_query(planes)
 
 The next thing I want to show you, is that you can also do joins. Remember all of this is being done on the server side, no data is being processed locally.
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
 joined_data <- 
   flights %>% 
   left_join(planes) 
@@ -66,7 +66,7 @@ joined_data <-
 show_query(joined_data)
 ```
 
-Finally, you can use SQL functions. `REGEXP_REPLACE`  is not a R function. Here's the deal, if a function does not exist locally. The code will assume that it is a server-side function and attempt to process it. Below,  we pull out redundant information from the `engine` column,  and replace it with nothing. Afterwards, we take character columns  and make all variables lowercase. We see two things here. 1. You can use server-side functions. 2. The tidyverse creators are actively working to make tidyverse packages compatible with SQL generation. This is amazing. I move around billions of rows at times all from R. Couple this with technologies like Airflow, and you see that R is becoming space a strong contender for ETL processes in production.
+Finally, you can use SQL functions. `REGEXP_REPLACE`  is not a R function. Here's the deal, if a function does not exist locally. The code will assume that it is a server-side function and attempt to process it. Below,  we pull out redundant information from the `engine` column,  and replace it with nothing. Afterwards, we take character columns  and make all variables lowercase. We see two things here. 1. You can use server-side functions. 2. The tidyverse creators are actively working to make tidyverse packages compatible with SQL generation. This is amazing. I move around billions of rows at times all from R. Couple this with technologies like Airflow, and you see that R is becoming a strong contender for ETL processes in production.
 
 Server side SQL specific functions are written in all caps. 
 
@@ -86,7 +86,7 @@ joined_data <-
 ```
 
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
 show_query(joined_data)
 ```
 
