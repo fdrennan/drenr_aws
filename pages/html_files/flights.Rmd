@@ -1,0 +1,100 @@
+---
+title: "dplyr Server Side"
+date: "April 25, 2019"
+output:
+  html_document:
+    theme: cerulean
+    highlight: haddock
+    fig_align: center
+---
+One of the most exciting things about working with dplyr, is that you can use the same syntax locally as on the server-side. Not only that, but you can also mix R commands with SQL commands. What I've developed for you here is a quick tutorial to play with - in the same way that you would at work. You have access to my database as well as a working example.
+
+Below we'll go ahead and connect.
+
+```{r, message=FALSE, warning=FALSE}
+library(RPostgreSQL)
+library(tidyverse)
+library(dbplyr)
+library(lubridate)
+
+con <- dbConnect(PostgreSQL(),
+                 dbname   = 'linkedin',
+                 host     = 'drenr.com',
+                 port     = 5432,
+                 user     = "linkedin_user",
+                 password = "password")
+```
+
+Here you can see the tables that exist in the database. Feel free to add your own tables as desired and share with me how you've used them so the others may do the same.
+
+```{r, message=FALSE, warning=FALSE}
+dbListTables(con)
+```
+
+Let's get started. The functions below specify the schema and the table we want the pull. Once we have this connection, we are writing dplyr code, but it is all being processed on the remote server. We can interact with these tables exactly as if we were working locally, with the added benefit that if this is your employer the computer is probably much larger. On top of that, we can use SQL functions as well as R functions. And, we can view the SQL that's being generated.
+
+```{r, message=FALSE, warning=FALSE}
+planes <- 
+  tbl(con, in_schema("public", "p_planes"))
+
+flights <- 
+    tbl(con, in_schema("public", "p_flights"))
+```
+
+Just like with dplyr, we can use the commands to generate SQL.
+```{r, message=FALSE, warning=FALSE}
+planes <- 
+  planes %>% 
+  rename(
+    manufactured_year = year
+  )
+```
+
+If you're looking at this on my website, you won't be able to directly copy and paste this. However, if you have run the commands above,  you can take the `show_query` function below, throw it in your console, and then copy paste the SQL generated directly into a program like  SQLWorkbench or DataGrip. This is useful whenever you are working with stakeholders that aren't using R.
+
+```{r, message=FALSE, warning=FALSE}
+show_query(planes)
+```
+
+The next thing I want to show you, is that you can also do joins. Remember all of this is being done on the server side, no data is being processed locally.
+
+```{r, message=FALSE, warning=FALSE}
+joined_data <- 
+  flights %>% 
+  left_join(planes) 
+
+show_query(joined_data)
+```
+
+Finally, you can use SQL functions. `REGEXP_REPLACE`  is not a R function. Here's the deal, if a function does not exist locally. The code will assume that it is a server-side function and attempt to process it. Below,  we pull out redundant information from the `engine` column,  and replace it with nothing. Afterwards, we take character columns  and make all variables lowercase. We see two things here. 1. You can use server-side functions. 2. The tidyverse creators are actively working to make tidyverse packages compatible with SQL generation. This is amazing. I move around billions of rows at times all from R. Couple this with technologies like Airflow, and you see that R is becoming space a strong contender for ETL processes in production.
+
+Server side SQL specific functions are written in all caps. 
+
+```{r, message=FALSE, warning=FALSE}
+joined_data <- 
+  joined_data %>% 
+  mutate_if(
+    is.character,
+    str_to_lower
+  ) %>% 
+  mutate(engine = REGEXP_REPLACE(engine, "Turbo-", ""),
+         date   = CONCAT(year, "-", month, "-", day)) %>% 
+  group_by(date) %>% 
+  summarise(n = n()) %>% 
+  ungroup %>% 
+  mutate(date = TO_DATE(date, 'YYYY-MM-DD'))
+```
+
+
+```{r, message=FALSE, warning=FALSE}
+show_query(joined_data)
+```
+
+Pull the data from the server using `collect`.
+```{r, message=FALSE, warning=FALSE}
+collected_data <- collect(joined_data)
+
+ggplot(collected_data) +
+  aes(x = date, y = n) +
+  geom_line()
+```

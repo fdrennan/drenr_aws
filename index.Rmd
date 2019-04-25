@@ -167,6 +167,7 @@ cat("Welcome! This is where I dump all my notes while reading or exploring mathe
 <center>
 <h1>R Notes</h1>
 </center>
+<a href="pages/html_files/flights.html" class="btn btn-primary btn-block bg5" role="button">Server Side dplyr</a>
 <a href="pages/html_files/rsample.html" class="btn btn-primary btn-block bg5" role="button">rsample notes</a>
 <a href="pages/html_files/linkedin_sql.html" class="btn btn-primary btn-block bg5" role="button">Linkedin SQL</a>
 <a href="pages/html_files/tensorflow_r_onevar.html" class="btn btn-primary btn-block bg5" role="button">Tensorflow One Var</a>
